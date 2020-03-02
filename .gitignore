@@ -1,0 +1,15 @@
+config/initializers/secret_token.rb
+config/master.key
+
+# Ignore Byebug command history file.
+.byebug_history
+
+# Ignore node_modules
+node_modules/
+
+/public/packs
+/public/packs-test
+/public/assets
+
+/tmp
+
