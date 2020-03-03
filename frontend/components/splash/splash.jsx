@@ -16,7 +16,8 @@ class Splash extends React.Component {
                         autoPlay
                         loop
                         muted
-                        src="https://a.slack-edge.com/085e3/marketing/img/homepage/video/brand-campaign_hero-video.mp4" type="video/mp4"
+                        src="https://a.slack-edge.com/085e3/marketing/img/homepage/video/brand-campaign_hero-video.mp4" 
+                        type="video/mp4"
                         id="rollingball-gif"
                     />
                     <h1 className="splashpage-first-bigtitle">
@@ -27,8 +28,8 @@ class Splash extends React.Component {
                     </p>
                     <br/>
                     <br/>
-                    <Link to='./signup' className='splash-signup-link'>TRY STACK</Link>
-                    <Link to='./signup' className='demo-signup-link'>SEE THE DEMO</Link>
+                    <Link to='/signup' className='splash-signup-link'>TRY STACK</Link>
+                    <Link to='/signup' className='demo-signup-link'>SEE THE DEMO</Link>
                     <br></br>
                     <p className='splash-already-sign-in'>
                         Already using Stack? <Link to='./login' className='splash-login-link'>Sign In</Link>
@@ -42,9 +43,9 @@ class Splash extends React.Component {
                     </p>
                     <br/>
                     <iframe src="https://www.youtube.com/embed/EYqxQGmQkVw" 
-                            frameborder="0" 
+                            frameBorder="0" 
                             allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen
+                            allowFullScreen
                             title='what-is-slack'
                             className="splashpage-second-vid">
                     </iframe>
