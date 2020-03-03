@@ -641,36 +641,52 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         className: "signup-form-title2"
       }, "Leave email behind"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("p", {
         className: "signup-form-title-note"
-      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "signup-form-input-container"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("form", {
         onSubmit: this.handleSubmit
-      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Username:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+        className: "signup-input-label"
+      }, "Username:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         type: "text",
         value: this.state.username,
         className: "signup-form-input",
-        onChange: this.update('username')
-      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Display Name:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+        onChange: this.update('username'),
+        placeholder: "JohnDoe14"
+      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+        className: "signup-input-label"
+      }, "Display Name:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         type: "text",
         value: this.state.formalName,
         className: "signup-form-input",
-        onChange: this.update('formalName')
-      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Email:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+        onChange: this.update('formalName'),
+        placeholder: "John Doe"
+      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+        className: "signup-input-label"
+      }, "Email:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         type: "text",
         value: this.state.email,
         className: "signup-form-input",
-        onChange: this.update('email')
-      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", null, "Password:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+        onChange: this.update('email'),
+        placeholder: "johndoe@example.com"
+      })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
+        className: "signup-input-label"
+      }, "Password:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         type: "password",
         value: this.state.password,
         className: "signup-form-input",
-        onChange: this.update('password')
+        onChange: this.update('password'),
+        placeholder: "Password"
       })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
         type: "submit",
         value: "Sign Up",
         className: "signup-submit-button"
-      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Link"], {
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "signup-link-container"
+      }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Link"], {
         to: "/login",
         className: "signup-redirect-link"
-      }, "Already a member?"))));
+      }, "Already a member?"))))));
     }
   }]);
 

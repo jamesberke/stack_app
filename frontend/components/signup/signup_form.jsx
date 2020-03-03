@@ -35,43 +35,55 @@ class SignupForm extends React.Component {
                         Leave email behind
                     </h3>
                     <p className="signup-form-title-note"></p>
-                    <form onSubmit={this.handleSubmit}>
-                        <label>Username:
-                            <input type="text"
-                                value={this.state.username}
-                                className="signup-form-input"
-                                onChange={this.update('username')} />
-                        </label>
-                        <br/>
-                        <label>Display Name:
-                            <input type="text"
-                                value={this.state.formalName}
-                                className="signup-form-input"
-                                onChange={this.update('formalName')} />
-                        </label>
-                        <br/>
-                        <label>Email:
-                            <input type="text"
-                                value={this.state.email}
-                                className="signup-form-input"
-                                onChange={this.update('email')} />
-                        </label>
-                        <br/>
-                        <label>Password:
-                            <input type="password"
-                                value={this.state.password}
-                                className="signup-form-input"
-                                onChange={this.update('password')} />
-                        </label>
-                        <br />
-                        <input type="submit"
-                            value="Sign Up"
-                            className="signup-submit-button" />
-                        <br />
-                        <Link to="/login" className="signup-redirect-link">
-                            Already a member?
-                        </Link>
-                    </form>
+                    <div className="signup-form-input-container">
+                        <form onSubmit={this.handleSubmit}>
+                            <label className="signup-input-label">Username:
+                                <br/>
+                                <input type="text"
+                                    value={this.state.username}
+                                    className="signup-form-input"
+                                    onChange={this.update('username')}
+                                    placeholder="JohnDoe14" />
+                            </label>
+                            <br/>
+                            <label className="signup-input-label">Display Name:
+                                <br/>
+                                <input type="text"
+                                    value={this.state.formalName}
+                                    className="signup-form-input"
+                                    onChange={this.update('formalName')}
+                                    placeholder="John Doe" />
+                            </label>
+                            <br/>
+                            <label className="signup-input-label">Email:
+                                <br/>
+                                <input type="text"
+                                    value={this.state.email}
+                                    className="signup-form-input"
+                                    onChange={this.update('email')}
+                                    placeholder="johndoe@example.com" />
+                            </label>
+                            <br/>
+                            <label className="signup-input-label">Password:
+                                <br/>
+                                <input type="password"
+                                    value={this.state.password}
+                                    className="signup-form-input"
+                                    onChange={this.update('password')}
+                                    placeholder="Password" />
+                            </label>
+                            <br />
+                            <input type="submit"
+                                value="Sign Up"
+                                className="signup-submit-button" />
+                            <br />
+                            <div className="signup-link-container">
+                                <Link to="/login" className="signup-redirect-link">
+                                    Already a member?
+                                </Link>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         )

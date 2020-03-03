@@ -8,12 +8,12 @@
     position: fixed;
     display: flex;
     justify-content: center;
-    font-family: sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .login-form-main {
     background-color: white;
-    border: solid 1px #868686;
+    border: solid 1px lightgray;
     border-radius: 5px;
     z-index: 2;
     margin-top: 50px;
@@ -22,6 +22,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    box-shadow: 0 1px 4px gray;
 }
 
 .login-form-title {
@@ -33,6 +34,7 @@
 .login-input-header {
     font-size: 16px;
     margin-bottom: 6px;
+    color: darkslategray;
 }
 
 .login-form-input-container {
@@ -51,7 +53,6 @@
     margin-top: 12px;
     border: solid 1px #868686;
     border-radius: 5px;
-
 }
 
 .login-form-input::placeholder {
