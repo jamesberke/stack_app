@@ -6,8 +6,6 @@ class SignupForm extends React.Component {
 
     constructor(props) {
         super(props);
-        console.log(props.user)
-        console.log(this.props)
         this.state = props.user;
         this.handleSubmit = this.handleSubmit.bind(this)
     };
@@ -20,6 +18,7 @@ class SignupForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
+        console.log(this.props);
         this.props.signup(this.state);
     }
 
@@ -49,9 +48,9 @@ class SignupForm extends React.Component {
                             <label className="signup-input-label">Display Name:
                                 <br/>
                                 <input type="text"
-                                    value={this.state.formalName}
+                                    value={this.state.formal_name}
                                     className="signup-form-input"
-                                    onChange={this.update('formalName')}
+                                    onChange={this.update('formal_name')}
                                     placeholder="John Doe" />
                             </label>
                             <br/>

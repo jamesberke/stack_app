@@ -1,14 +1,14 @@
 class Api::UsersController < ApplicationController
 
-    after_initialize :ensure_session_token, except: [:create]
-
     def create
         @user = User.new(user_params)
 
         if @user.save
             login(@user)
             # render the user's show page
+            render '/api/users/show'
         else
+            render json: @user.errors.full_messages, status: 422
             # render errors and sign up form
         end
     end
@@ -21,6 +21,7 @@ class Api::UsersController < ApplicationController
             #render user's show page
         else
             #render errors and edit profile form
+            render json: @user.errors.full_messages, status: 422
         end
 
     end

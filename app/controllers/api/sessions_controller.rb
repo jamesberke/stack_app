@@ -9,9 +9,10 @@ class Api::SessionsController < ApplicationController
         if @user
             login(@user)
             #render user's show page
-            render json: {}
+            render '/api/users/show'
         else
             #render errors and redirect to log in from, status: 404
+            render json: ["Invalid credentials"], status: 422
         end
     end
 
