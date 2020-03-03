@@ -1,0 +1,113 @@
+.splashpage-whole-main {
+    min-height: 400px;
+    font-family: sans-serif;
+}
+
+#rollingball-gif {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    min-height: 400px;
+}
+
+.splashpage-first-bigtitle {
+    position: relative;
+    z-index: 2;
+    min-height: 100px;
+    max-width: 600px;
+    font-size: 54px;
+    font-weight: 600;
+    left: 4%;
+    padding-top: 8%;
+    line-height: 60px;
+}
+
+.splashpage-first-text {
+    position: relative;
+    z-index: 2;
+    padding-top: 10px;
+    left: 4%;
+    font-size: 20px;
+    max-width: 500px;
+    line-height: 27px;
+}
+
+.splash-signup-link {
+    position: relative;
+    z-index: 2;
+    font: 14px sans-serif;
+    font-weight: 500;
+    color: white;
+    left: 5%;
+    margin-top: 20px;
+    padding: 20px 40px;
+    background-color: #611f69;
+    margin-right: 1%;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.demo-signup-link {
+    position: relative;
+    z-index: 2;
+    font: 14px sans-serif;
+    font-weight: 500;
+    color: #611f69;
+    left: 5%;
+    margin-top: 20px;
+    padding: 20px 40px;
+    background-color: #E5E1DC;
+    margin-right: 8%;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 1px solid #611f69;
+    
+}
+
+.splash-already-sign-in {
+    position: relative;
+    z-index: 2;
+    font-size: 14px;
+    padding-top: 30px;
+    left: 6%;
+    line-height: 20px;
+}
+
+.splash-signup-link:hover {
+    background-color: #4a154b;
+}
+
+.demo-signup-link:hover {
+    border: 2px solid #611f69;
+    padding: 19px 39px;
+}
+
+.splashpage-second {
+    text-align: center;
+    min-height: 550px;
+    width: 100%;
+    padding-top: 100px;
+}
+
+.splashpage-second-title {
+    padding-top: 100px;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.splashpage-second-text {
+    font-size: 18px;
+    padding-top: 30px;
+}
+
+.splashpage-second-vid {
+    margin-top: 30px;
+    width: 65%;
+    min-height: 500px;
+    box-shadow: 0 0 1.5rem rgba(105,105,105,.5);
+}
+
+.splashpage-third {
+    display: flex;
+    justify-content: space-evenly;
+}

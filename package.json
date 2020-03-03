@@ -1,5 +1,5 @@
 {
-  "name": "slack_clone",
+  "name": "stack_app",
   "private": true,
   "dependencies": {
     "@babel/core": "^7.8.6",
@@ -31,5 +31,13 @@
   "license": "ISC",
   "devDependencies": {
     "webpack-cli": "^3.3.11"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesberke/stack_app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jamesberke/stack_app/issues"
+  },
+  "homepage": "https://github.com/jamesberke/stack_app#readme"
 }

@@ -1,0 +1,123 @@
+.nav-bar {
+    height: 69px;
+    display: flex;
+    background-color: white;
+    border-bottom: 1px solid #f5f5f5;
+    width: 100%;
+    align-items: center;
+    font-family: sans-serif;
+
+}
+
+.navbar-left {
+    display: flex;
+    flex-direction: row;
+    width: 60%;
+    justify-content: flex-start;
+}
+
+.navbar-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    width: 40%;
+}
+
+.nav-bar a {
+    text-decoration: none;
+}
+
+.slack-logo {
+    padding-top: 4px;
+    height: 25px;
+    width: 25px;
+}
+
+.github-logo {
+    padding-top: 4px;
+    height: 25px;
+    width: 25px;
+}
+
+.linkedin-logo {
+    padding-top: 6.5px;
+    height: 25px;
+    width: 25px;
+}
+
+.nav-home-link {
+    margin-left: 8%;
+    font-weight: 900;
+    font-size: 25px;
+    display: flex;
+}
+
+.logo-text {
+    padding-left: 7px;
+    padding-top: 4px;
+    color: black;
+    font-weight: 900;
+}
+
+.nav-github {
+    font-weight: 500;
+    display: flex;
+    padding-left: 30px;
+    opacity: 0.6;
+}
+
+.nav-linkedin {
+    font-weight: 500;
+    display: flex;
+    padding-left: 30px;
+    opacity: 0.6;
+}
+
+.github-text {
+    padding-left: 2px;
+    padding-top: 9px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+.linkedin-text {
+    padding-top: 9px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+.nav-signup-link {
+    font: 14px sans-serif;
+    color: white;
+    padding: 12px 15px;
+    background-color: #611f69;
+    margin-right: 8%;
+    border-radius: 5px;
+    
+}
+
+.nav-login-link {
+    font: 16px sans-serif;
+    color: black;
+    padding-right: 20px;
+}
+
+.nav-signup-link:hover {
+    background-color: #4a154b;
+}
+
+.nav-github:hover {
+    opacity: 1;
+}
+
+.nav-linkedin:hover {
+    opacity: 1;
+}
+
+.nav-login-link:hover {
+    text-decoration: underline;
+    color: #611f69;
+}
