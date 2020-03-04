@@ -72,6 +72,7 @@
     margin-top: 12px;
     border: solid 1px #868686;
     border-radius: 5px;
+    outline: none;
 }
 
 .login-form-input::placeholder {

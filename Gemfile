@@ -25,6 +25,9 @@ gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'jquery-rails'
+
+gem 'rails_12factor'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
@@ -42,7 +45,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'jquery-rails'
 end
 
 group :development do
