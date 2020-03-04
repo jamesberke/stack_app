@@ -6,4 +6,7 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :update, :destroy]
     resource :session, only: [:create, :destroy]
   end
+
+  mount ActionCable.server, at: '/cable'
+  
 end
