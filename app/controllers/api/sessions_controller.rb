@@ -20,10 +20,13 @@ class Api::SessionsController < ApplicationController
         @user = current_user
 
         if @user
+            debugger
             logout
             #render splash page
+            render '/'
         else
             #render errors 
+            render json: ["Can not sign user out"], status: 422
         end
     end
 

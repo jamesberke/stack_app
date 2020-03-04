@@ -234,9 +234,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -249,15 +249,27 @@ var Client = /*#__PURE__*/function (_React$Component) {
   _inherits(Client, _React$Component);
 
   function Client(props) {
+    var _this;
+
     _classCallCheck(this, Client);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(Client).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Client).call(this, props));
+    _this.handleClick = _this.handleClick.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(Client, [{
+    key: "handleClick",
+    value: function handleClick(event) {
+      event.preventDefault();
+      this.props.logout();
+    }
+  }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, "Client main page");
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+        onClick: this.handleClick
+      }, "Logout");
     }
   }]);
 
@@ -277,8 +289,10 @@ var Client = /*#__PURE__*/function (_React$Component) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _client__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./client */ "./frontend/components/client/client.jsx");
+/* harmony import */ var _client__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./client */ "./frontend/components/client/client.jsx");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/session_actions */ "./frontend/actions/session_actions.js");
+
 
 
 
@@ -287,10 +301,14 @@ var mapStateToProps = function mapStateToProps(state) {
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    logout: function logout() {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_2__["logout"])());
+    }
+  };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(_client__WEBPACK_IMPORTED_MODULE_1__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(_client__WEBPACK_IMPORTED_MODULE_0__["default"]));
 
 /***/ }),
 
@@ -318,7 +336,8 @@ var mapStateToProps = function mapStateToProps(state) {
     user: {
       email: "",
       password: ""
-    }
+    },
+    errors: state.errors.sessionErrors
   };
 };
 
@@ -381,6 +400,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     _this.state = props.user;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.demoUserSubmit = _this.demoUserSubmit.bind(_assertThisInitialized(_this));
+    _this.renderErrors = _this.renderErrors.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -409,11 +429,24 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      var errors = this.props.errors;
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, errors.map(function (error, i) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          key: "error-".concat(i),
+          className: "login-errors"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u2022"), error, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "\u2022"));
+      }));
+    }
+  }, {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form-page"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "signup-error-container"
+      }, this.renderErrors()), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-form-main"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "login-form-title"
@@ -651,7 +684,8 @@ var mapStateToProps = function mapStateToProps(state) {
       formalName: "",
       email: "",
       password: ""
-    }
+    },
+    errors: state.errors.sessionErrors
   };
 };
 
@@ -717,10 +751,15 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
     _this.state = props.user;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.demoUserSubmit = _this.demoUserSubmit.bind(_assertThisInitialized(_this));
+    _this.renderErrors = _this.renderErrors.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(SignupForm, [{
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {// Need to clear error messages
+    }
+  }, {
     key: "update",
     value: function update(field) {
       var _this2 = this;
@@ -745,12 +784,26 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "renderErrors",
+    value: function renderErrors() {
+      var errors = this.props.errors;
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, errors.map(function (error, i) {
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+          key: "error-".concat(i),
+          className: "signup-errors"
+        }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "\u2022"), error, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("span", null, "\u2022"));
+      }));
+    }
+  }, {
     key: "render",
     value: function render() {
-      console.log(this.state);
+      console.log(this.state); // Need to style errors
+
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "signup-form-page"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        className: "signup-error-container"
+      }, this.renderErrors()), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "signup-form-main"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h2", {
         className: "signup-form-title"
@@ -1043,7 +1096,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var errorsReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  session: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
+  sessionErrors: _session_errors_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (errorsReducer);
 
@@ -1094,6 +1147,7 @@ var sessionErrorsReducer = function sessionErrorsReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_SESSION_ERRORS"]:
+      debugger;
       return action.errors;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:

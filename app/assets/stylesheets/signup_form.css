@@ -7,8 +7,23 @@
     background-color: #f8f8f8;
     position: fixed;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     font-family: 'Poppins', sans-serif;
+}
+
+.signup-error-container {
+    display: flex;
+    justify-content: space-evenly;
+    z-index: 2;
+}
+
+.signup-errors {  
+    background-color: white;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px gray;
+    margin-top: 15px; 
 }
 
 .signup-form-main {
@@ -16,7 +31,7 @@
     border: solid 1px lightgray;
     border-radius: 5px;
     z-index: 2;
-    margin-top: 50px;
+    margin-top: 70px;
     width: 600px;
     height: 550px;
     display: flex;
@@ -67,6 +82,7 @@
     padding: 12px 145px;
     border-radius: 5px;
     margin-top: 20px;
+    outline: none;
 }
 
 .demo-submit-button {
@@ -78,6 +94,7 @@
     margin-left: 10px;
     padding: 10px 100px;
     border-radius: 5px;
+    outline: none;
 }
 
 .signup-form-input:hover {

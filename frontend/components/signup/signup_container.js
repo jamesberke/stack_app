@@ -9,7 +9,8 @@ const mapStateToProps = state => ({
         formalName: "",
         email: "",
         password: "",
-    }
+    },
+    errors: state.errors.sessionErrors
 });
 
 const mapDispatchToProps = dispatch => ({

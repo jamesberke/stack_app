@@ -9,6 +9,7 @@ class LoginForm extends React.Component {
         this.state = props.user;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.demoUserSubmit = this.demoUserSubmit.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
     };
 
     update(field) {
@@ -27,9 +28,25 @@ class LoginForm extends React.Component {
         this.props.login({email:"demouser@gmail.com", password:"pleasehireme"});
     }
 
+    renderErrors() {
+        let { errors } = this.props;
+        return (
+            <div>
+                {errors.map((error, i) => (
+                    <div key={`error-${i}`} className="login-errors">
+                        <span>{'\u2022'}</span>{error}<span>{'\u2022'}</span>
+                    </div>
+                ))}
+            </div>
+        );
+    }
+
     render() {
         return (
             <div className="login-form-page">
+                <div className="signup-error-container">
+                    {this.renderErrors()}
+                </div>
                 <div className="login-form-main">
                     <h2 className="login-form-title">
                         Sign in to Stack

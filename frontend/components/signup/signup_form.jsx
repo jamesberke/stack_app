@@ -9,7 +9,12 @@ class SignupForm extends React.Component {
         this.state = props.user;
         this.handleSubmit = this.handleSubmit.bind(this);
         this.demoUserSubmit = this.demoUserSubmit.bind(this);
+        this.renderErrors = this.renderErrors.bind(this);
     };
+
+    componentWillUnmount() {
+        // Need to clear error messages
+    }
 
     update(field) {
         return event => (
@@ -27,10 +32,27 @@ class SignupForm extends React.Component {
         this.props.login({ email: "demouser@gmail.com", password: "pleasehireme" });
     }
 
+    renderErrors() {
+        let { errors } = this.props;
+        return (
+            <div>
+                {errors.map((error, i) => (
+                    <div key={`error-${i}`} className="signup-errors">
+                        <span>{'\u2022'}</span>{error}<span>{'\u2022'}</span>
+                    </div>
+                ))}
+            </div>
+        );
+    }
+
     render() {
         console.log(this.state)
+        // Need to style errors
         return (
             <div className="signup-form-page">
+                <div className="signup-error-container">
+                    {this.renderErrors()}
+                </div>
                 <div className="signup-form-main">
                     <h2 className="signup-form-title">
                         Sign up with Stack

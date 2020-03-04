@@ -7,8 +7,23 @@
     background-color: #f8f8f8;
     position: fixed;
     display: flex;
-    justify-content: center;
+    align-items: center;
     font-family: 'Poppins', sans-serif;
+    flex-direction: column;
+}
+
+.login-error-container {
+    display: flexbox;
+    justify-content: space-evenly;
+    z-index: 2;
+}
+
+.login-errors {  
+    background-color: white;
+    border: solid 1px lightgray;
+    border-radius: 5px;
+    box-shadow: 0 1px 2px gray;
+    margin-top: 15px; 
 }
 
 .login-form-main {
@@ -16,7 +31,7 @@
     border: solid 1px lightgray;
     border-radius: 5px;
     z-index: 2;
-    margin-top: 50px;
+    margin-top: 40px;
     width: 600px;
     height: 450px;
     display: flex;
@@ -73,6 +88,7 @@
     padding: 15px 150px;
     margin-top: 5px;
     border-radius: 5px;
+    outline: none;
 }
 
 .demo-submit-button {
@@ -83,6 +99,7 @@
     margin-right: 5px;
     padding: 10px 100px;
     border-radius: 5px;
+    outline: none;
 }
 
 .login-form-input:hover {
