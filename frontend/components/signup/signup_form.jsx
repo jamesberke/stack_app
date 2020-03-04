@@ -7,7 +7,8 @@ class SignupForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = props.user;
-        this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.demoUserSubmit = this.demoUserSubmit.bind(this);
     };
 
     update(field) {
@@ -18,8 +19,12 @@ class SignupForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        console.log(this.props);
         this.props.signup(this.state);
+    }
+
+    demoUserSubmit(event) {
+        event.preventDefault();
+        this.props.login({ email: "demouser@gmail.com", password: "pleasehireme" });
     }
 
     render() {
@@ -75,6 +80,11 @@ class SignupForm extends React.Component {
                             <input type="submit"
                                 value="Sign Up"
                                 className="signup-submit-button" />
+                            <br />
+                            <input type="submit"
+                                value="Sign In As Demo User"
+                                className="demo-submit-button"
+                                onClick={this.demoUserSubmit} />
                             <br />
                             <div className="signup-link-container">
                                 <Link to="/login" className="signup-redirect-link">

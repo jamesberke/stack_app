@@ -18,7 +18,7 @@
     z-index: 2;
     margin-top: 50px;
     width: 600px;
-    height: 500px;
+    height: 550px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -69,11 +69,26 @@
     margin-top: 20px;
 }
 
+.demo-submit-button {
+    background-color: #007a5a;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 10px 100px;
+    border-radius: 5px;
+}
+
 .signup-form-input:hover {
     background-color: #e8f0fe;
 }
 
 .signup-submit-button:hover {
+    box-shadow: 0 1px 4px gray;
+}
+
+.demo-submit-button:hover {
     box-shadow: 0 1px 4px gray;
 }
 

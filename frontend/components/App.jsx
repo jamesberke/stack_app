@@ -12,7 +12,7 @@ const App = () => (
 
         <div className='page-div'>
             <header>
-                <Route path={['/', '/signup', '/login']} component={NavbarContainer}/>
+                <Route exact path={['/', '/signup', '/login']} component={NavbarContainer}/>
             </header>
             {/* <SignupForm/> */}
             <Switch>

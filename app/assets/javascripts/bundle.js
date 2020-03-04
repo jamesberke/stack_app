@@ -189,6 +189,7 @@ var App = function App() {
   return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
     className: "page-div"
   }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("header", null, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
+    exact: true,
     path: ['/', '/signup', '/login'],
     component: _navbar_navbar_container__WEBPACK_IMPORTED_MODULE_2__["default"]
   })), react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_4__["Route"], {
@@ -379,6 +380,7 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(LoginForm).call(this, props));
     _this.state = props.user;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.demoUserSubmit = _this.demoUserSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -396,6 +398,15 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(event) {
       event.preventDefault();
       this.props.login(this.state);
+    }
+  }, {
+    key: "demoUserSubmit",
+    value: function demoUserSubmit(event) {
+      event.preventDefault();
+      this.props.login({
+        email: "demouser@gmail.com",
+        password: "pleasehireme"
+      });
     }
   }, {
     key: "render",
@@ -433,6 +444,11 @@ var LoginForm = /*#__PURE__*/function (_React$Component) {
         type: "submit",
         value: "Sign In",
         className: "login-submit-button"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        type: "submit",
+        value: "Sign In As Demo User",
+        className: "demo-submit-button",
+        onClick: this.demoUserSubmit
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "login-link-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
@@ -643,6 +659,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     signup: function signup(user) {
       return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["signup"])(user));
+    },
+    login: function login(user) {
+      return dispatch(Object(_actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["login"])(user));
     }
   };
 };
@@ -697,6 +716,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(SignupForm).call(this, props));
     _this.state = props.user;
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.demoUserSubmit = _this.demoUserSubmit.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -713,8 +733,16 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(event) {
       event.preventDefault();
-      console.log(this.props);
       this.props.signup(this.state);
+    }
+  }, {
+    key: "demoUserSubmit",
+    value: function demoUserSubmit(event) {
+      event.preventDefault();
+      this.props.login({
+        email: "demouser@gmail.com",
+        password: "pleasehireme"
+      });
     }
   }, {
     key: "render",
@@ -770,6 +798,11 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
         type: "submit",
         value: "Sign Up",
         className: "signup-submit-button"
+      }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+        type: "submit",
+        value: "Sign In As Demo User",
+        className: "demo-submit-button",
+        onClick: this.demoUserSubmit
       }), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
         className: "signup-link-container"
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_0__["Link"], {
