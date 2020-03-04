@@ -6,7 +6,7 @@ import React from "react";
 const mapStateToProps = state => ({
     user: {
         username: "",
-        formal_name: "",
+        formalName: "",
         email: "",
         password: "",
     }

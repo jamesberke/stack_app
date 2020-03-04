@@ -1,3 +1,4 @@
+import ClientContainer from './client/client_container';
 import LoginFormContainer from './login/login_container';
 import NavbarContainer from './navbar/navbar_container';
 import React from 'react';
@@ -17,6 +18,7 @@ const App = () => (
             <Switch>
                 <Route path="/signup" component={SignupFormContainer} />
                 <Route path="/login" component={LoginFormContainer} />
+                <Route path="/client" component={ClientContainer} />
                 <Route exact path="/" component={SplashContainer} />
             </Switch>
         </div>

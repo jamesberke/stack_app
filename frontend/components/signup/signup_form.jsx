@@ -48,9 +48,9 @@ class SignupForm extends React.Component {
                             <label className="signup-input-label">Display Name:
                                 <br/>
                                 <input type="text"
-                                    value={this.state.formal_name}
+                                    value={this.state.formalName}
                                     className="signup-form-input"
-                                    onChange={this.update('formal_name')}
+                                    onChange={this.update('formalName')}
                                     placeholder="John Doe" />
                             </label>
                             <br/>
