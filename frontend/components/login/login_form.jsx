@@ -12,6 +12,11 @@ class LoginForm extends React.Component {
         this.renderErrors = this.renderErrors.bind(this);
     };
 
+    componentWillUnmount() {
+        // Need to clear error messages
+        this.props.clearSessionErrors();
+    }
+
     update(field) {
         return event => (
             this.setState({ [field]: event.target.value })
@@ -21,25 +26,26 @@ class LoginForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         this.props.login(this.state);
-    }
+    };
     
     demoUserSubmit(event) {
         event.preventDefault();
         this.props.login({email:"demouser@gmail.com", password:"pleasehireme"});
-    }
+    };
 
     renderErrors() {
         let { errors } = this.props;
+
+        if (errors.length === 0) {
+            return null;
+        }
+        
         return (
-            <div>
-                {errors.map((error, i) => (
-                    <div key={`error-${i}`} className="login-errors">
-                        <span>{'\u2022'}</span>{error}<span>{'\u2022'}</span>
-                    </div>
-                ))}
+            <div className="login-errors">
+                {errors.join(" \u2022 ")}
             </div>
-        );
-    }
+        )
+    };
 
     render() {
         return (

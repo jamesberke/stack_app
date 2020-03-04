@@ -14,6 +14,7 @@ class SignupForm extends React.Component {
 
     componentWillUnmount() {
         // Need to clear error messages
+        this.props.clearSessionErrors();
     }
 
     update(field) {
@@ -25,25 +26,26 @@ class SignupForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         this.props.signup(this.state);
-    }
+    };
 
     demoUserSubmit(event) {
         event.preventDefault();
         this.props.login({ email: "demouser@gmail.com", password: "pleasehireme" });
-    }
+    };
 
     renderErrors() {
         let { errors } = this.props;
+
+        if (errors.length === 0) {
+            return null;
+        }
+        
         return (
-            <div>
-                {errors.map((error, i) => (
-                    <div key={`error-${i}`} className="signup-errors">
-                        <span>{'\u2022'}</span>{error}<span>{'\u2022'}</span>
-                    </div>
-                ))}
-            </div>
-        );
-    }
+            <div className="signup-errors">
+                {errors.join(" \u2022 ")}
+            </div>   
+        )
+    };
 
     render() {
         console.log(this.state)
