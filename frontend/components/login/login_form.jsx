@@ -63,14 +63,17 @@ class LoginForm extends React.Component {
                         <h3 className="login-input-header">
                             Enter your <span className="input-header-bold">email address</span> and <span className="input-header-bold">password.</span>
                         </h3>
-                        <input type="text"
+                        <input required
+                            type="email"
                             value={this.state.email}
                             className="login-form-input"
                             onChange={this.update('email')}
                             placeholder="you@example.com" />
-                        <input type="password"
+                        <input required
+                            type="password"
                             value={this.state.password}
                             className="login-form-input"
+                            minLength="6"
                             onChange={this.update('password')}
                             placeholder="password" />
                         <br />
