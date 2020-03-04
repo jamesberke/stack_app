@@ -577,7 +577,7 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
         to: "/",
         className: "nav-home-link"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: window.slack - logo,
+        src: window.slackLogo,
         className: "slack-logo"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "logo-text"
@@ -585,7 +585,7 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
         href: "https://github.com/jamesberke/stack_app",
         className: "nav-github"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: window.github - logo,
+        src: window.githubLogo,
         className: "github-logo"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "github-text"
@@ -593,7 +593,7 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
         href: "https://www.linkedin.com/in/james-berke-33912718a/",
         className: "nav-linkedin"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: window.linkedin - logo,
+        src: window.linkedinLogo,
         className: "linkedin-logo"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "linkedin-text"
