@@ -67,7 +67,8 @@ class SignupForm extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                             <label className="signup-input-label">Username:
                                 <br/>
-                                <input type="text"
+                                <input required 
+                                    type="text"
                                     value={this.state.username}
                                     className="signup-form-input"
                                     onChange={this.update('username')}
@@ -85,7 +86,8 @@ class SignupForm extends React.Component {
                             <br/>
                             <label className="signup-input-label">Email:
                                 <br/>
-                                <input type="text"
+                                <input required
+                                    type="text"
                                     value={this.state.email}
                                     className="signup-form-input"
                                     onChange={this.update('email')}

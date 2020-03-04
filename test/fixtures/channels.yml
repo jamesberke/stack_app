@@ -1,0 +1,27 @@
+# == Schema Information
+#
+# Table name: channels
+#
+#  id          :bigint           not null, primary key
+#  name        :string           not null
+#  description :string
+#  admin_id    :integer          not null
+#  is_dm       :boolean          not null
+#  is_private  :boolean          not null
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
+one:
+  name: MyString
+  description: MyString
+  admin_id: 1
+  is_dm: false
+  is_private: false
+
+two:
+  name: MyString
+  description: MyString
+  admin_id: 1
+  is_dm: false
+  is_private: false

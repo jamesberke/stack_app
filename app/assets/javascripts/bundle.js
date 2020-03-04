@@ -844,6 +844,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
         className: "signup-input-label"
       }, "Username:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+        required: true,
         type: "text",
         value: this.state.username,
         className: "signup-form-input",
@@ -860,6 +861,7 @@ var SignupForm = /*#__PURE__*/function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("label", {
         className: "signup-input-label"
       }, "Email:", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("input", {
+        required: true,
         type: "text",
         value: this.state.email,
         className: "signup-form-input",
