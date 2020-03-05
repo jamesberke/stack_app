@@ -22,11 +22,13 @@ class Channel < ApplicationRecord
 
     has_many :memberships,
         foreign_key: :channel_id,
-        class_name: :Membership
+        class_name: :Membership,
+        dependant: :destroy
 
     has_many :messages,
         foreign_key: :channel_id,
-        class_name: :Message
+        class_name: :Message,
+        dependant: :destroy
     
         # belongs_to :admin
 end
