@@ -15,7 +15,10 @@ class Client extends React.Component {
 
     render() {
         return (
-            <button onClick={this.handleClick}>Logout</button>
+            <div>
+                <h1>You Made it Bruh!</h1>
+                <button onClick={this.handleClick}>Logout</button>
+            </div>
         )
     }
 }

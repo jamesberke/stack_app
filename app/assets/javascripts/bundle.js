@@ -275,9 +275,9 @@ var Client = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
+      return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("h1", null, "You Made it Bruh!"), react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         onClick: this.handleClick
-      }, "Logout");
+      }, "Logout"));
     }
   }]);
 

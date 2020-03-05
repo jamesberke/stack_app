@@ -16,6 +16,15 @@ class Channel < ApplicationRecord
     validates :admin_id, presence: true
     validates :is_dm, :is_private, inclusion: { in: [:true, :false] }
 
-    # has_many :messages
-    # belongs_to :admin
+    # Through association for users using memberships table
+
+    has_many :memberships,
+        foreign_key: :channel_id,
+        class_name: :Membership
+
+    has_many :messages,
+        foreign_key: :channel_id,
+        class_name: :Message
+    
+        # belongs_to :admin
 end

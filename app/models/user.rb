@@ -20,6 +20,16 @@ class User < ApplicationRecord
     after_initialize :ensure_session_token
     attr_reader :password
 
+    # Through association for channels using memberships table
+
+    has_many :memberships,
+        foreign_key: :user_id,
+        class_name: :Membership
+
+    has_many :started_channels,
+        foreign_key: :admin_id,
+        class_name: :Channel
+
     def self.find_by_credentials(email, password)
         @user = User.find_by(email: email)
         @user && @user.is_password?(password) ? @user : nil
