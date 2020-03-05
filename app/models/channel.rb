@@ -17,6 +17,8 @@ class Channel < ApplicationRecord
     validates :is_dm, :is_private, inclusion: { in: [:true, :false] }
 
     # Through association for users using memberships table
+    has_many :users,
+        through: :memberships
 
     has_many :memberships,
         foreign_key: :channel_id,

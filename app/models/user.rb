@@ -11,6 +11,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #
+
 class User < ApplicationRecord
     validates :username, :email, presence: true, uniqueness: true
     validates :password_digest, presence: true
@@ -21,6 +22,12 @@ class User < ApplicationRecord
     attr_reader :password
 
     # Through association for channels using memberships table
+    has_many :channels,
+        through: :memberships
+
+    has_many :messages,
+        foreign_key: :user_id,
+        class_name: :Message
 
     has_many :memberships,
         foreign_key: :user_id,

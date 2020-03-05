@@ -17,6 +17,10 @@ class Message < ApplicationRecord
         foreign_key: :parent_id,
         class_name: :Message
 
+    belongs_to :user,
+        foreign_key: :user_id,
+        class_name: :User
+
     belongs_to :channel,
         foreign_key: :channel_id,
         class_name: :Channel
