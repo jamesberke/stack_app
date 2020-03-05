@@ -80,7 +80,7 @@
     padding-left: 2px;
 }
 
-.login-form-input[type=text], .login-form-input[type=password] {
+.login-form-input[type=text], .login-form-input[type=password], .login-form-input[type=email] {
     font-size: 15px;
     padding-left: 2px;
 }
