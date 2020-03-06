@@ -10,14 +10,20 @@ class Api::ChannelsController < ApplicationController
         @channel.admin_id = current_user.id
 
         if @channel.save
-
+            render 'api/channels/show'
         else
             render json: @channel.errors.full_messages, status: 422
         end
     end
 
     def destroy
+        @channel = Channel.find_by(id: params[:id])
 
+        if @channel
+            @channel.delete
+        else
+            render json: @channel.errors.full_messages, status: 422
+        end
     end
 
     private

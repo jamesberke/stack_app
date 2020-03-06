@@ -32,7 +32,7 @@ class User < ApplicationRecord
     has_many :memberships,
         foreign_key: :user_id,
         class_name: :Membership
-        # dependant: :destroy
+        # :dependant => :delete_all
 
     has_many :started_channels,
         foreign_key: :admin_id,

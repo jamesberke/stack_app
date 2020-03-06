@@ -1,10 +1,6 @@
 class Api::MessagesController < ApplicationController
     before_action :require_logged_in
 
-    def index
-        @messages = 
-    end
-
     def show
         @message = Message.includes(:user).find_by(id: params[:id])
         render 'api/messages/show'

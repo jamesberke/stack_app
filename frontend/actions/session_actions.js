@@ -7,16 +7,16 @@ export const CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS';
 
 // Reg action creators
 
-export const receiveCurrentUser = currentUser => ({
+const receiveCurrentUser = currentUser => ({
     type: RECEIVE_CURRENT_USER,
     currentUser
 });
 
-export const logoutCurrentUser = () => ({
+const logoutCurrentUser = () => ({
         type: LOGOUT_CURRENT_USER   
 });
 
-export const receiveErrors = errors => ({
+const receiveErrors = errors => ({
     type: RECEIVE_SESSION_ERRORS,
     errors
 });
