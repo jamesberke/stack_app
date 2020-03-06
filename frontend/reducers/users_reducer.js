@@ -5,7 +5,13 @@ const usersReducer = (state = {}, action) => {
     
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            return Object.assign({}, state, { [action.currentUser.id]: action.currentUser })      
+            // return Object.assign({}, state, { [action.currentUser.id]: action.currentUser })   
+            return {currentUser: {
+                id: action.currentUser.id,
+                username: action.currentUser.username,
+                formalName: action.currentUser.formalName,
+                email: action.currentUser.email
+            }}   
         default:
             return state;
     };

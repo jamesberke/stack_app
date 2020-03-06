@@ -4,7 +4,7 @@ import Sidebar from './sidebar';
 
 const mapStateToProps = state => ({
     currentUser: state.entities.users[state.session.id],
-    channels: state.entities.channels
+    channels: Object.values(state.entities.channels)
 });
 
 const mapDispatchToProps = dispatch => ({

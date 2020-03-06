@@ -27,5 +27,6 @@ class Message < ApplicationRecord
 
     belongs_to :parent_message,
         foreign_key: :parent_id,
-        class_name: :Message
+        class_name: :Message,
+        optional: true
 end
