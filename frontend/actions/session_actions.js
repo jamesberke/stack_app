@@ -7,7 +7,7 @@ export const CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS';
 
 // Reg action creators
 
-const receiveCurrentUser = currentUser => ({
+export const receiveCurrentUser = currentUser => ({
     type: RECEIVE_CURRENT_USER,
     currentUser
 });

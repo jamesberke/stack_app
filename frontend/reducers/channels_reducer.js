@@ -7,12 +7,9 @@ const channelsReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
-            debugger;
+            // Grabs the current user's channels and populates the channel slice of state 
+            // to avoid holding arrays of pointers in user state
             return action.currentUser.channels;
-            // action.currentUser.channels.forEach(channel =>
-            //     newState[channel.id] = channel
-            // );
-            return newState;
         case RECEIVE_CHANNEL:
             return Object.assign({}, newState, { [action.channel.id]: action.channel });
         case REMOVE_CHANNEL:

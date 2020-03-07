@@ -20,6 +20,16 @@ me = User.create({username: "james", email: "james.berke@gmail.com", password: "
 global = Channel.create({name: "Global", 
                             description: "one big chat with everyone in it",
                             admin_id: User.last.id})
+jokes = Channel.create({name: "Jokes", 
+                            description: "Jokes n' stuff",
+                            admin_id: User.last.id})
+code = Channel.create({name: "Code", 
+                            description: "share cool code snippets",
+                            admin_id: User.last.id})
+dm1 = Channel.create({name: "james", 
+                            description: "",
+                            admin_id: User.first.id,
+                            is_dm: true})
 
 # Messages seed
 
@@ -37,3 +47,9 @@ test3 = Message.create({body: "Suspendisse potenti. Cras nec sapien sit amet tur
 
 mem1 = Membership.create({user_id: User.first.id, channel_id: Channel.first.id})
 mem2 = Membership.create({user_id: User.last.id, channel_id: Channel.first.id})
+mem3 = Membership.create({user_id: User.first.id, channel_id: Channel.all[1].id})
+mem4 = Membership.create({user_id: User.last.id, channel_id: Channel.all[1].id})
+mem5 = Membership.create({user_id: User.first.id, channel_id: Channel.all[2].id})
+mem6 = Membership.create({user_id: User.last.id, channel_id: Channel.all[2].id})
+mem6 = Membership.create({user_id: User.first.id, channel_id: Channel.last.id})
+mem6 = Membership.create({user_id: User.last.id, channel_id: Channel.last.id})

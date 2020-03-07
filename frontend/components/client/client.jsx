@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import React from 'react';
+import SidebarContainer from '../sidebar/sidebar_container';
 
 class Client extends React.Component {
 
@@ -15,9 +16,8 @@ class Client extends React.Component {
 
     render() {
         return (
-            <div>
-                <h1>You Made it Bruh!</h1>
-                <button onClick={this.handleClick}>Logout</button>
+            <div className="client-main-page">
+                <SidebarContainer />
             </div>
         )
     }

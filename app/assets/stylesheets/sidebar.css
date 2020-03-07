@@ -1,0 +1,122 @@
+.sidebar-main-container {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 220px;
+    background-color: #222629;
+    position: absolute;
+    font-family: sans-serif;
+    border-right: solid 1px darkgray;
+}
+
+.sidebar-currentuser-greeting {
+    color: oldlace;
+    font-weight: bold;
+    padding: 4px;
+    padding-left: 6px;
+    font-size: 24px;
+    margin-top: 2%;
+}
+
+.sidebar-currentuser-greeting:hover {
+    background-color: #363636;
+
+}
+
+.sidebar-logout-button {
+    background-color: #222629;
+    font-size: 20px;
+    border: solid 1px gray;
+    border-radius: 5px;
+    color: oldlace;
+    margin-top: 10px;
+    margin-left: 3%;
+    padding: 2px 18px;
+}
+
+.sidebar-logout-button:hover {
+    background-color: #363636;
+}
+
+.sidebar-jump-to {
+    color: #818385;
+    font-weight: bold;
+    background-color: #4d4d4f;
+    width: 85%;
+    margin-top: 18px;
+    border: none;
+    border-radius: 5px;
+    margin-left: 3%;
+    padding: 8px;
+}
+
+.sidebar-channels-title {
+    margin-top: 30px;
+    margin-left: 3%;
+    font-weight: bold;
+    font-size: 20px;
+    color: oldlace;
+}
+
+.sidebar-channels-render {
+    margin-top: 6px;
+    color: oldlace;
+    font-weight: 100;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.sidebar-channels-render > ul > li {
+    padding: 8px 0px;
+    width: 100%;
+}
+
+.sidebar-channels-render > ul > li > a {
+    margin-left: 3%;
+    color: lightgray;
+    font-weight: 100;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.sidebar-channels-render > ul > li:hover {
+    background-color: #363636;
+}
+
+.sidebar-new-channel {
+    margin-left: 1%;
+    margin-top: 16px;
+    color: oldlace;
+    font-weight: 100;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+.sidebar-dms-title {
+    margin-top: 30px;
+    margin-left: 3%;
+    font-weight: bold;
+    font-size: 20px;
+    color: oldlace;
+}
+
+.sidebar-dms-render {
+    margin-left: 3%;
+    margin-top: 6px;
+    color: lightgray;
+    font-weight: 100;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.sidebar-dms-render > ul > li {
+    margin-top: 10px;
+}
+
+.sidebar-dms-render > ul > li > a {
+    margin-left: 1%;
+    color: lightgray;
+    font-weight: 100;
+    font-size: 16px;
+    text-decoration: none;
+}

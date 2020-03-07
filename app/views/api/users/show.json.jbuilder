@@ -1,17 +1,9 @@
 json.partial! 'api/users/user', user: @user
 
 @user.channels.each do |channel|
-    if channel.is_dm
-        json.direct_messages do
-            json.set! channel.id do
-                json.extract! channel, :id, :name
-            end
-        end
-    else
-        json.channels do
-            json.set! channel.id do
-                json.extract! channel, :id, :name
-            end
+    json.channels do
+        json.set! channel.id do
+            json.extract! channel, :id, :name, :is_dm, :is_private
         end
     end
 end
