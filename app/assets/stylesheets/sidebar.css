@@ -16,10 +16,12 @@
     padding-left: 6px;
     font-size: 24px;
     margin-top: 2%;
+    font-family: "Poppins", sans-serif;
+
 }
 
 .sidebar-currentuser-greeting:hover {
-    background-color: #363636;
+    background-color: black;
 
 }
 
@@ -32,6 +34,7 @@
     margin-top: 10px;
     margin-left: 3%;
     padding: 2px 18px;
+    font-family: "Poppins", sans-serif;
 }
 
 .sidebar-logout-button:hover {
@@ -41,6 +44,7 @@
 .sidebar-jump-to {
     color: #818385;
     font-weight: bold;
+    font-size: 14px;
     background-color: #4d4d4f;
     width: 85%;
     margin-top: 18px;
@@ -48,6 +52,7 @@
     border-radius: 5px;
     margin-left: 3%;
     padding: 8px;
+    font-family: "Poppins", sans-serif;
 }
 
 .sidebar-channels-title {
@@ -55,6 +60,17 @@
     margin-left: 3%;
     font-weight: bold;
     font-size: 20px;
+    color: oldlace;
+    font-family: "Poppins", sans-serif;
+}
+
+.sidebar-add-dm-icon {
+    color: #818385;
+    margin-left: 20px;
+    font-size: 23px;
+}
+
+.sidebar-add-dm-icon:hover {
     color: oldlace;
 }
 
@@ -72,10 +88,10 @@
 }
 
 .sidebar-channels-render > ul > li > a {
-    margin-left: 3%;
+    margin-left: 4%;
     color: lightgray;
     font-weight: 100;
-    font-size: 16px;
+    font-size: 15px;
     text-decoration: none;
 }
 
@@ -84,7 +100,7 @@
 }
 
 .sidebar-new-channel {
-    margin-left: 1%;
+    margin-left: 3%;
     margin-top: 16px;
     color: oldlace;
     font-weight: 100;
@@ -98,14 +114,15 @@
     font-weight: bold;
     font-size: 20px;
     color: oldlace;
+    font-family: "Poppins", sans-serif;
 }
 
 .sidebar-dms-render {
-    margin-left: 3%;
+    margin-left: 4%;
     margin-top: 6px;
     color: lightgray;
     font-weight: 100;
-    font-size: 14px;
+    font-size: 15px;
     text-decoration: none;
 }
 
@@ -117,6 +134,11 @@
     margin-left: 1%;
     color: lightgray;
     font-weight: 100;
-    font-size: 16px;
+    font-size: 15px;
     text-decoration: none;
+    width: 100%;
+}
+
+.sidebar-dms-render > ul > li > a:hover {
+    background-color: #363636;
 }

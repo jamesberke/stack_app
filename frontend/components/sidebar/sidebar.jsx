@@ -45,8 +45,13 @@ class Sidebar extends React.Component {
         const { currentUser } = this.props;
         const channelArr =  this.renderChannels();
         const dmArr = this.renderDms();
-        const channelLinks = channelArr.map((ele) => <li key={ele[0]}><Link to={`/api/channels/${ele[0]}`}># {ele[1]}</Link></li>);
-        const dmLinks = dmArr.map((ele) => <li key={ele[0]}><Link to={`/api/channels/${ele[0]}`}>{" \u2022 "} {ele[1]}</Link></li >);
+        const channelLinks = channelArr.map((ele) => 
+            <li key={ele[0]}>
+                <Link to={`/api/channels/${ele[0]}`}># {ele[1]}</Link>
+            </li>);
+        const dmLinks = dmArr.map((ele) => <li key={ele[0]}>
+                <Link to={`/api/channels/${ele[0]}`}>{" \u2022 "} {ele[1]}</Link>
+            </li >);
 
         return (
             <div className="sidebar-main-container">
@@ -61,7 +66,9 @@ class Sidebar extends React.Component {
                         className="sidebar-jump-to">
                 </input>
                 <div className="sidebar-channels-container">
-                    <h2 className="sidebar-channels-title">Channels</h2>
+                    <h2 className="sidebar-channels-title">
+                        Channels 
+                    </h2>
                     <div className="sidebar-channels-render">
                         <ul>
                             {channelLinks}
@@ -72,7 +79,9 @@ class Sidebar extends React.Component {
                     </div>
                 </div>
                 <div className="sidebar-dms-container">
-                    <h2 className="sidebar-dms-title">Direct Messages</h2>
+                    <h2 className="sidebar-dms-title">
+                        Direct Messages <span className="sidebar-add-dm-icon">{"\u2295"}</span>
+                    </h2>
                     <div className="sidebar-dms-render">
                         <ul>
                             {dmLinks}

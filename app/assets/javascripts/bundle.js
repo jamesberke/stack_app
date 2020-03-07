@@ -966,7 +966,9 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
         className: "sidebar-dms-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "sidebar-dms-title"
-      }, "Direct Messages"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Direct Messages ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "sidebar-add-dm-icon"
+      }, "\u2295")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-dms-render"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, dmLinks))));
     }
