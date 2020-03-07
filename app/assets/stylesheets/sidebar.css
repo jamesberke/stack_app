@@ -2,7 +2,8 @@
     top: 0;
     left: 0;
     height: 100%;
-    width: 220px;
+    width: 22%;
+    /* flex: 1; */
     background-color: #222629;
     position: absolute;
     font-family: sans-serif;
@@ -15,24 +16,23 @@
     padding: 4px;
     padding-left: 6px;
     font-size: 24px;
-    margin-top: 2%;
+    margin-top: 5%;
     font-family: "Poppins", sans-serif;
-
+    margin-left: 2%;
 }
 
 .sidebar-currentuser-greeting:hover {
-    background-color: black;
 
 }
 
 .sidebar-logout-button {
     background-color: #222629;
-    font-size: 20px;
+    font-size: 13px;
     border: solid 1px gray;
     border-radius: 5px;
     color: oldlace;
-    margin-top: 10px;
-    margin-left: 3%;
+    margin-top: 7px;
+    margin-left: 7%;
     padding: 2px 18px;
     font-family: "Poppins", sans-serif;
 }
@@ -42,22 +42,22 @@
 }
 
 .sidebar-jump-to {
-    color: #818385;
+    color: lightgray;
     font-weight: bold;
     font-size: 14px;
     background-color: #4d4d4f;
-    width: 85%;
+    width: 82%;
     margin-top: 18px;
     border: none;
     border-radius: 5px;
-    margin-left: 3%;
-    padding: 8px;
+    margin-left: 5%;
+    padding: 6px;
     font-family: "Poppins", sans-serif;
 }
 
 .sidebar-channels-title {
     margin-top: 30px;
-    margin-left: 3%;
+    margin-left: 5%;
     font-weight: bold;
     font-size: 20px;
     color: oldlace;
@@ -66,7 +66,7 @@
 
 .sidebar-add-dm-icon {
     color: #818385;
-    margin-left: 20px;
+    margin-left: 12px;
     font-size: 23px;
 }
 
@@ -88,7 +88,7 @@
 }
 
 .sidebar-channels-render > ul > li > a {
-    margin-left: 4%;
+    margin-left: 7%;
     color: lightgray;
     font-weight: 100;
     font-size: 15px;
@@ -100,7 +100,7 @@
 }
 
 .sidebar-new-channel {
-    margin-left: 3%;
+    margin-left: 5%;
     margin-top: 16px;
     color: oldlace;
     font-weight: 100;
@@ -110,7 +110,7 @@
 
 .sidebar-dms-title {
     margin-top: 30px;
-    margin-left: 3%;
+    margin-left: 5%;
     font-weight: bold;
     font-size: 20px;
     color: oldlace;
@@ -118,7 +118,7 @@
 }
 
 .sidebar-dms-render {
-    margin-left: 4%;
+    margin-left: 7%;
     margin-top: 6px;
     color: lightgray;
     font-weight: 100;
