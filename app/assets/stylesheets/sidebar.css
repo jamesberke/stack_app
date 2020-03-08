@@ -2,7 +2,7 @@
     top: 0;
     left: 0;
     height: 100%;
-    width: 22%;
+    width: 21%;
     /* flex: 1; */
     background-color: #222629;
     position: absolute;
@@ -66,7 +66,7 @@
 
 .sidebar-add-dm-icon {
     color: #818385;
-    margin-left: 12px;
+    margin-left: 12%;
     font-size: 23px;
 }
 
@@ -82,20 +82,26 @@
     text-decoration: none;
 }
 
-.sidebar-channels-render > ul > li {
-    padding: 8px 0px;
-    width: 100%;
-}
-
-.sidebar-channels-render > ul > li > a {
-    margin-left: 7%;
+.sidebar-channels-render > ul > li > button {
+    margin-left: 6%;
     color: lightgray;
     font-weight: 100;
     font-size: 15px;
     text-decoration: none;
+    background-color: #222629;
+    border: none;
+    outline: none;
+    padding: 8px 0px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .sidebar-channels-render > ul > li:hover {
+    background-color: #363636;
+}
+
+.sidebar-channels-render > ul > li > button:hover {
     background-color: #363636;
 }
 
@@ -118,7 +124,7 @@
 }
 
 .sidebar-dms-render {
-    margin-left: 7%;
+    /* margin-left: ; */
     margin-top: 6px;
     color: lightgray;
     font-weight: 100;
@@ -126,19 +132,25 @@
     text-decoration: none;
 }
 
-.sidebar-dms-render > ul > li {
-    margin-top: 10px;
-}
-
-.sidebar-dms-render > ul > li > a {
-    margin-left: 1%;
+.sidebar-dms-render > ul > li > button {
+    margin-left: 6%;
     color: lightgray;
     font-weight: 100;
     font-size: 15px;
     text-decoration: none;
+    background-color: #222629;
+    border: none;
+    outline: none;
+    padding: 8px 0px;
     width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 
-.sidebar-dms-render > ul > li > a:hover {
+.sidebar-dms-render > ul > li > button:hover {
+    background-color: #363636;
+}
+
+.sidebar-dms-render > ul > li:hover {
     background-color: #363636;
 }

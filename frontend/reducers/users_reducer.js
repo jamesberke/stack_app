@@ -1,4 +1,5 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+import { RECEIVE_CHANNEL } from '../actions/channel_actions';
 
 const usersReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -10,7 +11,10 @@ const usersReducer = (state = {}, action) => {
                 username: action.currentUser.username,
                 formalName: action.currentUser.formalName,
                 email: action.currentUser.email
-            }}   
+            }};
+        case RECEIVE_CHANNEL:
+            debugger;
+            return action.users;
         default:
             return state;
     };

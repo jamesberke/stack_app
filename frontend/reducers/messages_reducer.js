@@ -1,5 +1,5 @@
-import { RECEIVE_MESSAGE } from '../actions/message_actions';
 import { RECEIVE_CHANNEL } from '../actions/channel_actions';
+import { RECEIVE_MESSAGE } from '../actions/message_actions';
 
 const messagesReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -8,6 +8,7 @@ const messagesReducer = (state = {}, action) => {
         case RECEIVE_MESSAGE:
             return Object.assign({}, state, { [action.message.id]: action.message }); 
         case RECEIVE_CHANNEL:
+            debugger;
             return action.messages;
         default:
             return state;

@@ -15,12 +15,10 @@ class ChannelHeader extends React.Component {
                     </div>
                 {/* </div> */}
                 <div className="channel-header-right">
-                    <div>
                     <input type="text" 
                             placeholder="SEARCH..." 
                             className="channel-header-search">
                     </input>
-                    </div>
                     <button className="channel-darkmode-selector">
                         Darkmode
                     </button>
