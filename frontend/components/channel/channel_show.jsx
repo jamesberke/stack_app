@@ -7,14 +7,15 @@ class ChannelShow extends React.Component {
     };
 
     componentDidMount() {
-        debugger;
-        if (!!this.props.channels) {
-            const channels = Object.values(this.props.channels);
+        // debugger;
+        const channels = Object.values(this.props.channels);
+        if (channels.length != 0) {
             this.props.fetchChannel(channels[0].id);
         }
-    }
+    };
 
     renderMessages() {
+        // debugger;
         if (this.props.messages) {
             const messagesArr = this.props.messages.map(message => {
                 if (message.created_at) {
@@ -29,7 +30,7 @@ class ChannelShow extends React.Component {
                     }
 
                     const newDate = Number(message.created_at.slice(11, 13)) > 12 ? `${date.join(':')} PM` : `${date.join(':')} AM`;
-                    
+                    // debugger;
 
                     return (
                         <div className="channel-show-message-render">
@@ -43,14 +44,17 @@ class ChannelShow extends React.Component {
                     )    
                 }
             });
-        return messagesArr;
+            return messagesArr;
+        // debugger;
         }
     };
 
     render() {
         const channel_messages = this.renderMessages();
+        // debugger;
         return (
             <div className="channel-show-main">
+                Hello
                 {channel_messages}
                 {/* <MessageForm /> */}
             </div>
