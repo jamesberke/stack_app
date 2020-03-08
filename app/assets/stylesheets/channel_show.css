@@ -1,8 +1,11 @@
 .channel-show-main {
     position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
     bottom: 0;
     right: 0;
     top: 69px;
     width: 79%;
-    background-color: #121213;
+    background-color: #171717;
+    border: 0.1px solid gray
 }

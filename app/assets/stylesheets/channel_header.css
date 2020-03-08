@@ -5,8 +5,9 @@
     width: 79%;
     height: 69px;
     display: flex;
-    background-color: #171717;
-    border-bottom: solid 1px lightgray;
+    background-color: #1C1E22;
+    border: 0.1px solid gray;
+    border-bottom: none;
 }
 
 .channel-header-left {
@@ -26,13 +27,13 @@
     /* padding: 4px;
     padding-left: 6px; */
     font-size: 22px;
-    margin-top: 3%;
+    margin-top: 26px;
     font-family: "Poppins", sans-serif;
     margin-left: 3%;
 }
 
 .channel-darkmode-selector {
-    background-color: #171717;
+    background-color: #1C1E22;
     font-size: 12px;
     border: solid 1px gray;
     border-radius: 5px;
@@ -47,7 +48,7 @@
     color: lightgray;
     font-weight: bold;
     font-size: 14px;
-    background-color: #171717;
+    background-color: #1C1E22;
     border: solid 1px gray;
     border-radius: 5px;
     padding: 4px 20px;

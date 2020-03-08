@@ -11,7 +11,7 @@ const channelsReducer = (state = {}, action) => {
             // to avoid holding arrays of pointers in user state
             return action.currentUser.channels;
         case RECEIVE_CHANNEL:
-            return Object.assign({}, newState, { [action.channel.id]: action.channel });
+            return Object.assign({}, newState, { currentChannel: action.channel });
         case REMOVE_CHANNEL:
             delete newState[action.channel.id];
             return newState;

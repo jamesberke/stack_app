@@ -1,37 +1,52 @@
 import React from "react";
 import { connect } from "react-redux";
+import { createMessage } from "../../actions/message_actions";
 
 class MessageForm extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {body: ""}
+        this.state = {body: ""};
+        this.update = this.update.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     };
 
-    update() {
-        return event => this.setState({ [body]: event.taget.value })
+    update(field) {
+        debugger;
+        return e => this.setState({ 
+                        [field]: e.target.value, 
+                        ['channel_id']: this.props.currentChannel.channel.id
+                        });
     }
 
     handleSubmit(event) {
         event.preventDefault();
+        // this.setState({channel_id: this.props.currentChannel.id});
+        debugger;
+        createMessage(this.state);
     }
-    
+
     render() {
         return(
             <form className="message-form-container" onSubmit={this.handleSubmit}>
                 <input className="message-form-input" 
                         type="text" 
                         value={this.state.body} 
-                        onChange={this.update()} 
-                        placeholder="Message # Channel.name" />
+                        onChange={this.update('body')} 
+                        placeholder="Message # Channel.name">
+                </input>
             </form>
         )
     };
 
 }
 
-const mapStateToProps = state =>({
-    currentUser: state.entities.users[state.session.id]
-});
+const mapStateToProps = state =>{
+    debugger;
+    return {
+        currentUser: state.entities.users[state.session.id],
+        currentChannel: state.entities.channels.currentChannel
+    }
+};
 
 export default connect (mapStateToProps)(MessageForm);

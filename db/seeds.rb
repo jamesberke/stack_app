@@ -42,6 +42,12 @@ test2 = Message.create({body: "Nunc tempus elementum congue. Sed hendrerit et nu
 test3 = Message.create({body: "Suspendisse potenti. Cras nec sapien sit amet turpis eleifend bibendum in at ante.",
                             user_id: User.first.id,
                             channel_id: Channel.first.id})
+test4 = Message.create({body: "Suspendisse potenti. Cras nec sapien sit amet turpis eleifend bibendum in at ante.",
+                            user_id: User.first.id,
+                            channel_id: jokes.id})
+test5 = Message.create({body: "[] === 0 but [] != []",
+                            user_id: User.first.id,
+                            channel_id: code.id})
 
 #Memberships seed
 

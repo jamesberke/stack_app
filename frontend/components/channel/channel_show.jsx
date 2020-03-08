@@ -1,4 +1,5 @@
 import React from 'react';
+import MessageForm from './message_form';
 
 class ChannelShow extends React.Component {
 
@@ -54,9 +55,8 @@ class ChannelShow extends React.Component {
         // debugger;
         return (
             <div className="channel-show-main">
-                Hello
+                <MessageForm />
                 {channel_messages}
-                {/* <MessageForm /> */}
             </div>
         )
     }
