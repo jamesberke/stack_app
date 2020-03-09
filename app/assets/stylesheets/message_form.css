@@ -25,7 +25,7 @@
     border: solid 1px gray;
     border-radius: 5px;
     overflow: auto;
-    outline: none;
+    outline: oldlace;
 }
 
 .message-submit-button {

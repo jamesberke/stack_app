@@ -565,13 +565,16 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             className: "channel-show-message-render",
             key: message.id
-          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+            src: window.profilePicture,
+            className: "channel-message-picture"
+          })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "channel-message-title"
           }, _this2.props.users[userId].username, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "timestamp"
           }, timeStamp)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "channel-message-body"
-          }, message.body));
+          }, message.body)));
         });
         return messagesArr;
       }

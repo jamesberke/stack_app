@@ -28,8 +28,19 @@
     background-color: #171717;
     width: 98%;
     padding: 10px;
+    display: flex;
+    flex-direction: row;
     border-left: 0.1px solid gray;
     border-right: 0.1px solid gray;
+}
+
+.channel-message-picture {
+   width: 36px;
+   height: auto;
+   margin-left: 4px;
+   margin-right: 10px;
+   margin-top: 5px;
+   border-radius: 4px;
 }
 
 .timestamp {

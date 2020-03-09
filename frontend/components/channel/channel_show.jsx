@@ -28,11 +28,16 @@ class ChannelShow extends React.Component {
                 }
                 return (
                     <li className="channel-show-message-render" key={message.id}>
-                        <div className="channel-message-title">
-                            {this.props.users[userId].username} <span className="timestamp">{timeStamp}</span>
+                        <div>
+                            <img src={window.profilePicture} className="channel-message-picture"></img>
                         </div>
-                        <div className="channel-message-body">
-                            {message.body}
+                        <div>
+                            <div className="channel-message-title">
+                                {this.props.users[userId].username} <span className="timestamp">{timeStamp}</span>
+                            </div>
+                            <div className="channel-message-body">
+                                {message.body}
+                            </div>
                         </div>
                     </li>
                 )    

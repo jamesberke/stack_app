@@ -29,6 +29,7 @@
     margin-left: 3%;
     padding: 0px 18px;
     font-family: "Poppins", sans-serif;
+    outline: none;
 }
 
 .sidebar-logout-button:hover {
