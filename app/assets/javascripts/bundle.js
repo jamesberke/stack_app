@@ -90,7 +90,7 @@
 /*!*********************************************!*\
   !*** ./frontend/actions/channel_actions.js ***!
   \*********************************************/
-/*! exports provided: RECEIVE_CHANNEL, REMOVE_CHANNEL, RECEIVE_CHANNEL_ERRORS, fetchChannel, createChannel, deleteChannel */
+/*! exports provided: RECEIVE_CHANNEL, REMOVE_CHANNEL, RECEIVE_CHANNEL_ERRORS, receiveChannel, fetchChannel, createChannel, deleteChannel */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -98,6 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CHANNEL", function() { return RECEIVE_CHANNEL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "REMOVE_CHANNEL", function() { return REMOVE_CHANNEL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_CHANNEL_ERRORS", function() { return RECEIVE_CHANNEL_ERRORS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "receiveChannel", function() { return receiveChannel; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchChannel", function() { return fetchChannel; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createChannel", function() { return createChannel; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteChannel", function() { return deleteChannel; });
@@ -106,7 +107,6 @@ __webpack_require__.r(__webpack_exports__);
 var RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
 var REMOVE_CHANNEL = 'REMOVE_CHANNEL';
 var RECEIVE_CHANNEL_ERRORS = 'RECEIVE_CHANNEL_ERRORS';
-
 var receiveChannel = function receiveChannel(channel) {
   return {
     type: RECEIVE_CHANNEL,
@@ -533,6 +533,7 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ChannelShow);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(ChannelShow).call(this, props));
+    _this.bottom = react__WEBPACK_IMPORTED_MODULE_0___default.a.createRef();
     _this.renderMessages = _this.renderMessages.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -545,6 +546,11 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
       if (channels.length != 0) {
         this.props.fetchChannel(channels[0].id);
       }
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate() {
+      this.bottom.current.scrollIntoView();
     }
   }, {
     key: "renderMessages",
@@ -591,7 +597,10 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
         className: "channel-message-index"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "channel-show-message-container"
-      }, channel_messages)));
+      }, channel_messages, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "bottom",
+        ref: this.bottom
+      }))));
     }
   }]);
 
@@ -707,8 +716,11 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit(event) {
       event.preventDefault();
-      this.props.createMessage(this.state);
-      this.state.body = "";
+      this.props.createMessage(this.state); // this.state.body = "";
+
+      this.setState({
+        body: ""
+      });
     }
   }, {
     key: "render",

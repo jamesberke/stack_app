@@ -1,12 +1,12 @@
 .sidebar-main-container {
     top: 0;
     left: 0;
-    height: 99.7%;
+    height: 100%;
     width: 21%;
     background-color: #222629;
     position: absolute;
     font-family: sans-serif;
-    border: 1px solid gray;
+    border-right: 1px solid gray;
 }
 
 .sidebar-currentuser-greeting {

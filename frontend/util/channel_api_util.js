@@ -17,4 +17,4 @@ export const deleteChannel = channelId => (
         url: `api/channels/${channelId}`,
         method: 'DELETE'
     })
-)
+);

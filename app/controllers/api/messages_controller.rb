@@ -11,7 +11,22 @@ class Api::MessagesController < ApplicationController
         @message.user_id = current_user.id
 
         if @message.save
-            render 'api/message/show'
+            # render 'api/message/show'
+            ActionCable
+                .server
+                .broadcast("room-#{@message.channel_id}:messages",
+                message: {
+                    id: @messsage.id,
+                    body: @messsage.body,
+                    userId: @messsage.userId,
+                    channelId: @messsage.channelId,
+                    createdAt: @messsage.createdAt,
+                },
+                user: {
+                    id: current_user.id,
+                    username: current_user.username
+                }
+            );
         else
             render json: @message.errors.full_messages, status: 422
         end

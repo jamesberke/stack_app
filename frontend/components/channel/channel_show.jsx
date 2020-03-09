@@ -5,6 +5,7 @@ class ChannelShow extends React.Component {
 
     constructor(props) {
         super(props);
+        this.bottom = React.createRef();
         this.renderMessages = this.renderMessages.bind(this);
     };
 
@@ -14,6 +15,10 @@ class ChannelShow extends React.Component {
             this.props.fetchChannel(channels[0].id);
         }
     };
+
+    componentDidUpdate() {
+        this.bottom.current.scrollIntoView();
+    }
 
     renderMessages() {
         if (this.props.messages) {
@@ -56,6 +61,7 @@ class ChannelShow extends React.Component {
                 <div className="channel-message-index">
                     <ul className="channel-show-message-container">
                         {channel_messages}
+                        <div className="bottom" ref={this.bottom} />
                     </ul>
                 </div>
             </div>

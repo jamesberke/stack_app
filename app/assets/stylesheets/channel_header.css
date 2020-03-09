@@ -6,7 +6,8 @@
     height: 69px;
     display: flex;
     background-color: #1C1E22;
-    border: 0.1px solid gray;
+    border-bottom: 0.1px solid gray;
+    border-left: 0.1px solid gray;
 }
 
 .channel-header-left {
