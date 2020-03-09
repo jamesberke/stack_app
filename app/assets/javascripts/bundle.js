@@ -710,6 +710,14 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var channelName = "";
+
+      if (!!this.props.currentChannel) {
+        channelName = this.props.currentChannel.channel.name;
+      } else {
+        channelName = "Home";
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "message-form-container",
         onSubmit: this.handleSubmit
@@ -718,7 +726,7 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
         type: "text",
         value: this.state.body,
         onChange: this.update('body'),
-        placeholder: "Message # Channel.name"
+        placeholder: "Message # ".concat(channelName)
       }));
     }
   }]);

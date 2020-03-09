@@ -25,13 +25,19 @@ class MessageForm extends React.Component {
     }
 
     render() {
+        let channelName = "";
+        if (!!this.props.currentChannel) {
+            channelName = this.props.currentChannel.channel.name;
+        } else {
+            channelName = "Home";
+        }
         return(
             <form className="message-form-container" onSubmit={this.handleSubmit}>
                 <input className="message-form-input" 
                         type="text" 
                         value={this.state.body} 
                         onChange={this.update('body')} 
-                        placeholder="Message # Channel.name">
+                        placeholder={`Message # ${channelName}`}>
                 </input>
             </form>
         )
