@@ -1,9 +1,16 @@
+/* .message-form-main {
+
+} */
+
 .message-form-container {
+    padding-top: 5px;
     right: 0;
     bottom: 0;
     width: 100%;
     display: flex;
     justify-content: center;
+    border: 0.1px solid gray;
+    border-top: none;
 }
 
 .message-form-input {

@@ -11,12 +11,13 @@
 }
 
 .splashpage-first-bigtitle {
+    font-family: sans-serif;
     position: relative;
     z-index: 2;
     min-height: 100px;
     max-width: 600px;
-    font-size: 54px;
-    font-weight: bolder;
+    font-size: 56px;
+    font-weight: bold;
     left: 4%;
     padding-top: 8%;
     line-height: 60px;

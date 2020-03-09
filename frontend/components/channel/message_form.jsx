@@ -20,8 +20,8 @@ class MessageForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        // this.setState({channel_id: this.props.currentChannel.id});
         this.props.createMessage(this.state);
+        this.state.body = "";
     }
 
     render() {

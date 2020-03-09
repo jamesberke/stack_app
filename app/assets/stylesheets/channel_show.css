@@ -8,7 +8,18 @@
     width: 79%;
     background-color: #171717;
     border: 0.1px solid gray;
+    border-top: none;
     font-family: "Poppins", sans-serif;
+}
+
+.channel-message-index {
+    overflow: scroll;
+}
+
+.channel-show-message-container {
+    overflow: scroll;
+    bottom: 40px;
+    z-index: 0;
 }
 
 .channel-show-message-render {

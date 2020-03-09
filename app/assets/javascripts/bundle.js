@@ -582,9 +582,13 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
       var channel_messages = this.renderMessages();
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-show-main"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_message_form__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "message-form-main"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_message_form__WEBPACK_IMPORTED_MODULE_1__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "channel-message-index"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
         className: "channel-show-message-container"
-      }, channel_messages));
+      }, channel_messages)));
     }
   }]);
 
@@ -699,9 +703,9 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(event) {
-      event.preventDefault(); // this.setState({channel_id: this.props.currentChannel.id});
-
+      event.preventDefault();
       this.props.createMessage(this.state);
+      this.state.body = "";
     }
   }, {
     key: "render",

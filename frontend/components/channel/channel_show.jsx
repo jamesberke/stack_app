@@ -45,10 +45,14 @@ class ChannelShow extends React.Component {
         const channel_messages = this.renderMessages();
         return (
             <div className="channel-show-main">
-                <MessageForm />
-                <ul className="channel-show-message-container">
-                    {channel_messages}
-                </ul>
+                <div className="message-form-main">
+                    <MessageForm />
+                </div>
+                <div className="channel-message-index">
+                    <ul className="channel-show-message-container">
+                        {channel_messages}
+                    </ul>
+                </div>
             </div>
         )
     }
