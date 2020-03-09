@@ -14,7 +14,7 @@
     color: oldlace;
     font-weight: bold;
     padding: 4px;
-    padding-left: 6px;
+    padding-left: 4%;
     font-size: 24px;
     margin-top: 5%;
     font-family: "Poppins", sans-serif;
@@ -28,17 +28,16 @@
 .sidebar-logout-button {
     background-color: #222629;
     font-size: 13px;
-    border: solid 1px gray;
-    border-radius: 5px;
-    color: oldlace;
-    margin-top: 7px;
-    margin-left: 7%;
-    padding: 2px 18px;
+    border: none;
+    color: lightgray;
+    margin-top: 2px;
+    margin-left: 3%;
+    padding: 0px 18px;
     font-family: "Poppins", sans-serif;
 }
 
 .sidebar-logout-button:hover {
-    background-color: #363636;
+    color: oldlace;
 }
 
 .sidebar-jump-to {
@@ -103,6 +102,7 @@
 
 .sidebar-channels-render > ul > li > button:hover {
     background-color: #363636;
+    color: oldlace;
 }
 
 .sidebar-new-channel {
@@ -149,6 +149,7 @@
 
 .sidebar-dms-render > ul > li > button:hover {
     background-color: #363636;
+    color: oldlace;
 }
 
 .sidebar-dms-render > ul > li:hover {

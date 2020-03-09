@@ -425,11 +425,20 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
   _createClass(ChannelHeader, [{
     key: "render",
     value: function render() {
+      var title = "";
+
+      if (!!this.props.currentChannel) {
+        title = this.props.currentChannel.channel.name;
+      } else {
+        title = "Home";
+      }
+
+      ;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-header-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-header-title"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "#Channel.name")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "# ", title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-header-right"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
@@ -465,7 +474,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state) {
-  return {};
+  return {
+    currentChannel: state.entities.channels.currentChannel
+  };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -502,9 +513,9 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
@@ -517,15 +528,18 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
   _inherits(ChannelShow, _React$Component);
 
   function ChannelShow(props) {
+    var _this;
+
     _classCallCheck(this, ChannelShow);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(ChannelShow).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ChannelShow).call(this, props));
+    _this.renderMessages = _this.renderMessages.bind(_assertThisInitialized(_this));
+    return _this;
   }
 
   _createClass(ChannelShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // debugger;
       var channels = Object.values(this.props.channels);
 
       if (channels.length != 0) {
@@ -535,44 +549,42 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "renderMessages",
     value: function renderMessages() {
-      var _this = this;
+      var _this2 = this;
 
-      // debugger;
       if (this.props.messages) {
         var messagesArr = this.props.messages.map(function (message) {
-          if (message.created_at) {
-            var date = message.created_at.slice(11, 16).split(':');
+          var userId = message.userId;
+          var timeStamp = message.createdAt.slice(11, 16);
 
-            if (Number(date[0]) > 12) {
-              date[0] = String(Number(date[0]) - 12);
-            } else if (Number(date[0]) < 10 && date[0] !== '00') {
-              date[0] = date[0].slice(1);
-            } else if (date[0] === '00') {
-              date[0] = '12';
-            }
-
-            var newDate = Number(message.created_at.slice(11, 13)) > 12 ? "".concat(date.join(':'), " PM") : "".concat(date.join(':'), " AM"); // debugger;
-
-            return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-              className: "channel-show-message-render"
-            }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-              className: "channel-message-title"
-            }, _this.props.users[message.user_id].username, " ", newDate), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-              className: "channel-message-body"
-            }, message.body));
+          if (timeStamp.slice(0, 2) > 12) {
+            timeStamp = "".concat(timeStamp.slice(0, 2) - 12).concat(timeStamp.slice(2, timeStamp.length), " PM");
+          } else {
+            timeStamp = "".concat(timeStamp, " AM");
           }
+
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            className: "channel-show-message-render",
+            key: message.id
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "channel-message-title"
+          }, _this2.props.users[userId].username, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+            className: "timestamp"
+          }, timeStamp)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+            className: "channel-message-body"
+          }, message.body));
         });
-        return messagesArr; // debugger;
+        return messagesArr;
       }
     }
   }, {
     key: "render",
     value: function render() {
-      var channel_messages = this.renderMessages(); // debugger;
-
+      var channel_messages = this.renderMessages();
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-show-main"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_message_form__WEBPACK_IMPORTED_MODULE_1__["default"], null), channel_messages);
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_message_form__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
+        className: "channel-show-message-container"
+      }, channel_messages));
     }
   }]);
 
@@ -678,7 +690,6 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
     value: function update(field) {
       var _this2 = this;
 
-      debugger;
       return function (e) {
         var _this2$setState;
 
@@ -690,8 +701,7 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
     value: function handleSubmit(event) {
       event.preventDefault(); // this.setState({channel_id: this.props.currentChannel.id});
 
-      debugger;
-      Object(_actions_message_actions__WEBPACK_IMPORTED_MODULE_2__["createMessage"])(this.state);
+      this.props.createMessage(this.state);
     }
   }, {
     key: "render",
@@ -713,14 +723,21 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-  debugger;
   return {
     currentUser: state.entities.users[state.session.id],
     currentChannel: state.entities.channels.currentChannel
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps)(MessageForm));
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    createMessage: function createMessage(message) {
+      return dispatch(Object(_actions_message_actions__WEBPACK_IMPORTED_MODULE_2__["createMessage"])(message));
+    }
+  };
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(MessageForm));
 
 /***/ }),
 
@@ -1270,8 +1287,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
 
       var currentUser = this.props.currentUser;
       var channelArr = this.renderChannels();
-      var dmArr = this.renderDms(); // may need to change from link to button to call event listener to load channel
-
+      var dmArr = this.renderDms();
       var channelLinks = channelArr.map(function (ele) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
           key: ele[0]

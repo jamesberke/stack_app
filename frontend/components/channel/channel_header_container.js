@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { fetchMessage } from '../../actions/message_actions';
 
 const mapStateToProps = state => ({
-
+    currentChannel: state.entities.channels.currentChannel
 });
 
 const mapDispatchToProps = dispatch => ({

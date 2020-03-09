@@ -12,7 +12,6 @@ class MessageForm extends React.Component {
     };
 
     update(field) {
-        debugger;
         return e => this.setState({ 
                         [field]: e.target.value, 
                         ['channel_id']: this.props.currentChannel.channel.id
@@ -22,8 +21,7 @@ class MessageForm extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
         // this.setState({channel_id: this.props.currentChannel.id});
-        debugger;
-        createMessage(this.state);
+        this.props.createMessage(this.state);
     }
 
     render() {
@@ -41,12 +39,13 @@ class MessageForm extends React.Component {
 
 }
 
-const mapStateToProps = state =>{
-    debugger;
-    return {
-        currentUser: state.entities.users[state.session.id],
-        currentChannel: state.entities.channels.currentChannel
-    }
-};
+const mapStateToProps = state => ({
+    currentUser: state.entities.users[state.session.id],
+    currentChannel: state.entities.channels.currentChannel
+});
 
-export default connect (mapStateToProps)(MessageForm);
+const mapDispatchToProps = dispatch => ({
+    createMessage: message => dispatch(createMessage(message))
+})
+
+export default connect (mapStateToProps, mapDispatchToProps)(MessageForm);

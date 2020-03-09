@@ -49,15 +49,12 @@ class Sidebar extends React.Component {
         const { currentUser } = this.props;
         const channelArr =  this.renderChannels();
         const dmArr = this.renderDms();
-        // may need to change from link to button to call event listener to load channel
-        const channelLinks = channelArr.map((ele) => 
+        const channelLinks = channelArr.map( ele => 
             <li key={ele[0]}>
-                {/* <Link to={`/api/channels/${ele[0]}`}># {ele[1]}</Link> */}
                 <button onClick={() => this.props.fetchChannel(ele[0])}># {ele[1]}</button>
             </li>);
-        const dmLinks = dmArr.map((ele) => 
+        const dmLinks = dmArr.map( ele => 
             <li key={ele[0]}>
-                {/* <Link to={`/api/channels/${ele[0]}`}>{" \u2022 "} {ele[1]}</Link> */}
                 <button onClick={this.handleDmPick}>{" \u2022 "} {ele[1]}</button>
             </li >);
 

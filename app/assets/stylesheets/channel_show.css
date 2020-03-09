@@ -7,5 +7,37 @@
     top: 69px;
     width: 79%;
     background-color: #171717;
-    border: 0.1px solid gray
+    border: 0.1px solid gray;
+    font-family: "Poppins", sans-serif;
+}
+
+.channel-show-message-render {
+    background-color: #171717;
+    width: 98%;
+    padding: 10px;
+    border-left: 0.1px solid gray;
+    border-right: 0.1px solid gray;
+}
+
+.timestamp {
+    color: oldlace;
+    font-size: 10px;
+    font-weight: 100;
+}
+
+.channel-show-message-render:hover {
+    background-color: #222529;
+} 
+
+.channel-message-title {
+    color: oldlace;
+    padding: 4px;
+    padding-left: 0px;
+}
+
+.channel-message-body {
+    font-family: sans-serif;
+    font-weight: 100;
+    color: lightgray;
+    font-size: 14px;
 }
