@@ -8,7 +8,6 @@ const messagesReducer = (state = {}, action) => {
         case RECEIVE_MESSAGE:
             return Object.assign({}, state, { [action.message.id]: action.message }); 
         case RECEIVE_CHANNEL:
-            // debugger;
             return action.channel.messages;
         default:
             return state;
