@@ -12,8 +12,10 @@ class Api::UsersController < ApplicationController
 
     def create
         @user = User.new(user_params)
+        global_id = Channel.find_by(name: "Global").id
         
         if @user.save
+            Membership.create({user_id: @user.id, channel_id: global_id})
             login(@user)
             # render the user's show page
             render '/api/users/show'

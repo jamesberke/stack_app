@@ -8,7 +8,7 @@ class ChannelHeader extends React.Component {
     render() {
         let title = "";
         if (!!this.props.currentChannel) {
-            title = this.props.currentChannel.channel.name;
+            title = this.props.currentChannel.name;
         } else {
             title = "Home"
         };

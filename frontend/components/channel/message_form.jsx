@@ -12,27 +12,25 @@ class MessageForm extends React.Component {
     };
 
     update(field) {
-        return e => this.setState({ 
-                        [field]: e.target.value, 
-                        ['channel_id']: this.props.currentChannel.channel.id
-                        });
+        return e => this.setState({ [field]: e.target.value, 
+                                    ['channel_id']: this.props.currentChannel.id
+                                    });
     }
 
     handleSubmit(event) {
         event.preventDefault();
         this.props.createMessage(this.state);
-        // this.state.body = "";
         this.setState({body: ""});
     }
 
     render() {
         let channelName = "";
         if (!!this.props.currentChannel) {
-            channelName = this.props.currentChannel.channel.name;
+            channelName = this.props.currentChannel.name;
         } else {
             channelName = "Home";
         }
-        return(
+        return (
             <form className="message-form-container" onSubmit={this.handleSubmit}>
                 <input className="message-form-input" 
                         type="text" 
@@ -47,8 +45,7 @@ class MessageForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    currentUser: state.entities.users[state.session.id],
-    currentChannel: state.entities.channels.currentChannel
+    currentChannel: state.entities.channels[state.session.currentChannel]
 });
 
 const mapDispatchToProps = dispatch => ({

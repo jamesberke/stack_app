@@ -10,8 +10,6 @@ const channelsReducer = (state = {}, action) => {
             // Grabs the current user's channels and populates the channel slice of state 
             // to avoid holding arrays of pointers in user state
             return action.currentUser.channels;
-        case RECEIVE_CHANNEL:
-            return Object.assign({}, newState, { currentChannel: action.channel });
         case REMOVE_CHANNEL:
             delete newState[action.channel.id];
             return newState;

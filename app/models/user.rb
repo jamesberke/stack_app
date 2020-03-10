@@ -19,6 +19,7 @@ class User < ApplicationRecord
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
     after_initialize :ensure_session_token
+    
     attr_reader :password
     
     has_many :messages,
@@ -61,5 +62,12 @@ class User < ApplicationRecord
     def ensure_session_token
         self.session_token ||= SecureRandom.urlsafe_base64(16)
     end
+
+    # def ensure_global_subscription
+    #     if self.memberships.length == 0
+    #         global_id = Channel.find_by(name: "Global")
+    #         Membership.create({user_id: self.id, channel_id: global_id})
+    #     end
+    # end
 
 end

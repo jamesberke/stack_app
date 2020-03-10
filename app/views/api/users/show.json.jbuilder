@@ -8,16 +8,11 @@ json.partial! 'api/users/user', user: @user
     end
 end
 
-# dms = []
-# channels = []
+@user.memberships.each do |membership|
+    json.memberships do
+        json.set! membership.id do
+            json.extract! membership, :id, :user_id, :channel_id
+        end
+    end
+end
 
-# @user.channels.each do |channel|
-#     if channel.is_dm
-#             dms.push(channel.id)
-#     else
-#         channels.push(channel.id)
-#     end
-# end
-
-# json.direct_messages dms
-# json.channels channels

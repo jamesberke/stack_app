@@ -2,10 +2,9 @@ class Api::MembershipsController < ApplicationController
 
     def create
         membership = Membership.new(membership_params)
-        @channel = Channel.find_by(id: params[:membership][:channel_id])
 
         if membership.save
-            render 'api/channels/show'
+            render 'api/memborships/show'
         else
             render json: membership.errors.full_messages, status: 422
         end

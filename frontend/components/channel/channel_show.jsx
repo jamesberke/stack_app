@@ -21,8 +21,10 @@ class ChannelShow extends React.Component {
     }
 
     renderMessages() {
+        let that = this;
         if (this.props.messages) {
             const messagesArr = this.props.messages.map(message => {
+
                 const userId = message.userId;
                 let timeStamp = message.createdAt.slice(11, 16)
 
@@ -31,6 +33,7 @@ class ChannelShow extends React.Component {
                 } else {
                     timeStamp = `${timeStamp} AM`
                 }
+       
                 return (
                     <li className="channel-show-message-render" key={message.id}>
                         <div>
@@ -38,16 +41,18 @@ class ChannelShow extends React.Component {
                         </div>
                         <div>
                             <div className="channel-message-title">
-                                {this.props.users[userId].username} <span className="timestamp">{timeStamp}</span>
+                                {that.props.users[userId].username} <span className="timestamp">{timeStamp}</span>
                             </div>
                             <div className="channel-message-body">
                                 {message.body}
                             </div>
                         </div>
                     </li>
-                )    
+                )  
+
             });
-            return messagesArr;
+
+        return messagesArr;
         }
     };
 
