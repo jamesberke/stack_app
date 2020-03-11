@@ -17,12 +17,19 @@ class ChannelShow extends React.Component {
     };
 
     componentDidUpdate() {
-        this.bottom.current.scrollIntoView();
+        const channels = Object.values(this.props.channels);
+        if (this.props.messages.length < 1 && channels.length > 0) {
+            const selectedChannel = channels.filter(ch => ch.name === "Global")
+            this.props.fetchChannel(selectedChannel[0].id);
+        }
+        if (Object.values(this.props.users).length > 1) {
+            this.bottom.current.scrollIntoView();
+        }
     }
 
     renderMessages() {
         let that = this;
-        if (this.props.messages) {
+        if (!!this.props.messages && !!this.props.users) {
             const messagesArr = this.props.messages.map(message => {
                 
                 const userId = message.userId;
@@ -33,7 +40,7 @@ class ChannelShow extends React.Component {
                 } else {
                     timeStamp = `${timeStamp} AM`
                 }
-       
+
                 return (
                     <li className="channel-show-message-render" key={message.id}>
                         <div>
@@ -57,6 +64,9 @@ class ChannelShow extends React.Component {
     };
 
     render() {
+        if (Object.values(this.props.users).length < 2) {
+            return null;
+        }
         const channel_messages = this.renderMessages();
         return (
             <div className="channel-show-main">

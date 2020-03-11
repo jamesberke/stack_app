@@ -13,8 +13,6 @@ class Listener extends React.Component {
         }
     }
 
-
-
     createSubscriptions() {
         let memberships = this.props.memberships;
 

@@ -7,8 +7,8 @@ import membershipsReducer from "./memberships_reducer";
 const entitiesReducer = combineReducers ({
     users: usersReducer,
     channels: channelsReducer,
-    messages: messagesReducer,
-    memberships: membershipsReducer
+    memberships: membershipsReducer,
+    messages: messagesReducer
 });
 
 export default entitiesReducer;

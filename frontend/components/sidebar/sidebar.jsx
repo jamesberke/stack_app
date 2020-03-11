@@ -5,7 +5,6 @@ class Sidebar extends React.Component {
 
     constructor(props) {
         super(props);
-        debugger;
         this.handleLogout = this.handleLogout.bind(this);
     }
 

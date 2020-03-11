@@ -427,8 +427,6 @@ var fetchUser = function fetchUser(userId) {
   return function (dispatch) {
     return _util_user_api_util__WEBPACK_IMPORTED_MODULE_1__["fetchUser"](userId).then(function (user) {
       return dispatch(Object(_session_actions__WEBPACK_IMPORTED_MODULE_0__["receiveCurrentUser"])(user));
-    }, function (errors) {
-      return dispatch(receiveErrors(errors.responseJSON));
     });
   };
 };
@@ -827,14 +825,25 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      this.bottom.current.scrollIntoView();
+      var channels = Object.values(this.props.channels);
+
+      if (this.props.messages.length < 1 && channels.length > 0) {
+        var selectedChannel = channels.filter(function (ch) {
+          return ch.name === "Global";
+        });
+        this.props.fetchChannel(selectedChannel[0].id);
+      }
+
+      if (Object.values(this.props.users).length > 1) {
+        this.bottom.current.scrollIntoView();
+      }
     }
   }, {
     key: "renderMessages",
     value: function renderMessages() {
       var that = this;
 
-      if (this.props.messages) {
+      if (!!this.props.messages && !!this.props.users) {
         var messagesArr = this.props.messages.map(function (message) {
           var userId = message.userId;
           var timeStamp = message.createdAt.slice(11, 16);
@@ -865,6 +874,10 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      if (Object.values(this.props.users).length < 2) {
+        return null;
+      }
+
       var channel_messages = this.renderMessages();
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-show-main"
@@ -1235,7 +1248,7 @@ var Client = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
         className: "client-main-page"
-      }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_sidebar_sidebar_container__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_channel_header_container__WEBPACK_IMPORTED_MODULE_0__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_channel_show_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_listener_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+      }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_sidebar_sidebar_container__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_channel_header_container__WEBPACK_IMPORTED_MODULE_0__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_channel_show_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_listener_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_3__["default"], null));
     }
   }]);
 
@@ -1746,7 +1759,6 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Sidebar);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Sidebar).call(this, props));
-    debugger;
     _this.handleLogout = _this.handleLogout.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -2412,8 +2424,8 @@ __webpack_require__.r(__webpack_exports__);
 var entitiesReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   channels: _channels_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  messages: _messages_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
-  memberships: _memberships_reducer__WEBPACK_IMPORTED_MODULE_4__["default"]
+  memberships: _memberships_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
+  messages: _messages_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 /* harmony default export */ __webpack_exports__["default"] = (entitiesReducer);
 
@@ -2466,12 +2478,9 @@ var membershipsReducer = function membershipsReducer() {
       return action.currentUser.memberships;
 
     case _actions_membership_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_MEMBERSHIP"]:
-      return Object.assign({}, state, {
-        memberships: _defineProperty({}, action.membership.id, action.membership)
-      });
+      return Object.assign({}, state, _defineProperty({}, action.membership.id, action.membership));
 
     case _actions_membership_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_MEMBERSHIP"]:
-      debugger;
       delete newState[action.membershipId];
       return newState;
 

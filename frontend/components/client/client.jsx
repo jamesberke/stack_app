@@ -14,11 +14,11 @@ class Client extends React.Component {
     render() {
         return (
             <div className="client-main-page">
-                <Modal />
                 <SidebarContainer />
                 <ChannelHeaderContainer />
                 <ChannelShowContainer />
                 <ListenerContainer />
+                <Modal />
             </div>
         )
     }

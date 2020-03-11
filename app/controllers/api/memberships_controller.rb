@@ -4,7 +4,7 @@ class Api::MembershipsController < ApplicationController
         @membership = Membership.new(membership_params)
         @membership.user_id = current_user.id
         if @membership.save
-            render 'api/memborships/show'
+            render 'api/memberships/show'
         else
             render json: @membership.errors.full_messages, status: 422
         end
