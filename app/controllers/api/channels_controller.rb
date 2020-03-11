@@ -1,5 +1,10 @@
 class Api::ChannelsController < ApplicationController
 
+    def index
+        @channels = Channel.all
+        render 'api/channels/index'
+    end
+
     def show
         @channel = Channel.find_by(id: params[:id])
         render 'api/channels/show'
@@ -8,8 +13,16 @@ class Api::ChannelsController < ApplicationController
     def create
         @channel = Channel.new(channel_params)
         @channel.admin_id = current_user.id
+        stack_bot = User.find_by(username: "stack_bot")
 
         if @channel.save
+            Membership.create({user_id: @channel.admin_id, 
+                                channel_id: @channel.id})
+            Membership.create({user_id: stack_bot.id, 
+                                channel_id: @channel.id})
+            Message.create({body: "Welcome to #{@channel.name}",
+                            user_id: stack_bot.id,
+                            channel_id: @channel.id})
             render 'api/channels/show'
         else
             render json: @channel.errors.full_messages, status: 422

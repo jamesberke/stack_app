@@ -96,18 +96,30 @@
     background-color: #363636;
 }
 
+.selected {
+    background-color: lightgray;
+    color: darkslategray;
+}
+
 .sidebar-channels-render > ul > li > button:hover {
     background-color: #363636;
     color: oldlace;
 }
 
 .sidebar-new-channel {
-    margin-left: 5%;
-    margin-top: 16px;
+    margin-top: 8px;
     color: oldlace;
     font-weight: 100;
     font-size: 17px;
     text-decoration: none;
+    cursor: default;
+    padding-left: 5%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.sidebar-new-channel:hover {
+    background-color: #363636;    
 }
 
 .sidebar-dms-title {

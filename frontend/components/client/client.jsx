@@ -1,7 +1,7 @@
 import ChannelHeaderContainer from '../channel/channel_header_container';
 import ChannelShowContainer from '../channel/channel_show_container';
-import { Link } from 'react-router-dom';
 import ListenerContainer from '../channel/listener_container';
+import Modal from '../modal/modal';
 import React from 'react';
 import SidebarContainer from '../sidebar/sidebar_container';
 
@@ -14,6 +14,7 @@ class Client extends React.Component {
     render() {
         return (
             <div className="client-main-page">
+                <Modal />
                 <SidebarContainer />
                 <ChannelHeaderContainer />
                 <ChannelShowContainer />

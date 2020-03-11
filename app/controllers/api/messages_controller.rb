@@ -8,7 +8,7 @@ class Api::MessagesController < ApplicationController
 
     def create
         @message = Message.new(message_params)
-        @message.user_id = current_user.id
+        @message.user_id ||= current_user.id
 
         if @message.save
             ActionCable
@@ -44,7 +44,7 @@ class Api::MessagesController < ApplicationController
     private
 
     def message_params
-        params.require(:message).permit(:body, :channel_id, :parent_id)
+        params.require(:message).permit(:body, :channel_id, :parent_id, :user_id)
     end
 
 end

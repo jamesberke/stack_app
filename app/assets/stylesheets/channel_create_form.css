@@ -1,0 +1,84 @@
+.channel-create-form-container {
+    top: 10%;
+    bottom: 10%;
+    left: 10%;
+    right: 10%;
+    position: relative;
+    z-index: 7;
+}
+
+.channel-create-form {
+    display: flex;
+    flex-direction: column;
+    font-family: "Poppins", sans-serif;
+}
+
+.channel-create-title {
+    display: flex;
+    font-size: 24px;
+    color: oldlace;
+    padding: 20px;
+}
+
+.channel-create-form > label {
+    color: oldlace;
+    font-size: 14px;
+    padding: 10px 20px;
+}
+
+.channel-name-input {
+    display: flex;
+    width: 75%;
+    color: lightgray;
+    background-color: inherit;
+    border: solid 1px gray;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-top: 3px;
+    padding: 2px 6px;
+    outline: none;
+}
+
+.channel-name-input:hover {
+    background-color: #363636;
+}
+
+.channel-description-input {
+    display: flex;
+    background-color: inherit;
+    color: lightgray;
+    width: 75%;
+    height: auto;
+    border: none;
+    border: solid 1px gray;
+    border-radius: 5px;
+    font-size: 18px;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    resize: none;
+    margin-top: 3px;
+    padding: 2px 6px;
+    outline: none;
+}
+
+.channel-description-input:hover {
+    background-color: #363636;
+}
+
+.channel-create-submit {
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    padding: 5px 10px;
+    width: 160px;
+    height: auto;
+    background-color: inherit;
+    border: solid 1px gray;
+    border-radius: 5px;
+    color: oldlace;
+    font-size: 16px;
+    justify-content: center;
+}

@@ -7,7 +7,8 @@
     display: flex;
     background-color: #1C1E22;
     border-bottom: 0.1px solid gray;
-    border-left: 0.1px solid gray;
+    border-left
+    : 0.1px solid gray;
 }
 
 .channel-header-left {
@@ -32,6 +33,17 @@
     margin-left: 3%;
 }
 
+.channel-header-subscribe {
+    display: flex;
+    background-color: inherit;
+    height: 30px;
+    color: oldlace;
+    border: solid 1px gray;
+    border-radius: 5px;
+    margin-left: 15px;
+    margin-top: 20px;
+}
+
 .channel-darkmode-selector {
     background-color: #1C1E22;
     font-size: 12px;
@@ -54,7 +66,7 @@
     width: 40%;
     padding: 4px 20px;
     font-family: "Poppins", sans-serif;
-    margin-left: 50%;
+    margin-left: 40%;
     margin-top: 20px;
     height: 25px;
 }

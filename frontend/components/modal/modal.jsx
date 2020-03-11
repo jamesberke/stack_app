@@ -11,7 +11,7 @@ const Modal = ({ modal, closeModal }) => {
 
     let component;
     switch (modal) {
-        case createChannel:
+        case 'createChannel':
             component = <ChannelCreateForm />;   
         default:
             break;
@@ -19,7 +19,7 @@ const Modal = ({ modal, closeModal }) => {
 
     return (
         <div className="modal-screen" onClick={closeModal}>
-            <div className="modal-render">
+            <div className="modal-render" onClick={e => e.stopPropagation()}>
                 {component}
             </div>
         </div>

@@ -11,6 +11,7 @@ const messagesReducer = (state = {}, action) => {
             return Object.assign({}, state, action.payload.messages)
         case RECEIVE_CHANNEL:
             return action.channel.messages;
+
         default:
             return state;
     }

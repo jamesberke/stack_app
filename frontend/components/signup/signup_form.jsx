@@ -48,8 +48,6 @@ class SignupForm extends React.Component {
     };
 
     render() {
-        console.log(this.state)
-        // Need to style errors
         return (
             <div className="signup-form-page">
                 <div className="signup-error-container">

@@ -1,3 +1,9 @@
+export const fetchChannels = () => (
+    $.ajax({
+        url: `api/channels`
+    })
+);
+
 export const fetchChannel = channelId => (
     $.ajax({
         url: `api/channels/${channelId}`

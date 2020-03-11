@@ -24,7 +24,7 @@ class ChannelShow extends React.Component {
         let that = this;
         if (this.props.messages) {
             const messagesArr = this.props.messages.map(message => {
-
+                
                 const userId = message.userId;
                 let timeStamp = message.createdAt.slice(11, 16)
 
