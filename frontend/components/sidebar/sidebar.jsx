@@ -30,7 +30,9 @@ class Sidebar extends React.Component {
             this.props.memberships.forEach(membership => {
                 const id = membership.channelId;
                 const channel = that.props.channels[id]
-
+                if (!channel) {
+                    return;
+                }
                 if (channel.isDm) {
                     dms_arr.push([channel.id, channel.name])
                 }
@@ -48,7 +50,9 @@ class Sidebar extends React.Component {
             this.props.memberships.forEach(membership => {
                 const id = membership.channelId;
                 const channel = that.props.channels[id]
-
+                if (!channel) {
+                    return;
+                }
                 if (!channel.isDm) {
                     channels_arr.push([channel.id, channel.name])
                 }
@@ -86,7 +90,8 @@ class Sidebar extends React.Component {
                 </button>
                 <input type="text" 
                         placeholder="SEARCH..."
-                        className="sidebar-jump-to">
+                        className="sidebar-jump-to"
+                        onClick={() => this.props.openModal('channelSearch')}>
                 </input>
                 <div className="sidebar-channels-container">
                     <h2 className="sidebar-channels-title">

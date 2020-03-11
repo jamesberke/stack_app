@@ -5,10 +5,10 @@ import messagesReducer from "./messages_reducer";
 import membershipsReducer from "./memberships_reducer";
 
 const entitiesReducer = combineReducers ({
-    users: usersReducer,
-    channels: channelsReducer,
     memberships: membershipsReducer,
-    messages: messagesReducer
+    channels: channelsReducer,
+    messages: messagesReducer,
+    users: usersReducer
 });
 
 export default entitiesReducer;

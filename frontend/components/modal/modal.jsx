@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import ChannelCreateForm from '../channel/channel_create_form';
 import React from 'react';
+import SearchContainer from '../search/search_container';
 
 const Modal = ({ modal, closeModal }) => {
 
@@ -12,7 +13,11 @@ const Modal = ({ modal, closeModal }) => {
     let component;
     switch (modal) {
         case 'createChannel':
-            component = <ChannelCreateForm />;   
+            component = <ChannelCreateForm />;
+            break;  
+        case 'channelSearch':
+            component = <SearchContainer />; 
+            break;
         default:
             break;
     }

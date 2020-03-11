@@ -16,9 +16,9 @@ class Api::ChannelsController < ApplicationController
         stack_bot = User.find_by(username: "stack_bot")
 
         if @channel.save
-            Membership.create({user_id: @channel.admin_id, 
-                                channel_id: @channel.id})
             Membership.create({user_id: stack_bot.id, 
+                                channel_id: @channel.id})
+            Membership.create({user_id: @channel.admin_id, 
                                 channel_id: @channel.id})
             Message.create({body: "Welcome to #{@channel.name}",
                             user_id: stack_bot.id,

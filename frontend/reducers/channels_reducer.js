@@ -1,4 +1,4 @@
-import { RECEIVE_CHANNELS, REMOVE_CHANNEL } from '../actions/channel_actions';
+import { RECEIVE_CHANNELS, REMOVE_CHANNEL, RECEIVE_CHANNEL } from '../actions/channel_actions';
 import { RECEIVE_CURRENT_USER, LOGOUT_CURRENT_USER } from '../actions/session_actions';
 
 const channelsReducer = (state = {}, action) => {
@@ -10,6 +10,8 @@ const channelsReducer = (state = {}, action) => {
             return action.currentUser.channels;
         case RECEIVE_CHANNELS:
             return action.channels;
+        case RECEIVE_CHANNEL:
+            return Object.assign({}, newState, {[action.channel.channel.id]: action.channel.channel})
         case REMOVE_CHANNEL:
             delete newState[action.channel.id];
             return newState;
