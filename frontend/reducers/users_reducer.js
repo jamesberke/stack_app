@@ -13,7 +13,7 @@ const usersReducer = (state = {}, action) => {
                 email: action.currentUser.email
             }};
         case RECEIVE_CHANNEL:
-            return action.channel.users;
+            return Object.assign({}, state, action.channel.users);
         default:
             return state;
     };

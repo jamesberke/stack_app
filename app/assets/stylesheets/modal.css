@@ -17,4 +17,5 @@
     right: 6%;
     z-index: 6;
     position: absolute;
+    overflow: hidden;
 }

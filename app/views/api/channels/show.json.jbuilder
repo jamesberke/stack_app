@@ -1,7 +1,9 @@
 new_membership = @channel.memberships.select{ |membership| current_user.id == membership.user_id }
 
-json.membership do
-     json.partial! 'api/memberships/membership', membership: new_membership[0]
+unless new_membership.empty?
+    json.membership do
+        json.partial! 'api/memberships/membership', membership: new_membership[0]
+    end
 end
 
 json.channel do

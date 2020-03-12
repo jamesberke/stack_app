@@ -9,9 +9,13 @@ const membershipsReducer = (state = {}, action) => {
         case RECEIVE_CURRENT_USER:
             return action.currentUser.memberships;
         case RECEIVE_CHANNEL:
-            return Object.assign({}, newState, {[action.channel.membership.id]: action.channel.membership}) 
+            if (!!action.channel.membership) {
+                return Object.assign({}, newState, {[action.channel.membership.id]: action.channel.membership}) 
+            }
         case RECEIVE_MEMBERSHIP:
-            return Object.assign({}, state, {[action.membership.id]: action.membership})
+            if (!!action.membership) {
+                return Object.assign({}, state, {[action.membership.id]: action.membership})
+            }
         case REMOVE_MEMBERSHIP:
             delete newState[action.membershipId];
             return newState;

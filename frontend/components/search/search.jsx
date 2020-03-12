@@ -8,6 +8,10 @@ class Search extends React.Component {
         this.update = this.update.bind(this);
     }
 
+    componentDidMount() {
+        this.props.fetchChannels();
+    }
+
     update(event) {
         this.setState({ searchInput: event.currentTarget.value })
     }
@@ -31,6 +35,7 @@ class Search extends React.Component {
 
     handleChannelPick(id) {
         this.props.fetchChannel(id);
+        this.props.closeModal();
     }
 
     render() {
@@ -42,7 +47,7 @@ class Search extends React.Component {
                         key={matchedChannel.id}
                         onClick={() => this.handleChannelPick(matchedChannel.id)}>
                     <div className="channel-render-title">
-                        {matchedChannel.name}
+                        # {matchedChannel.name}
                     </div>
                     <div className="channel-render-description">
                         {matchedChannel.description}
@@ -56,7 +61,9 @@ class Search extends React.Component {
                         onChange={this.update}
                         value={this.state.searchInput}
                         placeholder="Search for a channel..." />
-                {renderMatches}
+                <div className="channel-render-container">
+                    {renderMatches}
+                </div>
             </div>
         )
     }

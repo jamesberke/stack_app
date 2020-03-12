@@ -1774,6 +1774,11 @@ var Search = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(Search, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.fetchChannels();
+    }
+  }, {
     key: "update",
     value: function update(event) {
       this.setState({
@@ -1805,6 +1810,7 @@ var Search = /*#__PURE__*/function (_React$Component) {
     key: "handleChannelPick",
     value: function handleChannelPick(id) {
       this.props.fetchChannel(id);
+      this.props.closeModal();
     }
   }, {
     key: "render",
@@ -1821,7 +1827,7 @@ var Search = /*#__PURE__*/function (_React$Component) {
           }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "channel-render-title"
-        }, matchedChannel.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, "# ", matchedChannel.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "channel-render-description"
         }, matchedChannel.description));
       });
@@ -1832,7 +1838,9 @@ var Search = /*#__PURE__*/function (_React$Component) {
         onChange: this.update,
         value: this.state.searchInput,
         placeholder: "Search for a channel..."
-      }), renderMatches);
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "channel-render-container"
+      }, renderMatches));
     }
   }]);
 
@@ -1875,6 +1883,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchChannel: function fetchChannel(channelId) {
       return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_3__["fetchChannel"])(channelId));
+    },
+    fetchChannels: function fetchChannels() {
+      return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_3__["fetchChannels"])());
     },
     closeModal: function closeModal() {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_0__["closeModal"])());
@@ -2038,7 +2049,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
         className: "sidebar-logout-button"
       }, "Logout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        placeholder: "SEARCH...",
+        placeholder: "Search for channels...",
         className: "sidebar-jump-to",
         onClick: function onClick() {
           return _this2.props.openModal('channelSearch');
@@ -2667,10 +2678,14 @@ var membershipsReducer = function membershipsReducer() {
       return action.currentUser.memberships;
 
     case _actions_channel_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_CHANNEL"]:
-      return Object.assign({}, newState, _defineProperty({}, action.channel.membership.id, action.channel.membership));
+      if (!!action.channel.membership) {
+        return Object.assign({}, newState, _defineProperty({}, action.channel.membership.id, action.channel.membership));
+      }
 
     case _actions_membership_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_MEMBERSHIP"]:
-      return Object.assign({}, state, _defineProperty({}, action.membership.id, action.membership));
+      if (!!action.membership) {
+        return Object.assign({}, state, _defineProperty({}, action.membership.id, action.membership));
+      }
 
     case _actions_membership_actions__WEBPACK_IMPORTED_MODULE_1__["REMOVE_MEMBERSHIP"]:
       delete newState[action.membershipId];
@@ -2921,7 +2936,7 @@ var usersReducer = function usersReducer() {
       });
 
     case _actions_channel_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CHANNEL"]:
-      return action.channel.users;
+      return Object.assign({}, state, action.channel.users);
 
     default:
       return state;

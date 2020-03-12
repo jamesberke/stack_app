@@ -89,7 +89,7 @@ class Sidebar extends React.Component {
                     Logout
                 </button>
                 <input type="text" 
-                        placeholder="SEARCH..."
+                        placeholder="Search for channels..."
                         className="sidebar-jump-to"
                         onClick={() => this.props.openModal('channelSearch')}>
                 </input>
