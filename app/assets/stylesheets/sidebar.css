@@ -95,7 +95,6 @@
 
 .sidebar-channels-render > ul > li:hover {
     background-color: #363636;
-    border: solid 1px #222629;
 }
 
 .sidebar-channels-render > ul > li > button.selected {
