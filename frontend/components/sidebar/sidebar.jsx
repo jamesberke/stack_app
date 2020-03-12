@@ -18,6 +18,11 @@ class Sidebar extends React.Component {
         this.props.logout();
     }
 
+    toggleDropdown(event) {
+        event.preventDefault();
+        document.getElementById('dropdown').classList.toggle('show')
+    }
+
     renderDms() {
         const dms_arr = [];
         const that = this;
@@ -80,20 +85,33 @@ class Sidebar extends React.Component {
                 <li key={ele[0]}>
                     <button onClick={() => this.props.fetchChannel(ele[0])}
                             className={ele[0] === this.props.currentChannel ? "selected" : ""}>     
-                                {" \u2022 "} {ele[1]}
+                                {"\u2022"} {ele[1]}
                     </button>
                 </li >);
         }
 
         return (
             <div className="sidebar-main-container">
-                <div className="sidebar-currentuser-greeting">
-                    {currentUser.username}
+                <div className="sidebar-currentuser-greeting"
+                        onClick={this.toggleDropdown}>
+                    <span className="sidebar-greeting-bullet">{"\u2022"}</span> {currentUser.username}
                     <img src={window.profilePicture} className="channel-header-picture"></img>
+                    <i className="fas fa-caret-down"></i>
                 </div>
-                <button onClick={this.handleLogout} className="sidebar-logout-button">
-                    Logout
-                </button>
+                <div className="sidebar-greeting-dropdown-content" id="dropdown">
+                    <button onClick={this.handleLogout} className="sidebar-logout-button">
+                        Logout
+                    </button>
+                    <button className="sidebar-edit-profile-button">
+                        Edit Profile
+                    </button>
+                    <a href='https://github.com/jamesberke/stack_app' className='dropdown-github'>
+                        Visit my Github
+                    </a>
+                    <a href='https://www.linkedin.com/in/james-berke-33912718a/' className='dropdown-linkedin'>
+                        Visit my LinkedIn
+                    </a>
+                </div>
                 <input type="text" 
                         placeholder="Search for channels..."
                         className="sidebar-jump-to"

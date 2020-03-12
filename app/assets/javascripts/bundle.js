@@ -705,11 +705,11 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "channel-settings"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-cog"
+        className: "fas fa-cog"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "channel-member-dropdown"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        "class": "fas fa-user"
+        className: "fas fa-user"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "SEARCH...",
@@ -1962,6 +1962,12 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
       this.props.logout();
     }
   }, {
+    key: "toggleDropdown",
+    value: function toggleDropdown(event) {
+      event.preventDefault();
+      document.getElementById('dropdown').classList.toggle('show');
+    }
+  }, {
     key: "renderDms",
     value: function renderDms() {
       var dms_arr = [];
@@ -2040,21 +2046,37 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
               return _this2.props.fetchChannel(ele[0]);
             },
             className: ele[0] === _this2.props.currentChannel ? "selected" : ""
-          }, " \u2022 ", " ", ele[1]));
+          }, "\u2022", " ", ele[1]));
         });
       }
 
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-main-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar-currentuser-greeting"
-      }, currentUser.username, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        className: "sidebar-currentuser-greeting",
+        onClick: this.toggleDropdown
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "sidebar-greeting-bullet"
+      }, "\u2022"), " ", currentUser.username, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: window.profilePicture,
         className: "channel-header-picture"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+        className: "fas fa-caret-down"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "sidebar-greeting-dropdown-content",
+        id: "dropdown"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleLogout,
         className: "sidebar-logout-button"
-      }, "Logout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, "Logout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "sidebar-edit-profile-button"
+      }, "Edit Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://github.com/jamesberke/stack_app",
+        className: "dropdown-github"
+      }, "Visit my Github"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        href: "https://www.linkedin.com/in/james-berke-33912718a/",
+        className: "dropdown-linkedin"
+      }, "Visit my LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "Search for channels...",
         className: "sidebar-jump-to",

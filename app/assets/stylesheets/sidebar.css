@@ -9,39 +9,94 @@
     border-right: 1px solid gray;
 }
 
+.sidebar-greeting-bullet {
+    font-size: 28px;
+    margin-right: 4px;
+    color: rgb(69, 216, 69);
+}
+
 .sidebar-currentuser-greeting {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 69px;
+    cursor: default;
     color: oldlace;
     font-weight: bold;
-    padding: 4px;
     padding-left: 4%;
-    font-size: 24px;
-    margin-top: 5%;
+    font-size: 22px;
     font-family: "Poppins", sans-serif;
-    margin-left: 2%;
+}
+
+.sidebar-currentuser-greeting:hover {
+    background-color: #121518;
 }
 
 .channel-header-picture {
-    height: 40px;
+    height: 38px;
     border-radius: 4px;
     position: absolute;
-    right: 20px;
+    right: 18px;
 }
 
-.sidebar-logout-button {
-    background-color: #222629;
+.fa-caret-down {
+    margin-left: 4%;
+    font-size: 14px;
+    color: lightgray;
+    opacity: 0.5;
+}
+
+.sidebar-greeting-dropdown-content {
+    z-index: 11;
+    display: none;
+    position: absolute;
+    background-color: #1c1e22;
+    flex-direction: column;
+    width: 100%;
+    border: solid 1px gray;
+    border-radius: 5px;
+    top: 70px;
+    overflow: hidden;
+    box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.4);
+}
+
+.show {
+    display: flex;
+}
+
+.sidebar-logout-button, .sidebar-edit-profile-button {
+    background-color: inherit;
+    display: flex;
+    justify-content: flex-start;
     font-size: 13px;
     border: none;
+    width: 100%;
     color: lightgray;
-    margin-top: 2px;
-    margin-left: 3%;
-    padding: 0px 18px;
+    padding: 10px 0px;
+    padding-left: 6%;
     font-family: "Poppins", sans-serif;
     outline: none;
 }
 
-.sidebar-logout-button:hover {
-    color: oldlace;
+.sidebar-logout-button:hover, .sidebar-edit-profile-button:hover {
+    background-color: #363636;
 }
+
+.dropdown-github, .dropdown-linkedin {
+    width: 94%;
+    text-decoration: none;
+    color: lightgray;
+    padding: 15px 0px;;
+    padding-left: 6%;
+    font-size: 13px;
+    cursor: default;
+    font-family: "Poppins", sans-serif;
+}
+
+.dropdown-github:hover, .dropdown-linkedin:hover {
+    background-color: #363636;
+
+} 
 
 .sidebar-jump-to {
     color: lightgray;
@@ -49,10 +104,10 @@
     font-size: 14px;
     background-color: #4d4d4f;
     width: 82%;
-    margin-top: 18px;
     border: none;
     border-radius: 5px;
     margin-left: 5%;
+    margin-top: 16px;
     padding: 6px;
     cursor: default;
     font-family: "Poppins", sans-serif;

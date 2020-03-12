@@ -49,10 +49,10 @@ class ChannelHeader extends React.Component {
                     
                     <i className="fas fa-search"></i>
                     <button className="channel-settings">
-                        <i class="fas fa-cog"></i>
+                        <i className="fas fa-cog"></i>
                     </button>
                     <button className="channel-member-dropdown">
-                        <i class="fas fa-user"></i>
+                        <i className="fas fa-user"></i>
                     </button>
                     <input type="text" 
                             placeholder="SEARCH..." 
