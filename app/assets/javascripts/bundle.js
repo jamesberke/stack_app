@@ -192,8 +192,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "createMembership", function() { return createMembership; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "deleteMembership", function() { return deleteMembership; });
 /* harmony import */ var _util_membership_api_util__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../util/membership_api_util */ "./frontend/util/membership_api_util.js");
-/* harmony import */ var _actions_channel_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/channel_actions */ "./frontend/actions/channel_actions.js");
-
 
 var RECEIVE_MEMBERSHIP = 'RECEIVE_MEMBERSHIP';
 var REMOVE_MEMBERSHIP = 'REMOVE_MEMBERSHIP';
@@ -216,8 +214,6 @@ var createMembership = function createMembership(membership) {
   return function (dispatch) {
     return _util_membership_api_util__WEBPACK_IMPORTED_MODULE_0__["createMembership"](membership).then(function (membership) {
       return dispatch(receiveMembership(membership));
-    }, function (errors) {
-      return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_1__["receiveErrors"])(errors.responseJSON));
     });
   };
 };
@@ -225,8 +221,6 @@ var deleteMembership = function deleteMembership(membershipId) {
   return function (dispatch) {
     return _util_membership_api_util__WEBPACK_IMPORTED_MODULE_0__["deleteMembership"](membershipId).then(function (membership) {
       return dispatch(removeMembership(membership.id));
-    }, function (errors) {
-      return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_1__["receiveErrors"])(errors.responseJSON));
     });
   };
 };
