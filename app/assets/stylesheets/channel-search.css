@@ -14,14 +14,16 @@
     border-bottom: solid 1px gray;
     outline: none;
     color: oldlace;
-    padding-left: 10px;
+    padding-top: 16px;
+    padding-left: 20px;
+    padding-bottom: 4px;
     margin-bottom: 10px;
 }
 
 .channel-render-container {
     overflow: scroll;
     position: absolute;
-    top: 40px;
+    top: 52px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -32,6 +34,12 @@
     border-bottom: solid 1px #363636;
     background-color: inherit;
     color: lightgray;
+    opacity: 0.8;
+}
+
+.channel-render:hover {
+    background-color: #363636;
+    opacity: 1;
 }
 
 .channel-render-title {

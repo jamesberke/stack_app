@@ -21,7 +21,7 @@
 }
 
 .channel-header-picture {
-    height: 35px;
+    height: 40px;
     border-radius: 4px;
     position: absolute;
     right: 20px;
@@ -56,6 +56,7 @@
     padding: 6px;
     cursor: default;
     font-family: "Poppins", sans-serif;
+    outline: none;
 }
 
 .sidebar-channels-title {

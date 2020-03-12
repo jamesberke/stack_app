@@ -46,12 +46,20 @@ class ChannelHeader extends React.Component {
                     {subButton}                    
                 </div>
                 {/* <div className="channel-header-right"> */}
+                    
+                    <i className="fas fa-search"></i>
+                    <button className="channel-settings">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <button className="channel-member-dropdown">
+                        <i class="fas fa-user"></i>
+                    </button>
                     <input type="text" 
                             placeholder="SEARCH..." 
                             className="channel-header-search">
                     </input>
                     <button className="channel-darkmode-selector">
-                        DM               
+                        <i className="fas fa-lightbulb"></i>               
                     </button>
                 {/* </div> */}
             </div>
