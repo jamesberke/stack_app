@@ -89,6 +89,7 @@ class Sidebar extends React.Component {
             <div className="sidebar-main-container">
                 <div className="sidebar-currentuser-greeting">
                     {currentUser.username}
+                    <img src={window.profilePicture} className="channel-header-picture"></img>
                 </div>
                 <button onClick={this.handleLogout} className="sidebar-logout-button">
                     Logout
@@ -108,7 +109,7 @@ class Sidebar extends React.Component {
                         </ul>
                     </div>
                     <div className="sidebar-new-channel" onClick={() => this.props.openModal('createChannel')}>
-                        {"\u002B"} Add a channel
+                        {"\u002B"} Create a channel
                     </div>
                 </div>
                 <div className="sidebar-dms-container">

@@ -11,64 +11,73 @@
     : 0.1px solid gray;
 }
 
-.channel-header-left {
-    display: flex;
-    justify-content: flex-start;
-}
-
 .channel-header-right {
-    width: 70%;
+    /* width: 70%; */
     display: flex;
     justify-content: flex-end;
+    border: solid 1px red;
 }
 
 .channel-header-title {
     color: oldlace;
     font-weight: bold;
-    /* padding: 4px;
-    padding-left: 6px; */
     font-size: 22px;
-    margin-top: 26px;
+    margin-top: 16px;
     font-family: "Poppins", sans-serif;
-    margin-left: 3%;
+    left: 3%;
+    justify-content: flex-start;
+    position: absolute;
 }
 
 .channel-header-subscribe {
     display: flex;
     background-color: inherit;
-    height: 30px;
+    color: lightgray;
+    border: none;
+    height: 25%;
+    margin-left: 26px;
+    margin-top: 6px;
+    padding: 0px;
+    outline: none;
+}
+
+.channel-header-subscribe:hover {
     color: oldlace;
-    border: solid 1px gray;
-    border-radius: 5px;
-    margin-left: 15px;
-    margin-top: 20px;
 }
 
 .channel-darkmode-selector {
-    background-color: #1C1E22;
+    background-color: inherit;
     font-size: 12px;
-    border: solid 1px gray;
+    border: none;
     border-radius: 5px;
-    color: oldlace;
+    color: lightgray;
     font-family: "Poppins", sans-serif;
     margin-top: 24px;
-    margin-left: 10px;
     height: 25px;
+    position: absolute;
+    right: 25px;
+    outline: none;
+}
+
+.channel-darkmode-selector:hover {
+    color: oldlace;
 }
 
 .channel-header-search {
     color: lightgray;
     font-weight: bold;
     font-size: 14px;
-    background-color: #1C1E22;
+    background-color: inherit;
     border: solid 1px gray;
     border-radius: 5px;
-    width: 40%;
+    width: 50%;
     padding: 4px 20px;
     font-family: "Poppins", sans-serif;
-    margin-left: 40%;
     margin-top: 20px;
     height: 25px;
+    position: absolute;
+    right: 70px;
+    outline: none;
 }
 
 .channel-header-search:hover {

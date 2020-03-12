@@ -700,17 +700,13 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
         className: "channel-header-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-header-title"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "# ", title)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "channel-header-right"
-      }, subButton, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "# ", title), subButton), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "SEARCH...",
         className: "channel-header-search"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "channel-darkmode-selector"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: "".concat(window.lightbulbIcon)
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", null)));
+      }, "DM"));
     }
   }]);
 
@@ -2040,7 +2036,10 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
         className: "sidebar-main-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-currentuser-greeting"
-      }, currentUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, currentUser.username, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: window.profilePicture,
+        className: "channel-header-picture"
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         onClick: this.handleLogout,
         className: "sidebar-logout-button"
       }, "Logout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
@@ -2061,7 +2060,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this2.props.openModal('createChannel');
         }
-      }, "+", " Add a channel")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "+", " Create a channel")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-dms-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "sidebar-dms-title"

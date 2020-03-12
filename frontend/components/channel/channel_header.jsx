@@ -43,18 +43,17 @@ class ChannelHeader extends React.Component {
             <div className="channel-header-container">
                 <div className="channel-header-title">
                     <h1># {title}</h1>
+                    {subButton}                    
                 </div>
-                <div className="channel-header-right">
-                    {subButton}
+                {/* <div className="channel-header-right"> */}
                     <input type="text" 
                             placeholder="SEARCH..." 
                             className="channel-header-search">
                     </input>
                     <button className="channel-darkmode-selector">
-                        <img src={`${window.lightbulbIcon}`}/>               
+                        DM               
                     </button>
-                    <svg></svg>
-                </div>
+                {/* </div> */}
             </div>
         )
     }
