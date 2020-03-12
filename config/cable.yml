@@ -6,5 +6,4 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
-  channel_prefix: slack_clone_production
+  url: redis://redistogo:110ae469fa52ebdd702f394d5415ed3f@crestfish.redistogo.com:11374/
