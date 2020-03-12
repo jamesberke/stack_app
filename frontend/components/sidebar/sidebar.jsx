@@ -18,10 +18,6 @@ class Sidebar extends React.Component {
         this.props.logout();
     }
 
-    handleChannelPick(id) {
-       
-    }
-
     renderDms() {
         const dms_arr = [];
         const that = this;
@@ -66,19 +62,28 @@ class Sidebar extends React.Component {
         const { currentUser } = this.props;
         const channelArr =  this.renderChannels();
         const dmArr = this.renderDms();
-        
-        const channelLinks = channelArr.map( ele => 
-            <li key={ele[0]} 
-                className={ele[0] === this.props.currentChannel ? "selected" : "" }
-                onClick={() => this.handleChannelPick(ele[0])}>
-                <button onClick={() => this.props.fetchChannel(ele[0])}># {ele[1]}</button>
-            </li>);
-        const dmLinks = dmArr.map( ele => 
-            <li key={ele[0]} 
-                className={ele[0] === this.props.currentChannel ? "selected" : ""}
-                onClick={() => this.handleChannelPick(ele[0])}>
-                <button onClick={() => this.props.fetchChannel(ele[0])}>{" \u2022 "} {ele[1]}</button>
-            </li >);
+        let channelLinks;
+        let dmLinks;
+
+        if (!!this.props.currentChannel) {
+            channelLinks = channelArr.map( ele => 
+                <li key={ele[0]}>
+                    <button onClick={() => this.props.fetchChannel(ele[0])}
+                            className={ele[0] === this.props.currentChannel.id ? "selected" : "" }>
+                                # {ele[1]}
+                    </button>
+                </li>);
+        }
+
+        if (!!this.props.currentChannel) {
+            dmLinks = dmArr.map( ele => 
+                <li key={ele[0]}>
+                    <button onClick={() => this.props.fetchChannel(ele[0])}
+                            className={ele[0] === this.props.currentChannel ? "selected" : ""}>     
+                                {" \u2022 "} {ele[1]}
+                    </button>
+                </li >);
+        }
 
         return (
             <div className="sidebar-main-container">

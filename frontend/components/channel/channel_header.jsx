@@ -51,8 +51,9 @@ class ChannelHeader extends React.Component {
                             className="channel-header-search">
                     </input>
                     <button className="channel-darkmode-selector">
-                        Darkmode
+                        <img src={`${window.lightbulbIcon}`}/>               
                     </button>
+                    <svg></svg>
                 </div>
             </div>
         )

@@ -78,7 +78,7 @@
 }
 
 .sidebar-channels-render > ul > li > button {
-    margin-left: 6%;
+    /* margin-left: 6%; */
     color: lightgray;
     font-weight: 100;
     font-size: 15px;
@@ -86,7 +86,8 @@
     background-color: #222629;
     border: none;
     outline: none;
-    padding: 8px 0px;
+    padding: 4px;
+    padding-left: 6%;
     width: 100%;
     display: flex;
     justify-content: flex-start;
@@ -94,9 +95,10 @@
 
 .sidebar-channels-render > ul > li:hover {
     background-color: #363636;
+    border: solid 1px #222629;
 }
 
-.selected {
+.sidebar-channels-render > ul > li > button.selected {
     background-color: lightgray;
     color: darkslategray;
 }
@@ -104,6 +106,11 @@
 .sidebar-channels-render > ul > li > button:hover {
     background-color: #363636;
     color: oldlace;
+}
+
+.sidebar-channels-render > ul > li > button.selected:hover {
+    background-color: lightgray;
+    color: darkslategray;
 }
 
 .sidebar-new-channel {

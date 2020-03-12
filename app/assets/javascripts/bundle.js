@@ -714,7 +714,9 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
         className: "channel-header-search"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "channel-darkmode-selector"
-      }, "Darkmode")));
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        src: "".concat(window.lightbulbIcon)
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("svg", null)));
     }
   }]);
 
@@ -1958,9 +1960,6 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
       this.props.logout();
     }
   }, {
-    key: "handleChannelPick",
-    value: function handleChannelPick(id) {}
-  }, {
     key: "renderDms",
     value: function renderDms() {
       var dms_arr = [];
@@ -2014,32 +2013,35 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
       var currentUser = this.props.currentUser;
       var channelArr = this.renderChannels();
       var dmArr = this.renderDms();
-      var channelLinks = channelArr.map(function (ele) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: ele[0],
-          className: ele[0] === _this2.props.currentChannel ? "selected" : "",
-          onClick: function onClick() {
-            return _this2.handleChannelPick(ele[0]);
-          }
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: function onClick() {
-            return _this2.props.fetchChannel(ele[0]);
-          }
-        }, "# ", ele[1]));
-      });
-      var dmLinks = dmArr.map(function (ele) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-          key: ele[0],
-          className: ele[0] === _this2.props.currentChannel ? "selected" : "",
-          onClick: function onClick() {
-            return _this2.handleChannelPick(ele[0]);
-          }
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          onClick: function onClick() {
-            return _this2.props.fetchChannel(ele[0]);
-          }
-        }, " \u2022 ", " ", ele[1]));
-      });
+      var channelLinks;
+      var dmLinks;
+
+      if (!!this.props.currentChannel) {
+        channelLinks = channelArr.map(function (ele) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            key: ele[0]
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            onClick: function onClick() {
+              return _this2.props.fetchChannel(ele[0]);
+            },
+            className: ele[0] === _this2.props.currentChannel.id ? "selected" : ""
+          }, "# ", ele[1]));
+        });
+      }
+
+      if (!!this.props.currentChannel) {
+        dmLinks = dmArr.map(function (ele) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            key: ele[0]
+          }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+            onClick: function onClick() {
+              return _this2.props.fetchChannel(ele[0]);
+            },
+            className: ele[0] === _this2.props.currentChannel ? "selected" : ""
+          }, " \u2022 ", " ", ele[1]));
+        });
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-main-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
