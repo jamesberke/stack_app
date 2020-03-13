@@ -54,7 +54,9 @@ class Search extends React.Component {
                     </div>
                 </div>
             )
+
         })
+
         return (
             <div className="channel-search-form-container">
                 <input className="channel-search-input"
@@ -66,6 +68,7 @@ class Search extends React.Component {
                 </div>
             </div>
         )
+        
     }
 };
 
