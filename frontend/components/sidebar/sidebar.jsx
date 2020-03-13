@@ -105,10 +105,14 @@ class Sidebar extends React.Component {
                     <button className="sidebar-edit-profile-button">
                         Edit Profile
                     </button>
-                    <a href='https://github.com/jamesberke/stack_app' className='dropdown-github'>
+                    <a href='https://github.com/jamesberke/stack_app' 
+                        className='dropdown-github'
+                        target="_blank">
                         Visit my Github
                     </a>
-                    <a href='https://www.linkedin.com/in/james-berke-33912718a/' className='dropdown-linkedin'>
+                    <a href='https://www.linkedin.com/in/james-berke-33912718a/' 
+                        className='dropdown-linkedin'
+                        target="_blank">
                         Visit my LinkedIn
                     </a>
                 </div>

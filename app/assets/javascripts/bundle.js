@@ -1633,7 +1633,8 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
         className: "logo-text"
       }, "stack")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://github.com/jamesberke/stack_app",
-        className: "nav-github"
+        className: "nav-github",
+        target: "_blank"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: window.githubLogo,
         className: "github-logo"
@@ -1641,7 +1642,8 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
         className: "github-text"
       }, "GitHub")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://www.linkedin.com/in/james-berke-33912718a/",
-        className: "nav-linkedin"
+        className: "nav-linkedin",
+        target: "_blank"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
         src: window.linkedinLogo,
         className: "linkedin-logo"
@@ -2072,10 +2074,12 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
         className: "sidebar-edit-profile-button"
       }, "Edit Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://github.com/jamesberke/stack_app",
-        className: "dropdown-github"
+        className: "dropdown-github",
+        target: "_blank"
       }, "Visit my Github"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
         href: "https://www.linkedin.com/in/james-berke-33912718a/",
-        className: "dropdown-linkedin"
+        className: "dropdown-linkedin",
+        target: "_blank"
       }, "Visit my LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "Search for channels...",

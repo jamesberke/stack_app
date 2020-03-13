@@ -15,11 +15,15 @@ class Navbar extends React.Component {
                         <img src={window.slackLogo} className='slack-logo'/>
                         <p className='logo-text'>stack</p>
                     </Link>
-                    <a href='https://github.com/jamesberke/stack_app' className='nav-github'>
+                    <a href='https://github.com/jamesberke/stack_app' 
+                        className='nav-github'
+                        target="_blank">
                         <img src={window.githubLogo} className='github-logo'/>
                         <div className='github-text'>GitHub</div>
                     </a>
-                    <a href='https://www.linkedin.com/in/james-berke-33912718a/' className='nav-linkedin'>
+                    <a href='https://www.linkedin.com/in/james-berke-33912718a/' 
+                        className='nav-linkedin'
+                        target="_blank">
                         <img src={window.linkedinLogo} className='linkedin-logo'/>
                         <div className='linkedin-text'>LinkedIn</div>
                     </a>
