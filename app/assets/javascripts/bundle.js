@@ -2961,12 +2961,12 @@ var usersReducer = function usersReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      return _defineProperty({}, action.currentUser.id, {
+      return Object.assign({}, state, _defineProperty({}, action.currentUser.id, {
         id: action.currentUser.id,
         username: action.currentUser.username,
         formalName: action.currentUser.formalName,
         email: action.currentUser.email
-      });
+      }));
 
     case _actions_channel_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CHANNEL"]:
       return Object.assign({}, state, action.channel.users);
