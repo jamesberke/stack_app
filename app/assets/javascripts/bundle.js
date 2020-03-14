@@ -831,15 +831,11 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      var channels = Object.values(this.props.channels);
-
-      if (this.props.messages.length < 1 && channels.length > 0) {
-        var selectedChannel = channels.filter(function (ch) {
-          return ch.name === "Global";
-        });
-        this.props.fetchChannel(selectedChannel[0].id);
-      }
-
+      // const channels = Object.values(this.props.channels);
+      // if (this.props.messages.length < 1 && channels.length > 0) {
+      //     const selectedChannel = channels.filter(ch => ch.name === "Global")
+      //     this.props.fetchChannel(selectedChannel[0].id);
+      // }
       if (Object.values(this.props.users).length > 1) {
         this.bottom.current.scrollIntoView();
       }
@@ -2826,8 +2822,8 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var rootReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  entities: _entities_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   session: _session_reducer__WEBPACK_IMPORTED_MODULE_3__["default"],
+  entities: _entities_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   ui: _ui_reducer__WEBPACK_IMPORTED_MODULE_4__["default"],
   errors: _errors_reducer__WEBPACK_IMPORTED_MODULE_2__["default"]
 });
