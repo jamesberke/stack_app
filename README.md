@@ -14,6 +14,28 @@
   * AJAX
   * JSON
 
+## Installation and Usage
+
+* Installation
+  * Download ZIP or clone stack_app repo
+  * In root directory run `bundle install` and `npm install` to download dependencies
+  * Once finished type `npm start` into terminal which will start Webpack
+  * Open a separate window in terminal and type `rails s` to start the server
+  * You can now navigate to `http://localhost:3000/#/` to view a local version of Stack Messaging
+
+* Usage
+  * Because this is meant to be an example of my knowledge with frameworks and languages and less about making a flawless prodction app I have chosen to leave most of the app open to everyone except Direct Messages. No private channels means a more interesting and interactive experince for anyone visiting this site
+  * For the full experience:
+    * log in as demo user
+    * create a new channel
+    * search or browse through the existing channels
+    * subscribe and unsubscribe to channels
+    * open a new incognito window and put the two browser windows side-by-side
+    * create a personal account
+    * navigate to the same channel and write messages back and forth to view live chat functionality
+
+## App Overview
+
 * Splash Page overview:
   * Looped video in background for a more interesting and lively experience
   * Nav bar holds links to Sign in and Sign up as well as a link back to the splash page
