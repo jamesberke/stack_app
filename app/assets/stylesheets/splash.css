@@ -112,4 +112,81 @@
 .splashpage-third {
     display: flex;
     justify-content: space-evenly;
+    font-family: sans-serif;
+}
+
+.third-col {
+    padding-top: 30px;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 45px;
+}
+
+.splash-col-title {
+    padding-top: 24px;
+    padding-bottom: 22px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.splash-col-content {
+    font-size: 18px;
+}
+
+.splashpage-footer {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 340px;
+    background-color: #4a154b;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-greeting {
+    flex-direction: row;
+}
+
+.slack-logo-footer {
+    height: 80px;
+    margin-top: 32px;
+    margin-left: 6%;
+}
+
+.footer-text {
+    color: oldlace;
+    font-size: 54px;
+    font-weight: bold;
+    font-family: sans-serif;
+    /* margin-top: 120px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 16px;
+}
+
+.footer-buttons {
+    display: flex;
+    padding-top: 20px;
+    justify-content: center;
+    width: 100%;
+}
+
+.footer-signup-link {
+    color: #4a154b;
+    background-color: oldlace;
+    text-decoration: none;
+    padding: 15px 30px;
+    border: solid 1px oldlace;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.footer-contact-link {
+    text-decoration: none;
+    padding: 15px 30px;
+    border: solid 1px oldlace;
+    color: oldlace;
+    border-radius: 5px;
+    margin-left: 26px;
 }

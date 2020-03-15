@@ -2462,7 +2462,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "demo-signup-link"
       }, "SEE THE DEMO"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
         className: "splash-already-sign-in"
-      }, "Already using Stack? ", react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      }, "Already using Stack?", " ", react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "./login",
         className: "splash-login-link"
       }, "Sign In"))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
@@ -2481,7 +2481,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
       })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "splashpage-third"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-        className: "third-left-col"
+        className: "third-col"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
         width: "48",
         height: "48",
@@ -2491,8 +2491,12 @@ var Splash = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("path", {
         d: "M21.2801 8.4721V4.0001C21.2801 3.09836 20.9219 2.23356 20.2843 1.59593C19.6466 0.958311 18.7818 0.600098 17.8801 0.600098H4.0001C3.09901 0.60221 2.23543 0.961102 1.59827 1.59827C0.961102 2.23543 0.60221 3.09901 0.600098 4.0001V17.8801C0.600098 18.7818 0.958311 19.6466 1.59593 20.2843C2.23356 20.9219 3.09836 21.2801 4.0001 21.2801H8.4721C8.73073 23.4222 9.58659 25.4484 10.9419 27.1273C12.2973 28.8062 14.0974 30.0701 16.1368 30.7746C18.1763 31.4791 20.3727 31.5959 22.4753 31.1116C24.578 30.6273 26.502 29.5614 28.0277 28.0357C29.5534 26.51 30.6193 24.586 31.1036 22.4833C31.5879 20.3807 31.4711 18.1843 30.7666 16.1448C30.0621 14.1054 28.7982 12.3053 27.1193 10.9499C25.4404 9.59459 23.4142 8.73873 21.2721 8.4801L21.2801 8.4721ZM2.6001 17.8801V4.0001C2.6022 3.62944 2.75037 3.27457 3.01247 3.01247C3.27457 2.75037 3.62944 2.6022 4.0001 2.6001H17.8801C18.2514 2.6001 18.6075 2.7476 18.87 3.01015C19.1326 3.2727 19.2801 3.62879 19.2801 4.0001V8.4161C16.4487 8.56969 13.7737 9.76359 11.7687 11.7687C9.76359 13.7737 8.56969 16.4487 8.4161 19.2801H4.0001C3.62879 19.2801 3.2727 19.1326 3.01015 18.87C2.7476 18.6075 2.6001 18.2514 2.6001 17.8801V17.8801ZM19.2801 10.4001V17.8641C19.2801 18.2354 19.1326 18.5915 18.87 18.854C18.6075 19.1166 18.2514 19.2641 17.8801 19.2641H10.4001C10.5509 16.9601 11.5354 14.7897 13.1695 13.1585C14.8037 11.5273 16.9758 10.5468 19.2801 10.4001V10.4001ZM19.8961 29.3841C17.619 29.3807 15.4186 28.5613 13.694 27.0744C11.9694 25.5876 10.8348 23.5318 10.4961 21.2801H17.8801C18.7818 21.2801 19.6466 20.9219 20.2843 20.2843C20.9219 19.6466 21.2801 18.7818 21.2801 17.8801V10.4961C23.6512 10.8498 25.8011 12.0865 27.2989 13.9584C28.7967 15.8303 29.5317 18.1991 29.3567 20.5901C29.1816 22.981 28.1095 25.2175 26.355 26.8513C24.6006 28.4851 22.2935 29.3955 19.8961 29.4001V29.3841Z",
         fill: "#1D1C1D"
-      }))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-        className: "third-mid-col"
+      })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h3", {
+        className: "splash-col-title"
+      }, "Conversations, organized"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "splash-col-content"
+      }, "Instead of a single overstuffed inbox, conversations in Slack happen in dedicated spaces called channels.")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "third-col"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
         width: "48",
         height: "48",
@@ -2520,8 +2524,12 @@ var Splash = /*#__PURE__*/function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("path", {
         d: "M25.5039 9.79199H14.0959C13.8307 9.79199 13.5764 9.89735 13.3888 10.0849C13.2013 10.2724 13.0959 10.5268 13.0959 10.792C13.0959 11.0572 13.2013 11.3116 13.3888 11.4991C13.5764 11.6866 13.8307 11.792 14.0959 11.792H25.5039C25.7692 11.792 26.0235 11.6866 26.2111 11.4991C26.3986 11.3116 26.5039 11.0572 26.5039 10.792C26.5039 10.5268 26.3986 10.2724 26.2111 10.0849C26.0235 9.89735 25.7692 9.79199 25.5039 9.79199V9.79199Z",
         fill: "#1D1C1D"
-      }))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
-        className: "third-right-col"
+      })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h3", {
+        className: "splash-col-title"
+      }, "Get looped in, not out"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "splash-col-content"
+      }, "Slack makes it simple to follow conversations or find important information in an easily searchable archive.")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "third-col"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
         width: "48",
         height: "48",
@@ -2540,7 +2548,29 @@ var Splash = /*#__PURE__*/function (_React$Component) {
       }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("path", {
         d: "M24.32 8.22397C24.4316 8.22371 24.542 8.20008 24.6439 8.15462C24.7459 8.10915 24.8372 8.04285 24.912 7.95997L26.896 5.79197C27.0392 5.63496 27.1142 5.42749 27.1044 5.2152C27.0947 5.00291 27.001 4.80319 26.844 4.65997C26.687 4.51676 26.4795 4.44178 26.2672 4.45153C26.0549 4.46128 25.8552 4.55496 25.712 4.71197L23.736 6.88797C23.5981 7.04329 23.526 7.24616 23.5349 7.45369C23.5439 7.66121 23.6332 7.85712 23.784 7.99997C23.9283 8.13916 24.1196 8.2191 24.32 8.22397Z",
         fill: "#1D1C1D"
-      })))));
+      })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("h3", {
+        className: "splash-col-title"
+      }, "Give focus a chance"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "splash-col-content"
+      }, "Unlike email, Slack lets you choose which conversations are most important \u2014 and which can wait."))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "splashpage-footer"
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "footer-greeting"
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("img", {
+        src: window.slackLogo,
+        className: "slack-logo-footer"
+      }), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "footer-text"
+      }, "Choose a better way to work")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+        className: "footer-buttons"
+      }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+        to: "/signup",
+        className: "footer-signup-link"
+      }, "TRY SLACK"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
+        href: "https://www.linkedin.com/in/james-berke-33912718a/",
+        className: "footer-contact-link",
+        target: "_blank"
+      }, "CONTACT ME"))));
     }
   }]);
 
