@@ -2566,7 +2566,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
         to: "/signup",
         className: "footer-signup-link"
-      }, "TRY SLACK"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
+      }, "TRY STACK"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("a", {
         href: "https://www.linkedin.com/in/james-berke-33912718a/",
         className: "footer-contact-link",
         target: "_blank"

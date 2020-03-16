@@ -167,7 +167,7 @@ class Splash extends React.Component {
                 </div>
                 <div className="footer-buttons">
                     <Link to='/signup' className='footer-signup-link'>
-                        TRY SLACK
+                        TRY STACK
                     </Link>
                     <a href="https://www.linkedin.com/in/james-berke-33912718a/"
                         className="footer-contact-link"
