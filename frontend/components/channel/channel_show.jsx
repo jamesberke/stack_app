@@ -17,11 +17,11 @@ class ChannelShow extends React.Component {
     };
 
     componentDidUpdate() {
-        // const channels = Object.values(this.props.channels);
-        // if (this.props.messages.length < 1 && channels.length > 0) {
-        //     const selectedChannel = channels.filter(ch => ch.name === "Global")
-        //     this.props.fetchChannel(selectedChannel[0].id);
-        // }
+        const channels = Object.values(this.props.channels);
+        if (this.props.messages.length < 1 && channels.length > 0) {
+            const selectedChannel = channels.filter(ch => ch.name === "Global")
+            this.props.fetchChannel(selectedChannel[0].id);
+        }
         if (Object.values(this.props.users).length > 1) {
             this.bottom.current.scrollIntoView();
         }
