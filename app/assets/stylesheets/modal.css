@@ -10,10 +10,10 @@
     background-color: #222629;
     border: 1px solid gray;
     border-radius: 5px;
-    top: 12%;
+    top: 20%;
     bottom: 24%;
-    left: 12%;
-    right: 12%;
+    left: 20%;
+    right: 20%;
     z-index: 6;
     position: absolute;
     overflow: hidden;

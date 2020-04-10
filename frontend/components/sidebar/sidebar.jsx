@@ -136,7 +136,11 @@ class Sidebar extends React.Component {
                 </div>
                 <div className="sidebar-dms-container">
                     <h2 className="sidebar-dms-title">
-                        Direct Messages <span className="sidebar-add-dm-icon">{"\u2295"}</span>
+                        Direct Messages 
+                        <span className="sidebar-add-dm-icon"
+                            onClick={this.props.openModal('userSearch')}>
+                            +
+                        </span>
                     </h2>
                     <div className="sidebar-dms-render">
                         <ul>

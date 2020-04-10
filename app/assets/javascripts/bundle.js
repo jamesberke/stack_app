@@ -1537,9 +1537,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
 /* harmony import */ var _channel_channel_create_form__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../channel/channel_create_form */ "./frontend/components/channel/channel_create_form.jsx");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _search_search_container__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../search/search_container */ "./frontend/components/search/search_container.js");
+/* harmony import */ var _search_channel_search_container__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../search/channel_search_container */ "./frontend/components/search/channel_search_container.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
+!(function webpackMissingModule() { var e = new Error("Cannot find module '../search/user_search_container'"); e.code = 'MODULE_NOT_FOUND'; throw e; }());
+
 
 
 
@@ -1558,21 +1560,25 @@ var Modal = function Modal(_ref) {
 
   switch (modal) {
     case 'createChannel':
-      component = react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_channel_channel_create_form__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+      component = react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_channel_create_form__WEBPACK_IMPORTED_MODULE_2__["default"], null);
       break;
 
     case 'channelSearch':
-      component = react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement(_search_search_container__WEBPACK_IMPORTED_MODULE_4__["default"], null);
+      component = react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_search_channel_search_container__WEBPACK_IMPORTED_MODULE_3__["default"], null);
+      break;
+
+    case 'userSearch':
+      component = react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(!(function webpackMissingModule() { var e = new Error("Cannot find module '../search/user_search_container'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), null);
       break;
 
     default:
       break;
   }
 
-  return react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+  return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
     className: "modal-screen",
     onClick: closeModal
-  }, react__WEBPACK_IMPORTED_MODULE_3___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
     className: "modal-render",
     onClick: function onClick(e) {
       return e.stopPropagation();
@@ -1756,10 +1762,10 @@ var Root = function Root(_ref) {
 
 /***/ }),
 
-/***/ "./frontend/components/search/search.jsx":
-/*!***********************************************!*\
-  !*** ./frontend/components/search/search.jsx ***!
-  \***********************************************/
+/***/ "./frontend/components/search/channel_search.jsx":
+/*!*******************************************************!*\
+  !*** ./frontend/components/search/channel_search.jsx ***!
+  \*******************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1787,15 +1793,15 @@ function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || func
 
 
 
-var Search = /*#__PURE__*/function (_React$Component) {
-  _inherits(Search, _React$Component);
+var ChannelSearch = /*#__PURE__*/function (_React$Component) {
+  _inherits(ChannelSearch, _React$Component);
 
-  function Search(props) {
+  function ChannelSearch(props) {
     var _this;
 
-    _classCallCheck(this, Search);
+    _classCallCheck(this, ChannelSearch);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(Search).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(ChannelSearch).call(this, props));
     _this.state = {
       searchInput: ''
     };
@@ -1803,7 +1809,7 @@ var Search = /*#__PURE__*/function (_React$Component) {
     return _this;
   }
 
-  _createClass(Search, [{
+  _createClass(ChannelSearch, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchChannels();
@@ -1874,18 +1880,18 @@ var Search = /*#__PURE__*/function (_React$Component) {
     }
   }]);
 
-  return Search;
+  return ChannelSearch;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 ;
-/* harmony default export */ __webpack_exports__["default"] = (Search);
+/* harmony default export */ __webpack_exports__["default"] = (ChannelSearch);
 
 /***/ }),
 
-/***/ "./frontend/components/search/search_container.js":
-/*!********************************************************!*\
-  !*** ./frontend/components/search/search_container.js ***!
-  \********************************************************/
+/***/ "./frontend/components/search/channel_search_container.js":
+/*!****************************************************************!*\
+  !*** ./frontend/components/search/channel_search_container.js ***!
+  \****************************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1895,7 +1901,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_membership_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/membership_actions */ "./frontend/actions/membership_actions.js");
 /* harmony import */ var _actions_channel_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/channel_actions */ "./frontend/actions/channel_actions.js");
-/* harmony import */ var _search__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./search */ "./frontend/components/search/search.jsx");
+/* harmony import */ var _channel_search__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./channel_search */ "./frontend/components/search/channel_search.jsx");
 
 
 
@@ -1925,7 +1931,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(_search__WEBPACK_IMPORTED_MODULE_4__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(_channel_search__WEBPACK_IMPORTED_MODULE_4__["default"]));
 
 /***/ }),
 
@@ -2126,9 +2132,10 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
         className: "sidebar-dms-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "sidebar-dms-title"
-      }, "Direct Messages ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "sidebar-add-dm-icon"
-      }, "\u2295")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, "Direct Messages", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "sidebar-add-dm-icon",
+        onClick: this.props.openModal('userSearch')
+      }, "+")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "sidebar-dms-render"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, dmLinks))));
     }

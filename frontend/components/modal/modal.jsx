@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import { closeModal } from '../../actions/modal_actions';
 import ChannelCreateForm from '../channel/channel_create_form';
+import ChannelSearchContainer from '../search/channel_search_container';
 import React from 'react';
-import SearchContainer from '../search/search_container';
+import UserSearchContainer from '../search/user_search_container';
 
 const Modal = ({ modal, closeModal }) => {
 
@@ -16,7 +17,10 @@ const Modal = ({ modal, closeModal }) => {
             component = <ChannelCreateForm />;
             break;  
         case 'channelSearch':
-            component = <SearchContainer />; 
+            component = <ChannelSearchContainer />; 
+            break;
+        case 'userSearch':
+            component = <UserSearchContainer />;
             break;
         default:
             break;

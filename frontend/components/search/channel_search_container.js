@@ -2,7 +2,7 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
 import { createMembership, deleteMembership } from '../../actions/membership_actions';
 import { fetchChannel, fetchChannels } from '../../actions/channel_actions';
-import Search from './search';
+import ChannelSearch from './channel_search';
 
 const mapStateToProps = state => ({
         channels: Object.values(state.entities.channels),
@@ -17,4 +17,4 @@ const mapDispatchToProps = dispatch => ({
     // deleteMembership: membershipId => dispatch(deleteMembership(membershipId)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Search)
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelSearch)
