@@ -409,16 +409,34 @@ var logout = function logout() {
 /*!******************************************!*\
   !*** ./frontend/actions/user_actions.js ***!
   \******************************************/
-/*! exports provided: fetchUser */
+/*! exports provided: RECEIVE_USERS, fetchUsers, fetchUser */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECEIVE_USERS", function() { return RECEIVE_USERS; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUsers", function() { return fetchUsers; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
 /* harmony import */ var _session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./session_actions */ "./frontend/actions/session_actions.js");
 /* harmony import */ var _util_user_api_util__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util/user_api_util */ "./frontend/util/user_api_util.js");
 
 
+var RECEIVE_USERS = 'RECEIVE_USERS';
+
+var receiveUsers = function receiveUsers(users) {
+  return {
+    type: RECEIVE_USERS,
+    users: users
+  };
+};
+
+var fetchUsers = function fetchUsers() {
+  return function (dispatch) {
+    return _util_user_api_util__WEBPACK_IMPORTED_MODULE_1__["fetchUsers"]().then(function (users) {
+      return dispatch(receiveUsers(users));
+    });
+  };
+};
 var fetchUser = function fetchUser(userId) {
   return function (dispatch) {
     return _util_user_api_util__WEBPACK_IMPORTED_MODULE_1__["fetchUser"](userId).then(function (user) {
@@ -822,6 +840,7 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
   _createClass(ChannelShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.props.fetchUsers();
       var channels = Object.values(this.props.channels);
 
       if (channels.length != 0) {
@@ -831,11 +850,15 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate() {
-      // const channels = Object.values(this.props.channels);
-      // if (this.props.messages.length < 1 && channels.length > 0) {
-      //     const selectedChannel = channels.filter(ch => ch.name === "Global")
-      //     this.props.fetchChannel(selectedChannel[0].id);
-      // }
+      var channels = Object.values(this.props.channels);
+
+      if (this.props.messages.length < 1 && channels.length > 0) {
+        var selectedChannel = channels.filter(function (ch) {
+          return ch.name === "Global";
+        });
+        this.props.fetchChannel(selectedChannel[0].id);
+      }
+
       if (Object.values(this.props.users).length > 1) {
         this.bottom.current.scrollIntoView();
       }
@@ -845,7 +868,7 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
     value: function renderMessages() {
       var that = this;
 
-      if (!!this.props.messages && !!this.props.users) {
+      if (!!this.props.messages && !!this.props.users.users) {
         var messagesArr = this.props.messages.map(function (message) {
           var userId = message.userId;
           var timeStamp = message.createdAt.slice(11, 16);
@@ -864,7 +887,7 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
             className: "channel-message-picture"
           })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "channel-message-title"
-          }, that.props.users[userId].username, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          }, that.props.users.users[userId].username, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "timestamp"
           }, timeStamp)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "channel-message-body"
@@ -914,7 +937,9 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _channel_show__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./channel_show */ "./frontend/components/channel/channel_show.jsx");
 /* harmony import */ var _actions_channel_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/channel_actions */ "./frontend/actions/channel_actions.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
 
 
 
@@ -931,11 +956,14 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchChannel: function fetchChannel(channelId) {
       return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_1__["fetchChannel"])(channelId));
+    },
+    fetchUsers: function fetchUsers() {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUsers"])());
     }
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(_channel_show__WEBPACK_IMPORTED_MODULE_0__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, mapDispatchToProps)(_channel_show__WEBPACK_IMPORTED_MODULE_0__["default"]));
 
 /***/ }),
 
@@ -2495,7 +2523,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "splash-col-title"
       }, "Conversations, organized"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "splash-col-content"
-      }, "Instead of a single overstuffed inbox, conversations in Slack happen in dedicated spaces called channels.")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      }, "Instead of a single overstuffed inbox, conversations in Stack happen in dedicated spaces called channels.")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "third-col"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
         width: "48",
@@ -2528,7 +2556,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "splash-col-title"
       }, "Get looped in, not out"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "splash-col-content"
-      }, "Slack makes it simple to follow conversations or find important information in an easily searchable archive.")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      }, "Stack makes it simple to follow conversations or find important information in an easily searchable archive.")), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "third-col"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("svg", {
         width: "48",
@@ -2552,7 +2580,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "splash-col-title"
       }, "Give focus a chance"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "splash-col-content"
-      }, "Unlike email, Slack lets you choose which conversations are most important \u2014 and which can wait."))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      }, "Stack lets you choose which conversations are most important \u2014 and which can wait."))), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "splashpage-footer"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "footer-greeting"
@@ -2974,7 +3002,7 @@ var uiReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
-/* harmony import */ var _actions_channel_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/channel_actions */ "./frontend/actions/channel_actions.js");
+/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.js");
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
@@ -2994,8 +3022,8 @@ var usersReducer = function usersReducer() {
         email: action.currentUser.email
       }));
 
-    case _actions_channel_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_CHANNEL"]:
-      return Object.assign({}, state, action.channel.users);
+    case _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_USERS"]:
+      return Object.assign({}, state, action.users);
 
     default:
       return state;
@@ -3300,15 +3328,21 @@ var logout = function logout() {
 /*!****************************************!*\
   !*** ./frontend/util/user_api_util.js ***!
   \****************************************/
-/*! exports provided: fetchUser */
+/*! exports provided: fetchUser, fetchUsers */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUser", function() { return fetchUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchUsers", function() { return fetchUsers; });
 var fetchUser = function fetchUser(userId) {
   return $.ajax({
     url: "/api/users/".concat(userId)
+  });
+};
+var fetchUsers = function fetchUsers() {
+  return $.ajax({
+    url: "/api/users"
   });
 };
 
