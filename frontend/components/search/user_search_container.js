@@ -1,5 +1,6 @@
 import { closeModal } from '../../actions/modal_actions';
 import { connect } from 'react-redux';
+import { createChannel } from '../../actions/channel_actions';
 import { fetchUsers } from '../../actions/user_actions';
 import UserSearch from './user_search';
 
@@ -10,7 +11,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     fetchUsers: () => dispatch(fetchUsers()),
-    closeModal: () => dispatch(closeModal())
+    closeModal: () => dispatch(closeModal()),
+    createChannel: channel => dispatch(createChannel(channel))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserSearch)
