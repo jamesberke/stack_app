@@ -826,8 +826,8 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
 
   _createClass(ChannelShow, [{
     key: "componentDidMount",
-    value: function componentDidMount() {
-      this.props.fetchUsers(); // const channels = Object.values(this.props.channels);
+    value: function componentDidMount() {// this.props.fetchUsers();
+      // const channels = Object.values(this.props.channels);
       // if (channels.length != 0) {
       //     this.props.fetchChannel(channels[0].id);
       // }
@@ -922,10 +922,9 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _channel_show__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./channel_show */ "./frontend/components/channel/channel_show.jsx");
 /* harmony import */ var _actions_channel_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/channel_actions */ "./frontend/actions/channel_actions.js");
-/* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/user_actions */ "./frontend/actions/user_actions.js");
-/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
-
+ // import { fetchUsers } from '../../actions/user_actions';
 
 
 
@@ -941,14 +940,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     fetchChannel: function fetchChannel(channelId) {
       return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_1__["fetchChannel"])(channelId));
-    },
-    fetchUsers: function fetchUsers() {
-      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_2__["fetchUsers"])());
-    }
+    } // fetchUsers: () => dispatch(fetchUsers())
+
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_3__["connect"])(mapStateToProps, mapDispatchToProps)(_channel_show__WEBPACK_IMPORTED_MODULE_0__["default"]));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["connect"])(mapStateToProps, mapDispatchToProps)(_channel_show__WEBPACK_IMPORTED_MODULE_0__["default"]));
 
 /***/ }),
 
@@ -1008,7 +1005,7 @@ var Listener = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
-      if (prevProps && prevProps !== this.props) {
+      if (prevProps && prevProps.currentChannel !== this.props.currentChannel) {
         console.log("it's running");
         this.createSubscriptions();
       }
@@ -1084,6 +1081,7 @@ var mapStateToProps = function mapStateToProps(state) {
   // debugger;
   return {
     currentUser: state.session.id,
+    currentChannel: state.session.currentChannel,
     memberships: Object.values(state.entities.memberships)
   };
 };
@@ -2150,6 +2148,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.props.fetchUser(this.props.currentUser.id);
+      this.props.fetchUsers();
       this.props.fetchChannels();
     }
   }, {
@@ -2192,6 +2191,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
     value: function renderChannels() {
       var channels_arr = [];
       var that = this;
+      debugger;
 
       if (this.props.channels) {
         this.props.memberships.forEach(function (membership) {
@@ -2348,6 +2348,9 @@ var mapStateToProps = function mapStateToProps(state) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
+    fetchUsers: function fetchUsers() {
+      return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_4__["fetchUsers"])());
+    },
     fetchUser: function fetchUser(userId) {
       return dispatch(Object(_actions_user_actions__WEBPACK_IMPORTED_MODULE_4__["fetchUser"])(userId));
     },
@@ -2936,6 +2939,7 @@ var membershipsReducer = function membershipsReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
+      debugger;
       return action.currentUser.memberships;
 
     case _actions_channel_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_CHANNEL"]:
@@ -3276,7 +3280,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var configureStore = function configureStore() {
   var preloadedState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_2__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"]));
+  return Object(redux__WEBPACK_IMPORTED_MODULE_0__["createStore"])(_reducers_root_reducer__WEBPACK_IMPORTED_MODULE_2__["default"], preloadedState, Object(redux__WEBPACK_IMPORTED_MODULE_0__["applyMiddleware"])(redux_thunk__WEBPACK_IMPORTED_MODULE_3__["default"], redux_logger__WEBPACK_IMPORTED_MODULE_1___default.a));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (configureStore);

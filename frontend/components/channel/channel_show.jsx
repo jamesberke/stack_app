@@ -11,7 +11,7 @@ class ChannelShow extends React.Component {
     };
 
     componentDidMount() {
-        this.props.fetchUsers();
+        // this.props.fetchUsers();
         
         // const channels = Object.values(this.props.channels);
         // if (channels.length != 0) {

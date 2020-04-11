@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../actions/session_actions';
 import Sidebar from './sidebar';
 import { fetchChannel, fetchChannels } from '../../actions/channel_actions';
-import { fetchUser } from '../../actions/user_actions';
+import { fetchUsers, fetchUser } from '../../actions/user_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => ({
@@ -13,6 +13,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
+    fetchUsers: () => dispatch(fetchUsers()),
     fetchUser: userId => dispatch(fetchUser(userId)),
     fetchChannel: channelId => dispatch(fetchChannel(channelId)),
     fetchChannels: () => dispatch(fetchChannels()),

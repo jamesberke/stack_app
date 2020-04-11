@@ -13,7 +13,7 @@ class Listener extends React.Component {
     }
 
     componentDidUpdate(prevProps) {
-        if (prevProps && prevProps !== this.props) {
+        if (prevProps && prevProps.currentChannel !== this.props.currentChannel) {
             console.log("it's running");
             this.createSubscriptions();
         }

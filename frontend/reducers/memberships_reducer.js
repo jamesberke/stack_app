@@ -7,6 +7,7 @@ const membershipsReducer = (state = {}, action) => {
     let newState = Object.assign({}, state);
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
+            debugger;
             return action.currentUser.memberships;
         case RECEIVE_CHANNEL:
             if (!!action.channel.membership) {
