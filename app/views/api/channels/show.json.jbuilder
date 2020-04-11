@@ -18,10 +18,3 @@ json.messages do
     end
 end
 
-json.users do
-    @channel.users.each do |user|
-       json.set! user.id do
-            json.extract! user, :username
-        end
-    end
-end

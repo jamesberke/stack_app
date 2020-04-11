@@ -11,7 +11,6 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    fetchMessage: messageId => dispatch(fetchMessage(messageId)),
     createMembership: membership => dispatch(createMembership(membership)),
     deleteMembership: membershipId => dispatch(deleteMembership(membershipId))
 });

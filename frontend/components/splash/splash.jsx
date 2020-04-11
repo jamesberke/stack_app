@@ -79,7 +79,7 @@ class Splash extends React.Component {
                 </svg>
                 <h3 className="splash-col-title">Conversations, organized</h3>
                 <div className="splash-col-content">
-                  Instead of a single overstuffed inbox, conversations in Slack
+                  Instead of a single overstuffed inbox, conversations in Stack
                   happen in dedicated spaces called channels.
                 </div>
               </div>
@@ -122,7 +122,7 @@ class Splash extends React.Component {
                 </svg>
                 <h3 className="splash-col-title">Get looped in, not out</h3>
                 <div className="splash-col-content">
-                  Slack makes it simple to follow conversations or find
+                  Stack makes it simple to follow conversations or find
                   important information in an easily searchable archive.
                 </div>
               </div>
@@ -153,7 +153,7 @@ class Splash extends React.Component {
                 </svg>
                 <h3 className="splash-col-title">Give focus a chance</h3>
                 <div className="splash-col-content">
-                  Unlike email, Slack lets you choose which conversations are
+                  Stack lets you choose which conversations are
                   most important — and which can wait.
                 </div>
               </div>
