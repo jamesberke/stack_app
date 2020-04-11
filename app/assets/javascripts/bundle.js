@@ -853,7 +853,7 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
     value: function renderMessages() {
       var that = this;
 
-      if (!!this.props.messages && !!this.props.users.users) {
+      if (!!this.props.messages && !!this.props.users) {
         var messagesArr = this.props.messages.map(function (message) {
           var userId = message.userId;
           var timeStamp = message.createdAt.slice(11, 16);
@@ -872,7 +872,7 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
             className: "channel-message-picture"
           })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "channel-message-title"
-          }, that.props.users.users[userId].username, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          }, that.props.users[userId].username, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "timestamp"
           }, timeStamp)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "channel-message-body"
@@ -2010,6 +2010,7 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "createDm",
     value: function createDm(id) {
+      this.props.createChannel();
       this.props.closeModal();
     }
   }, {
@@ -2075,7 +2076,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    users: Object.values(state.entities.users.users),
+    currentUser: state.entities.users[StyleSheet.session.id],
+    users: Object.values(state.entities.users),
     memberships: Object.values(state.entities.memberships)
   };
 };
@@ -3172,8 +3174,6 @@ var uiReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../actions/session_actions */ "./frontend/actions/session_actions.js");
 /* harmony import */ var _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../actions/user_actions */ "./frontend/actions/user_actions.js");
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -3183,14 +3183,13 @@ var usersReducer = function usersReducer() {
   Object.freeze(state);
 
   switch (action.type) {
-    case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      return Object.assign({}, state, _defineProperty({}, action.currentUser.id, {
-        id: action.currentUser.id,
-        username: action.currentUser.username,
-        formalName: action.currentUser.formalName,
-        email: action.currentUser.email
-      }));
-
+    // case RECEIVE_CURRENT_USER:  
+    //     return Object.assign({}, state, {[action.currentUser.id]: {
+    //         id: action.currentUser.id,
+    //         username: action.currentUser.username,
+    //         formalName: action.currentUser.formalName,
+    //         email: action.currentUser.email
+    //     }});
     case _actions_user_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_USERS"]:
       return Object.assign({}, state, action.users);
 

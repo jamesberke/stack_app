@@ -34,6 +34,7 @@ class UserSearch extends React.Component {
     }
 
     createDm(id) {
+        this.props.createChannel()
         this.props.closeModal();
     }
 
