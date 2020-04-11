@@ -3,7 +3,7 @@ import Listener from './listener';
 import { receiveMessage } from '../../actions/message_actions';
 
 const mapStateToProps = state => {
-    debugger;
+    // debugger;
     return ({
         currentUser: state.session.id,
         memberships: Object.values(state.entities.memberships)

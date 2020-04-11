@@ -3,7 +3,7 @@ import { closeModal } from '../../actions/modal_actions';
 import ChannelCreateForm from '../channel/channel_create_form';
 import ChannelSearchContainer from '../search/channel_search_container';
 import React from 'react';
-// import UserSearchContainer from '../search/user_search_container';
+import UserSearchContainer from '../search/user_search_container';
 
 const Modal = ({ modal, closeModal }) => {
 
@@ -19,9 +19,9 @@ const Modal = ({ modal, closeModal }) => {
         case 'channelSearch':
             component = <ChannelSearchContainer />; 
             break;
-        // case 'userSearch':
-        //     component = <UserSearchContainer />;
-        //     break;
+        case 'userSearch':
+            component = <UserSearchContainer />;
+            break;
         default:
             break;
     }
