@@ -826,11 +826,13 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
 
   _createClass(ChannelShow, [{
     key: "componentDidMount",
-    value: function componentDidMount() {// this.props.fetchUsers();
-      // const channels = Object.values(this.props.channels);
-      // if (channels.length != 0) {
-      //     this.props.fetchChannel(channels[0].id);
-      // }
+    value: function componentDidMount() {
+      // this.props.fetchUsers();
+      var channels = Object.values(this.props.channels);
+
+      if (channels.length != 0) {
+        this.props.fetchChannel(channels[0].id);
+      }
     }
   }, {
     key: "componentDidUpdate",
@@ -1005,6 +1007,7 @@ var Listener = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
+      //DO NOT REMOVE THIS IF CHECK!
       if (prevProps && prevProps.currentChannel !== this.props.currentChannel) {
         console.log("it's running");
         this.createSubscriptions();
@@ -1078,7 +1081,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state) {
-  // debugger;
   return {
     currentUser: state.session.id,
     currentChannel: state.session.currentChannel,
@@ -2017,7 +2019,6 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       var matchedUsers = this.matches();
-      debugger;
       var renderMatches = matchedUsers.map(function (matchedUser) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-render",
@@ -2191,7 +2192,6 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
     value: function renderChannels() {
       var channels_arr = [];
       var that = this;
-      debugger;
 
       if (this.props.channels) {
         this.props.memberships.forEach(function (membership) {
@@ -2939,7 +2939,6 @@ var membershipsReducer = function membershipsReducer() {
 
   switch (action.type) {
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CURRENT_USER"]:
-      debugger;
       return action.currentUser.memberships;
 
     case _actions_channel_actions__WEBPACK_IMPORTED_MODULE_2__["RECEIVE_CHANNEL"]:
@@ -2982,11 +2981,9 @@ __webpack_require__.r(__webpack_exports__);
 var messagesReducer = function messagesReducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
   var action = arguments.length > 1 ? arguments[1] : undefined;
-  Object.freeze(state); // debugger;
+  Object.freeze(state);
 
   switch (action.type) {
-    // case RECEIVE_MESSAGE:
-    //     return Object.assign({}, state, { [action.message.id]: action.message }); 
     case _actions_message_actions__WEBPACK_IMPORTED_MODULE_1__["RECEIVE_MESSAGE"]:
       return Object.assign({}, state, action.payload.messages);
 

@@ -40,7 +40,6 @@ class UserSearch extends React.Component {
 
     render() {
         const matchedUsers = this.matches();
-        debugger;
         const renderMatches = matchedUsers.map(matchedUser => {
             return (
                 <div className="user-render"
