@@ -14,7 +14,7 @@ const membershipsReducer = (state = {}, action) => {
             }
         case RECEIVE_MEMBERSHIP:
             if (!!action.membership) {
-                return Object.assign({}, state, {[action.membership.id]: action.membership})
+                return Object.assign({}, newState, {[action.membership.id]: action.membership})
             }
         case REMOVE_MEMBERSHIP:
             delete newState[action.membershipId];

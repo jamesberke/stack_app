@@ -84,7 +84,7 @@ class Sidebar extends React.Component {
             dmLinks = dmArr.map( ele => 
                 <li key={ele[0]}>
                     <button onClick={() => this.props.fetchChannel(ele[0])}
-                            className={ele[0] === this.props.currentChannel ? "selected" : ""}>     
+                            className={ele[0] === this.props.currentChannel.id ? "selected" : ""}>     
                                 {"\u2022"} {ele[1]}
                     </button>
                 </li >);
@@ -138,7 +138,7 @@ class Sidebar extends React.Component {
                     <h2 className="sidebar-dms-title">
                         Direct Messages 
                         <span className="sidebar-add-dm-icon"
-                            onClick={this.props.openModal('userSearch')}>
+                            onClick={() => this.props.openModal('userSearch')}>
                             +
                         </span>
                     </h2>

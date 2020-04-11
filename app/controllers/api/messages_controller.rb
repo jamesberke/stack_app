@@ -6,6 +6,11 @@ class Api::MessagesController < ApplicationController
         render 'api/messages/show'
     end
 
+    def index
+        @messages = Channel.find(params[:channelId]).messages
+        render "api/messages/index"
+    end 
+
     def create
         @message = Message.new(message_params)
         @message.user_id ||= current_user.id

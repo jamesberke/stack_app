@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
 import Listener from './listener';
-import { receiveNewMessage } from '../../actions/message_actions';
-import { withRouter } from 'react-router-dom';
+import { receiveMessage } from '../../actions/message_actions';
 
-const mapStateToProps = state => ({
+const mapStateToProps = state => {
+    debugger;
+    return ({
         currentUser: state.session.id,
         memberships: Object.values(state.entities.memberships)
-});
+    })
+};
 
 const mapDispatchTopProps = dispatch => ({
-    receiveNewMessage: message => dispatch(receiveNewMessage(message))
+    receiveMessage: payload => dispatch(receiveMessage(payload))
 });
 
 export default connect(mapStateToProps, mapDispatchTopProps)(Listener);

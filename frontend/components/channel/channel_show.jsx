@@ -1,6 +1,7 @@
 import React from 'react';
 import MessageForm from './message_form';
 
+
 class ChannelShow extends React.Component {
 
     constructor(props) {
@@ -11,10 +12,11 @@ class ChannelShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchUsers();
-        const channels = Object.values(this.props.channels);
-        if (channels.length != 0) {
-            this.props.fetchChannel(channels[0].id);
-        }
+        
+        // const channels = Object.values(this.props.channels);
+        // if (channels.length != 0) {
+        //     this.props.fetchChannel(channels[0].id);
+        // }
     };
 
     componentDidUpdate() {
