@@ -1999,7 +1999,7 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
 
       ;
       this.props.users.forEach(function (user) {
-        var nameSub = user.name.slice(0, _this2.state.searchInput.length);
+        var nameSub = user.username.slice(0, _this2.state.searchInput.length);
 
         if (nameSub.toLowerCase() === _this2.state.searchInput.toLocaleLowerCase()) {
           matches.push(user);
@@ -2018,6 +2018,7 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
       var _this3 = this;
 
       var matchedUsers = this.matches();
+      debugger;
       var renderMatches = matchedUsers.map(function (matchedUser) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-render",
@@ -2026,8 +2027,8 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
             return _this3.createDm(matchedUser.id);
           }
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "user-render-title"
-        }, matchedUser.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "user-render-name"
+        }, matchedUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-render-formalName"
         }, matchedUser.formalName));
       });
@@ -2072,7 +2073,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    users: Object.values(state.entities.users),
+    users: Object.values(state.entities.users.users),
     memberships: Object.values(state.entities.memberships)
   };
 };

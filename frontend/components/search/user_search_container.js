@@ -4,7 +4,7 @@ import { fetchUsers } from '../../actions/user_actions';
 import UserSearch from './user_search';
 
 const mapStateToProps = state => ({
-    users: Object.values(state.entities.users),
+    users: Object.values(state.entities.users.users),
     memberships: Object.values(state.entities.memberships)
 });
 

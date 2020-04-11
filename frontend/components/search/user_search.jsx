@@ -24,7 +24,7 @@ class UserSearch extends React.Component {
         };
 
         this.props.users.forEach(user => {
-            const nameSub = user.name.slice(0, this.state.searchInput.length);
+            const nameSub = user.username.slice(0, this.state.searchInput.length);
             if (nameSub.toLowerCase() === this.state.searchInput.toLocaleLowerCase()) {
                 matches.push(user);
             }
@@ -39,13 +39,14 @@ class UserSearch extends React.Component {
 
     render() {
         const matchedUsers = this.matches();
+        debugger;
         const renderMatches = matchedUsers.map(matchedUser => {
             return (
                 <div className="user-render"
                     key={matchedUser.id}
                     onClick={() => this.createDm(matchedUser.id)}>
-                    <div className="user-render-title">
-                        {matchedUser.name}
+                    <div className="user-render-name">
+                        {matchedUser.username}
                     </div>
                     <div className="user-render-formalName">
                         {matchedUser.formalName}
