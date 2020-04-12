@@ -2148,8 +2148,12 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
   _createClass(Sidebar, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchUser(this.props.currentUser.id);
       this.props.fetchUsers();
+
+      if (this.props.currentUser) {
+        this.props.fetchUser(this.props.currentUser.id);
+      }
+
       this.props.fetchChannels();
     }
   }, {
@@ -2247,64 +2251,68 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
         });
       }
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar-main-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar-currentuser-greeting",
-        onClick: this.toggleDropdown
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "sidebar-greeting-bullet"
-      }, "\u2022"), " ", currentUser.username, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-        src: window.profilePicture,
-        className: "channel-header-picture"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-caret-down"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar-greeting-dropdown-content",
-        id: "dropdown"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.handleLogout,
-        className: "sidebar-logout-button"
-      }, "Logout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "sidebar-edit-profile-button"
-      }, "Edit Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://github.com/jamesberke/stack_app",
-        className: "dropdown-github",
-        target: "_blank"
-      }, "Visit my Github"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-        href: "https://www.linkedin.com/in/james-berke-33912718a/",
-        className: "dropdown-linkedin",
-        target: "_blank"
-      }, "Visit my LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-        type: "text",
-        placeholder: "Search for channels...",
-        className: "sidebar-jump-to",
-        onClick: function onClick() {
-          return _this2.props.openModal('channelSearch');
-        }
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar-channels-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "sidebar-channels-title"
-      }, "Channels"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar-channels-render"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, channelLinks)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar-new-channel",
-        onClick: function onClick() {
-          return _this2.props.openModal('createChannel');
-        }
-      }, "+", " Create a channel")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar-dms-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
-        className: "sidebar-dms-title"
-      }, "Direct Messages", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-        className: "sidebar-add-dm-icon",
-        onClick: function onClick() {
-          return _this2.props.openModal('userSearch');
-        }
-      }, "+")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "sidebar-dms-render"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, dmLinks))));
+      if (!!currentUser) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar-main-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar-currentuser-greeting",
+          onClick: this.toggleDropdown
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "sidebar-greeting-bullet"
+        }, "\u2022"), " ", currentUser.username, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: window.profilePicture,
+          className: "channel-header-picture"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-caret-down"
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar-greeting-dropdown-content",
+          id: "dropdown"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          onClick: this.handleLogout,
+          className: "sidebar-logout-button"
+        }, "Logout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "sidebar-edit-profile-button"
+        }, "Edit Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "https://github.com/jamesberke/stack_app",
+          className: "dropdown-github",
+          target: "_blank"
+        }, "Visit my Github"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+          href: "https://www.linkedin.com/in/james-berke-33912718a/",
+          className: "dropdown-linkedin",
+          target: "_blank"
+        }, "Visit my LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+          type: "text",
+          placeholder: "Search for channels...",
+          className: "sidebar-jump-to",
+          onClick: function onClick() {
+            return _this2.props.openModal('channelSearch');
+          }
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar-channels-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          className: "sidebar-channels-title"
+        }, "Channels"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar-channels-render"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, channelLinks)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar-new-channel",
+          onClick: function onClick() {
+            return _this2.props.openModal('createChannel');
+          }
+        }, "+", " Create a channel")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar-dms-container"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+          className: "sidebar-dms-title"
+        }, "Direct Messages", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+          className: "sidebar-add-dm-icon",
+          onClick: function onClick() {
+            return _this2.props.openModal('userSearch');
+          }
+        }, "+")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          className: "sidebar-dms-render"
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, dmLinks))));
+      } else {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }
     }
   }]);
 
