@@ -704,11 +704,22 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
           return _this.props.createMembership(_defineProperty({}, "channel_id", _this.props.currentChannel.id));
         }
       }, "Subscribe");
+      var deleteButton;
+
+      if (!!this.props.currentChannel) {
+        deleteButton = this.props.currentChannel.isDm || this.props.currentChannel.adminId === this.props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "channel-header-delete",
+          onClick: function onClick() {
+            return _this.props.deleteChannel(_this.props.currentChannel.id);
+          }
+        }, "Delete Channel") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
+      }
+
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-header-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-header-title"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "# ", title), subButton), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "# ", title), subButton), deleteButton, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-search"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "channel-settings"
@@ -750,14 +761,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_message_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/message_actions */ "./frontend/actions/message_actions.js");
 /* harmony import */ var _actions_membership_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/membership_actions */ "./frontend/actions/membership_actions.js");
+/* harmony import */ var _actions_channel_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/channel_actions */ "./frontend/actions/channel_actions.js");
+
 
 
 
 
 
 var mapStateToProps = function mapStateToProps(state) {
+  debugger;
   return {
     currentChannel: state.entities.channels[state.session.currentChannel],
+    currentUser: state.session.id,
+    users: state.entities.users,
     memberships: Object.values(state.entities.memberships)
   };
 };
@@ -769,6 +785,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deleteMembership: function deleteMembership(membershipId) {
       return dispatch(Object(_actions_membership_actions__WEBPACK_IMPORTED_MODULE_3__["deleteMembership"])(membershipId));
+    },
+    deleteChannel: function deleteChannel(channelId) {
+      return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_4__["deleteChannel"])(channelId));
     }
   };
 };
@@ -1274,7 +1293,7 @@ var Client = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
         className: "client-main-page"
-      }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_sidebar_sidebar_container__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_channel_header_container__WEBPACK_IMPORTED_MODULE_0__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_channel_show_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_listener_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+      }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_sidebar_sidebar_container__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_channel_show_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_channel_header_container__WEBPACK_IMPORTED_MODULE_0__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_listener_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_3__["default"], null));
     }
   }]);
 

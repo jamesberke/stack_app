@@ -23,10 +23,9 @@
     font-weight: bold;
     font-size: 22px;
     margin-top: 16px;
+    margin-left: 3%;
     font-family: "Poppins", sans-serif;
-    left: 3%;
     justify-content: flex-start;
-    position: absolute;
 }
 
 .channel-header-subscribe {
@@ -43,6 +42,20 @@
 
 .channel-header-subscribe:hover {
     color: oldlace;
+}
+
+.channel-header-delete {
+    background-color: inherit;
+    color: lightgray;
+    border: solid 1px grey;
+    border-radius: 5px;
+    margin-left: 2%;
+    margin-top: 20px;
+    height: 30px;
+}
+
+.channel-header-delete:hover {
+    background-color: #363636;
 }
 
 .channel-darkmode-selector {

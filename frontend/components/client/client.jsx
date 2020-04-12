@@ -15,8 +15,8 @@ class Client extends React.Component {
         return (
             <div className="client-main-page">
                 <SidebarContainer />
-                <ChannelHeaderContainer />
                 <ChannelShowContainer />
+                <ChannelHeaderContainer />
                 <ListenerContainer />
                 <Modal />
             </div>

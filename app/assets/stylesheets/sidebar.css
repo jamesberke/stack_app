@@ -200,8 +200,8 @@
 .sidebar-add-dm-icon {
     color: #818385;
     position: absolute;
-    right: 8px;
-    font-size: 20px;
+    right: 5%;
+    font-size: 24px;
     font-weight: 100;
     cursor: default;
 }
