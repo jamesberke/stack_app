@@ -10,6 +10,7 @@ class Sidebar extends React.Component {
 
     componentDidMount() {
         this.props.fetchUser(this.props.currentUser.id);
+        this.props.fetchUsers();
         this.props.fetchChannels();
     }
 
@@ -46,7 +47,6 @@ class Sidebar extends React.Component {
     renderChannels() {
         const channels_arr = [];
         const that = this;
-
         if (this.props.channels) {
             this.props.memberships.forEach(membership => {
                 const id = membership.channelId;

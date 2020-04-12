@@ -11,12 +11,12 @@ class ChannelShow extends React.Component {
     };
 
     componentDidMount() {
-        this.props.fetchUsers();
+        // this.props.fetchUsers();
         
-        // const channels = Object.values(this.props.channels);
-        // if (channels.length != 0) {
-        //     this.props.fetchChannel(channels[0].id);
-        // }
+        const channels = Object.values(this.props.channels);
+        if (channels.length != 0) {
+            this.props.fetchChannel(channels[0].id);
+        }
     };
 
     componentDidUpdate() {
@@ -32,7 +32,7 @@ class ChannelShow extends React.Component {
 
     renderMessages() {
         let that = this;
-        if (!!this.props.messages && !!this.props.users.users) {
+        if (!!this.props.messages && !!this.props.users) {
             const messagesArr = this.props.messages.map(message => {
                 
                 const userId = message.userId;
@@ -51,7 +51,7 @@ class ChannelShow extends React.Component {
                         </div>
                         <div>
                             <div className="channel-message-title">
-                                {that.props.users.users[userId].username} <span className="timestamp">{timeStamp}</span>
+                                {that.props.users[userId].username} <span className="timestamp">{timeStamp}</span>
                             </div>
                             <div className="channel-message-body">
                                 {message.body}

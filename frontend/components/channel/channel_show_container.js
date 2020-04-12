@@ -1,6 +1,6 @@
 import ChannelShow from './channel_show';
 import { fetchChannel } from '../../actions/channel_actions';
-import { fetchUsers } from '../../actions/user_actions';
+// import { fetchUsers } from '../../actions/user_actions';
 import { connect } from 'react-redux';
 
 const mapStateToProps = state => ({
@@ -11,7 +11,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
     fetchChannel: channelId => dispatch(fetchChannel(channelId)),
-    fetchUsers: () => dispatch(fetchUsers())
+    // fetchUsers: () => dispatch(fetchUsers())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChannelShow);

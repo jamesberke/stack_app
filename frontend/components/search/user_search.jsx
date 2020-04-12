@@ -34,12 +34,12 @@ class UserSearch extends React.Component {
     }
 
     createDm(id) {
+        this.props.createChannel()
         this.props.closeModal();
     }
 
     render() {
         const matchedUsers = this.matches();
-        debugger;
         const renderMatches = matchedUsers.map(matchedUser => {
             return (
                 <div className="user-render"
