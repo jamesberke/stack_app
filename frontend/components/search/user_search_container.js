@@ -5,7 +5,7 @@ import { fetchUsers } from '../../actions/user_actions';
 import UserSearch from './user_search';
 
 const mapStateToProps = state => ({
-    currentUser: state.entities.users[StyleSheet.session.id],
+    currentUser: state.entities.users[state.session.id],
     users: Object.values(state.entities.users),
     memberships: Object.values(state.entities.memberships)
 });

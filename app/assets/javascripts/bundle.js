@@ -2075,7 +2075,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    currentUser: state.entities.users[StyleSheet.session.id],
+    currentUser: state.entities.users[state.session.id],
     users: Object.values(state.entities.users),
     memberships: Object.values(state.entities.memberships)
   };
@@ -2148,12 +2148,11 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
   _createClass(Sidebar, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchUsers();
-
       if (this.props.currentUser) {
         this.props.fetchUser(this.props.currentUser.id);
       }
 
+      this.props.fetchUsers();
       this.props.fetchChannels();
     }
   }, {
