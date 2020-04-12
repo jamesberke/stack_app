@@ -23,6 +23,12 @@ class Api::ChannelsController < ApplicationController
             Message.create({body: "Welcome to #{@channel.name}",
                             user_id: stack_bot.id,
                             channel_id: @channel.id})
+                            
+            if @channel.is_dm
+                Membership.create({user_id: @channel.name,
+                                    channel_id: @channel.id})
+            end
+
             render 'api/channels/show'
         else
             render json: @channel.errors.full_messages, status: 422

@@ -140,7 +140,7 @@
     background-color: #222629;
     border: none;
     outline: none;
-    padding: 4px;
+    padding: 4px 0px;
     padding-left: 6%;
     width: 100%;
     display: flex;
@@ -182,10 +182,14 @@
     background-color: #363636;    
 }
 
+.sidebar-dms-container {
+    display: flex;
+    flex-direction: column;
+}
+
 .sidebar-dms-title {
-    position: absolute;
     margin-top: 30px;
-    width: 94%;
+    margin-bottom: 6px;
     padding-left: 5%;
     font-weight: bold;
     font-size: 20px;
@@ -207,8 +211,6 @@
 }
 
 .sidebar-dms-render {
-    /* margin-left: ; */
-    margin-top: 6px;
     color: lightgray;
     font-weight: 100;
     font-size: 15px;
@@ -224,7 +226,7 @@
     background-color: #222629;
     border: none;
     outline: none;
-    padding: 8px 0px;
+    padding: 4px 0px;
     width: 100%;
     display: flex;
     justify-content: flex-start;

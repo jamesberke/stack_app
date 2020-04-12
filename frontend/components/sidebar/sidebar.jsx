@@ -38,7 +38,7 @@ class Sidebar extends React.Component {
                     return;
                 }
                 if (channel.isDm) {
-                    dms_arr.push([channel.id, channel.name])
+                    dms_arr.push([channel.id, channel.name, channel.adminId])
                 }
             })
         }
@@ -86,8 +86,8 @@ class Sidebar extends React.Component {
             dmLinks = dmArr.map( ele => 
                 <li key={ele[0]}>
                     <button onClick={() => this.props.fetchChannel(ele[0])}
-                            className={ele[0] === this.props.currentChannel.id ? "selected" : ""}>     
-                                {"\u2022"} {ele[1]}
+                            className={ele[0] === this.props.currentChannel.id ? "selected" : ""}>    
+                                {"\u2022"} {this.props.users[ele[1]].username}
                     </button>
                 </li >);
         }
@@ -138,13 +138,13 @@ class Sidebar extends React.Component {
                         </div>
                     </div>
                     <div className="sidebar-dms-container">
-                        <h2 className="sidebar-dms-title">
+                        <div className="sidebar-dms-title">
                             Direct Messages 
                             <span className="sidebar-add-dm-icon"
                                 onClick={() => this.props.openModal('userSearch')}>
                                 +
                             </span>
-                        </h2>
+                        </div>
                         <div className="sidebar-dms-render">
                             <ul>
                                 {dmLinks}

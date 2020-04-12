@@ -2010,7 +2010,12 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "createDm",
     value: function createDm(id) {
-      this.props.createChannel();
+      this.props.createChannel({
+        name: id,
+        admin_id: this.props.currentUser,
+        is_dm: true,
+        is_private: true
+      });
       this.props.closeModal();
     }
   }, {
@@ -2183,7 +2188,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
           }
 
           if (channel.isDm) {
-            dms_arr.push([channel.id, channel.name]);
+            dms_arr.push([channel.id, channel.name, channel.adminId]);
           }
         });
       }
@@ -2246,7 +2251,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
               return _this2.props.fetchChannel(ele[0]);
             },
             className: ele[0] === _this2.props.currentChannel.id ? "selected" : ""
-          }, "\u2022", " ", ele[1]));
+          }, "\u2022", " ", _this2.props.users[ele[1]].username));
         });
       }
 
@@ -2299,7 +2304,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
           }
         }, "+", " Create a channel")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "sidebar-dms-container"
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "sidebar-dms-title"
         }, "Direct Messages", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "sidebar-add-dm-icon",
@@ -2348,6 +2353,7 @@ var mapStateToProps = function mapStateToProps(state) {
   return {
     currentUser: state.entities.users[state.session.id],
     channels: state.entities.channels,
+    users: state.entities.users,
     currentChannel: state.entities.channels[state.session.currentChannel],
     memberships: Object.values(state.entities.memberships)
   };

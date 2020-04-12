@@ -43,6 +43,7 @@ direct_message.user-search-form-container {
 }
 
 .user-render-name {
+    font-family: sans-serif;
     font-size: 20px;
     padding-left: 16px;
     padding-top: 10px;
