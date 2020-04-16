@@ -769,7 +769,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state) {
-  debugger;
+  // debugger;
   return {
     currentChannel: state.entities.channels[state.session.currentChannel],
     currentUser: state.session.id,
@@ -2881,7 +2881,7 @@ var channelsReducer = function channelsReducer() {
       return Object.assign({}, newState, _defineProperty({}, action.channel.channel.id, action.channel.channel));
 
     case _actions_channel_actions__WEBPACK_IMPORTED_MODULE_0__["REMOVE_CHANNEL"]:
-      delete newState[action.channel.id];
+      delete newState[action.channelId];
       return newState;
 
     case _actions_session_actions__WEBPACK_IMPORTED_MODULE_1__["LOGOUT_CURRENT_USER"]:

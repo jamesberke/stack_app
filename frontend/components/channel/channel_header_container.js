@@ -5,7 +5,7 @@ import { createMembership, deleteMembership } from '../../actions/membership_act
 import { deleteChannel } from '../../actions/channel_actions';
 
 const mapStateToProps = state => {
-    debugger;
+    // debugger;
     return {
         currentChannel: state.entities.channels[state.session.currentChannel],
         currentUser: state.session.id,
