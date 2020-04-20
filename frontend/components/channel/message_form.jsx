@@ -25,11 +25,13 @@ class MessageForm extends React.Component {
 
     render() {
         let channelName = "";
+
         if (!!this.props.currentChannel) {
             channelName = this.props.currentChannel.name;
         } else {
             channelName = "Home";
         }
+
         return (
             <form className="message-form-container" onSubmit={this.handleSubmit}>
                 <input className="message-form-input" 
@@ -45,7 +47,8 @@ class MessageForm extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    currentChannel: state.entities.channels[state.session.currentChannel]
+    currentChannel: state.entities.channels[state.session.currentChannel],
+    users: state.entities.users
 });
 
 const mapDispatchToProps = dispatch => ({

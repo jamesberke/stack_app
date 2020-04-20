@@ -64,7 +64,7 @@
     display: flex;
 }
 
-.sidebar-logout-button, .sidebar-edit-profile-button {
+.sidebar-logout-button {
     background-color: inherit;
     display: flex;
     justify-content: flex-start;

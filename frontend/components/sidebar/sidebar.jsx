@@ -105,9 +105,6 @@ class Sidebar extends React.Component {
                         <button onClick={this.handleLogout} className="sidebar-logout-button">
                             Logout
                         </button>
-                        <button className="sidebar-edit-profile-button">
-                            Edit Profile
-                        </button>
                         <a href='https://github.com/jamesberke/stack_app' 
                             className='dropdown-github'
                             target="_blank">
@@ -142,7 +139,7 @@ class Sidebar extends React.Component {
                             Direct Messages 
                             <span className="sidebar-add-dm-icon"
                                 onClick={() => this.props.openModal('userSearch')}>
-                                +
+                                {"\u002B"}
                             </span>
                         </div>
                         <div className="sidebar-dms-render">

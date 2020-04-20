@@ -73,12 +73,10 @@ class ChannelHeader extends React.Component {
                 <button className="channel-settings">
                     <i className="fas fa-cog"></i>
                 </button>
-                <button className="channel-member-dropdown">
-                    <i className="fas fa-user"></i>
-                </button>
                 <input type="text" 
-                        placeholder="SEARCH..." 
-                        className="channel-header-search">
+                        placeholder="Search for users..." 
+                        className="channel-header-search"
+                        onClick={() => this.props.openModal('userSearch')}>
                 </input>
                 <button className="channel-darkmode-selector">
                     <i className="fas fa-lightbulb"></i>               

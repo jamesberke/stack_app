@@ -15,7 +15,6 @@
     /* width: 70%; */
     display: flex;
     justify-content: flex-end;
-    border: solid 1px red;
 }
 
 .channel-header-title {
@@ -79,25 +78,9 @@
     opacity: 1;
 }
 
-.channel-member-dropdown {
-    position: absolute;
-    right: 435px;
-    background-color: inherit;
-    border: none;
-    color: lightgray;
-    margin-top: 23px;
-    font-size: 20px;
-    opacity: 0.5;
-}
-
-.channel-member-dropdown:hover {
-    color: oldlace;
-    opacity: 1;
-}
-
 .channel-settings{
     position: absolute;
-    right: 480px;
+    right: 435px;
     background-color: inherit;
     border: none;
     color: lightgray;
@@ -133,7 +116,7 @@
     position: absolute;
     right: 390px;
     top: 29px;
-    z-index: 10;
+    z-index: 2;
     color:gray;
 }
 

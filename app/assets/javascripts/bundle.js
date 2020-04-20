@@ -733,14 +733,13 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
         className: "channel-settings"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-cog"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "channel-member-dropdown"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-user"
       })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
-        placeholder: "SEARCH...",
-        className: "channel-header-search"
+        placeholder: "Search for users...",
+        className: "channel-header-search",
+        onClick: function onClick() {
+          return _this.props.openModal('userSearch');
+        }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "channel-darkmode-selector"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
@@ -769,6 +768,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _actions_channel_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/channel_actions */ "./frontend/actions/channel_actions.js");
 /* harmony import */ var _actions_membership_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/membership_actions */ "./frontend/actions/membership_actions.js");
+/* harmony import */ var _actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/modal_actions */ "./frontend/actions/modal_actions.js");
+
 
 
 
@@ -799,6 +800,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     fetchChannel: function fetchChannel(channelId) {
       return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_2__["fetchChannel"])(channelId));
+    },
+    openModal: function openModal(modal) {
+      return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_4__["openModal"])(modal));
     }
   };
 };
@@ -1232,7 +1236,8 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    currentChannel: state.entities.channels[state.session.currentChannel]
+    currentChannel: state.entities.channels[state.session.currentChannel],
+    users: state.entities.users
   };
 };
 
@@ -2306,9 +2311,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           onClick: this.handleLogout,
           className: "sidebar-logout-button"
-        }, "Logout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "sidebar-edit-profile-button"
-        }, "Edit Profile"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
+        }, "Logout"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
           href: "https://github.com/jamesberke/stack_app",
           className: "dropdown-github",
           target: "_blank"
