@@ -13,15 +13,19 @@ class ChannelHeader extends React.Component {
         this.props.fetchChannel(global.id);
     }
 
-    render() {
-        let title = "";
-        
+    getTitle() {
         if (!!this.props.currentChannel) {
-            title = this.props.currentChannel.name;
-        } else {
-            title = 'Home';
-        };
-        
+            if (this.props.currentChannel.isDm) {
+                const userId = parseInt(this.props.currentChannel.name);
+                const user = this.props.users[userId];
+                return `# ${user.username}`;
+            } else {
+                return `# ${this.props.currentChannel.name}`;
+            }
+        }
+    }
+
+    render() {   
         let subscribed = false;
         let memId = 0;
         let that =this;
@@ -65,7 +69,7 @@ class ChannelHeader extends React.Component {
         return(
             <div className="channel-header-container">
                 <div className="channel-header-title">
-                    <h1># {title}</h1>
+                    <h1>{this.getTitle()}</h1>
                     {subButton}                    
                 </div> 
                 {deleteButton}                   
