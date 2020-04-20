@@ -675,19 +675,23 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
       this.props.fetchChannel(global.id);
     }
   }, {
+    key: "getTitle",
+    value: function getTitle() {
+      if (!!this.props.currentChannel) {
+        if (this.props.currentChannel.isDm) {
+          var userId = parseInt(this.props.currentChannel.name);
+          var user = this.props.users[userId];
+          return "# ".concat(user.username);
+        } else {
+          return "# ".concat(this.props.currentChannel.name);
+        }
+      }
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this = this;
 
-      var title = "";
-
-      if (!!this.props.currentChannel) {
-        title = this.props.currentChannel.name;
-      } else {
-        title = 'Home';
-      }
-
-      ;
       var subscribed = false;
       var memId = 0;
       var that = this;
@@ -727,7 +731,7 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
         className: "channel-header-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-header-title"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "# ", title), subButton), deleteButton, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.getTitle()), subButton), deleteButton, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-search"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "channel-settings"
@@ -1208,16 +1212,21 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
-    key: "render",
-    value: function render() {
-      var channelName = "";
-
-      if (!!this.props.currentChannel) {
-        channelName = this.props.currentChannel.name;
-      } else {
-        channelName = "Home";
+    key: "getPlaceholder",
+    value: function getPlaceholder() {
+      if (this.props.currentChannel) {
+        if (this.props.currentChannel.isDm) {
+          return 'New Direct Message';
+        } else {
+          return "Message # ".concat(this.props.currentChannel.name);
+        }
       }
 
+      ;
+    }
+  }, {
+    key: "render",
+    value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "message-form-container",
         onSubmit: this.handleSubmit
@@ -1226,7 +1235,7 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
         type: "text",
         value: this.state.body,
         onChange: this.update('body'),
-        placeholder: "Message # ".concat(channelName)
+        placeholder: this.getPlaceholder()
       }));
     }
   }]);

@@ -23,22 +23,24 @@ class MessageForm extends React.Component {
         this.setState({body: ""});
     }
 
+    getPlaceholder() {
+        if (this.props.currentChannel) {
+            if (this.props.currentChannel.isDm) {
+                return 'New Direct Message'
+            } else {
+                return `Message # ${this.props.currentChannel.name}`
+            }
+        };  
+    }
+
     render() {
-        let channelName = "";
-
-        if (!!this.props.currentChannel) {
-            channelName = this.props.currentChannel.name;
-        } else {
-            channelName = "Home";
-        }
-
         return (
             <form className="message-form-container" onSubmit={this.handleSubmit}>
                 <input className="message-form-input" 
                         type="text" 
                         value={this.state.body} 
                         onChange={this.update('body')} 
-                        placeholder={`Message # ${channelName}`}>
+                        placeholder={this.getPlaceholder()}>
                 </input>
             </form>
         )
