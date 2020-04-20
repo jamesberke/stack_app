@@ -52,6 +52,7 @@
     margin-left: 2%;
     margin-top: 20px;
     height: 30px;
+    outline: none;
 }
 
 .channel-header-delete:hover {

@@ -667,6 +667,14 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
   }
 
   _createClass(ChannelHeader, [{
+    key: "handleChannelDelete",
+    value: function handleChannelDelete(id, memId) {
+      this.props.deleteChannel(id);
+      this.props.deleteMembership(memId);
+      var global = Object.values(this.props.channels)[0];
+      this.props.fetchChannel(global.id);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this = this;
@@ -676,7 +684,7 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
       if (!!this.props.currentChannel) {
         title = this.props.currentChannel.name;
       } else {
-        title = "Home";
+        title = 'Home';
       }
 
       ;
@@ -710,7 +718,7 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
         deleteButton = this.props.currentChannel.isDm || this.props.currentChannel.adminId === this.props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "channel-header-delete",
           onClick: function onClick() {
-            return _this.props.deleteChannel(_this.props.currentChannel.id);
+            return _this.handleChannelDelete(_this.props.currentChannel.id, memId);
           }
         }, "Delete Channel") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
       }
@@ -759,9 +767,8 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _channel_header__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./channel_header */ "./frontend/components/channel/channel_header.jsx");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_message_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/message_actions */ "./frontend/actions/message_actions.js");
+/* harmony import */ var _actions_channel_actions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../actions/channel_actions */ "./frontend/actions/channel_actions.js");
 /* harmony import */ var _actions_membership_actions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../actions/membership_actions */ "./frontend/actions/membership_actions.js");
-/* harmony import */ var _actions_channel_actions__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../actions/channel_actions */ "./frontend/actions/channel_actions.js");
 
 
 
@@ -772,6 +779,7 @@ var mapStateToProps = function mapStateToProps(state) {
   // debugger;
   return {
     currentChannel: state.entities.channels[state.session.currentChannel],
+    channels: state.entities.channels,
     currentUser: state.session.id,
     users: state.entities.users,
     memberships: Object.values(state.entities.memberships)
@@ -787,7 +795,10 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
       return dispatch(Object(_actions_membership_actions__WEBPACK_IMPORTED_MODULE_3__["deleteMembership"])(membershipId));
     },
     deleteChannel: function deleteChannel(channelId) {
-      return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_4__["deleteChannel"])(channelId));
+      return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_2__["deleteChannel"])(channelId));
+    },
+    fetchChannel: function fetchChannel(channelId) {
+      return dispatch(Object(_actions_channel_actions__WEBPACK_IMPORTED_MODULE_2__["fetchChannel"])(channelId));
     }
   };
 };
@@ -846,7 +857,6 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
   _createClass(ChannelShow, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      // this.props.fetchUsers();
       var channels = Object.values(this.props.channels);
 
       if (channels.length != 0) {
@@ -1841,14 +1851,17 @@ var ChannelSearch = /*#__PURE__*/function (_React$Component) {
     value: function matches() {
       var _this2 = this;
 
+      var channels = this.props.channels.filter(function (channel) {
+        return channel.isDm === false;
+      });
       var matches = [];
 
       if (this.state.searchInput.length === 0) {
-        return this.props.channels;
+        return channels;
       }
 
       ;
-      this.props.channels.forEach(function (channel) {
+      channels.forEach(function (channel) {
         var nameSub = channel.name.slice(0, _this2.state.searchInput.length);
 
         if (nameSub.toLowerCase() === _this2.state.searchInput.toLocaleLowerCase()) {

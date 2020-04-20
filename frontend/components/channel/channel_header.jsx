@@ -5,13 +5,21 @@ class ChannelHeader extends React.Component {
         super(props);
     }
 
+    handleChannelDelete(id, memId) {
+        this.props.deleteChannel(id);
+        this.props.deleteMembership(memId);
+
+        let global = Object.values(this.props.channels)[0];
+        this.props.fetchChannel(global.id);
+    }
+
     render() {
         let title = "";
         
         if (!!this.props.currentChannel) {
             title = this.props.currentChannel.name;
         } else {
-            title = "Home"
+            title = 'Home';
         };
         
         let subscribed = false;
@@ -45,7 +53,7 @@ class ChannelHeader extends React.Component {
         if (!!this.props.currentChannel) {
             deleteButton = (this.props.currentChannel.isDm || this.props.currentChannel.adminId === this.props.currentUser) ? (
                 <button className="channel-header-delete"
-                    onClick={() => this.props.deleteChannel(this.props.currentChannel.id)}
+                    onClick={() => this.handleChannelDelete(this.props.currentChannel.id, memId)}
                 >
                     Delete Channel
                 </button>

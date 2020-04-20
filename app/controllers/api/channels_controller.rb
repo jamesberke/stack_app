@@ -36,13 +36,21 @@ class Api::ChannelsController < ApplicationController
     end
 
     def destroy
-        @channel = Channel.find_by(id: params[:id])
+        channel = Channel.find_by(id: params[:id])
 
-        if @channel
-            @channel.delete
+        if !!channel
+            memberships = channel.memberships
+            memberships.each do |mem|
+                mem.delete
+            end
+            channel.delete
         else
             render json: @channel.errors.full_messages, status: 422
         end
+        
+        @channel = Channel.find_by(name: "Global")
+        render 'api/channels/show'
+
     end
 
     private

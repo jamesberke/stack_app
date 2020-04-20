@@ -10,9 +10,7 @@ class ChannelShow extends React.Component {
         this.renderMessages = this.renderMessages.bind(this);
     };
 
-    componentDidMount() {
-        // this.props.fetchUsers();
-        
+    componentDidMount() {        
         const channels = Object.values(this.props.channels);
         if (channels.length != 0) {
             this.props.fetchChannel(channels[0].id);
