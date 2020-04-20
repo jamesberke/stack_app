@@ -1208,16 +1208,21 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
-    key: "render",
-    value: function render() {
-      var channelName = "";
-
-      if (!!this.props.currentChannel) {
-        channelName = this.props.currentChannel.name;
-      } else {
-        channelName = "Home";
+    key: "getPlaceholder",
+    value: function getPlaceholder() {
+      if (this.props.currentChannel) {
+        if (this.props.currentChannel.isDm) {
+          return 'New Direct Message';
+        } else {
+          return "Message # ".concat(this.props.currentChannel.name);
+        }
       }
 
+      ;
+    }
+  }, {
+    key: "render",
+    value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
         className: "message-form-container",
         onSubmit: this.handleSubmit
@@ -1226,7 +1231,7 @@ var MessageForm = /*#__PURE__*/function (_React$Component) {
         type: "text",
         value: this.state.body,
         onChange: this.update('body'),
-        placeholder: "Message # ".concat(channelName)
+        placeholder: this.getPlaceholder()
       }));
     }
   }]);
