@@ -17,13 +17,14 @@ class ChannelSearch extends React.Component {
     }
 
     matches() {
+        const channels = this.props.channels.filter(channel => channel.isDm === false);
         const matches = [];
         
         if (this.state.searchInput.length === 0) {
-            return this.props.channels
+            return channels
         };
 
-        this.props.channels.forEach(channel => {
+        channels.forEach(channel => {
             const nameSub = channel.name.slice(0, this.state.searchInput.length);
             if (nameSub.toLowerCase() === this.state.searchInput.toLocaleLowerCase()) {
                 matches.push(channel);

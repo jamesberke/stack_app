@@ -23,12 +23,12 @@ class Channel < ApplicationRecord
     has_many :memberships,
     foreign_key: :channel_id,
     class_name: :Membership
-    # :dependant => :delete_all
+    # dependant: :destroy
     
     has_many :messages,
     foreign_key: :channel_id,
     class_name: :Message
-    # :dependant => :delete_all  
+    # dependant: :destroy 
     
     # Through association for users using memberships table
     has_many :users,
