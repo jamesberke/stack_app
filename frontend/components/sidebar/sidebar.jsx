@@ -16,6 +16,23 @@ class Sidebar extends React.Component {
         this.props.fetchUsers();
     }
 
+    getProfilePic(name) {
+        let first = name.slice(0, 1).toLowerCase();
+        if ('abcd'.includes(first)) {
+            return window.profilePicture1;
+        } else if ('efghi'.includes(first)) {
+            return window.profilePicture2;
+        } else if ('jklm'.includes(first)) {
+            return window.profilePicture3;
+        } else if ('nopqr'.includes(first)) {
+            return window.profilePicture4;
+        } else if ('stuv'.includes(first)) {
+            return window.profilePicture5;
+        } else {
+            return window.profilePicture6;
+        }
+    }
+
     handleLogout(event) {
         event.preventDefault();
         this.props.logout();
@@ -106,7 +123,7 @@ class Sidebar extends React.Component {
                     <div className="sidebar-currentuser-greeting"
                             onClick={this.toggleDropdown}>
                         <span className="sidebar-greeting-bullet">{"\u2022"}</span> {currentUser.username}
-                        <img src={window.profilePicture} className="channel-header-picture"></img>
+                        <img src={this.getProfilePic(currentUser.username)} className="channel-header-picture"></img>
                         <i className="fas fa-caret-down"></i>
                     </div>
                     <div className="sidebar-greeting-dropdown-content" id="dropdown">

@@ -2246,6 +2246,25 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
       this.props.fetchUsers();
     }
   }, {
+    key: "getProfilePic",
+    value: function getProfilePic(name) {
+      var first = name.slice(0, 1).toLowerCase();
+
+      if ('abcd'.includes(first)) {
+        return window.profilePicture1;
+      } else if ('efghi'.includes(first)) {
+        return window.profilePicture2;
+      } else if ('jklm'.includes(first)) {
+        return window.profilePicture3;
+      } else if ('nopqr'.includes(first)) {
+        return window.profilePicture4;
+      } else if ('stuv'.includes(first)) {
+        return window.profilePicture5;
+      } else {
+        return window.profilePicture6;
+      }
+    }
+  }, {
     key: "handleLogout",
     value: function handleLogout(event) {
       event.preventDefault();
@@ -2358,7 +2377,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
           className: "sidebar-greeting-bullet"
         }, "\u2022"), " ", currentUser.username, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-          src: window.profilePicture,
+          src: this.getProfilePic(currentUser.username),
           className: "channel-header-picture"
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
           className: "fas fa-caret-down"
