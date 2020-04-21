@@ -920,6 +920,19 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "getTimeStamp",
+    value: function getTimeStamp(timeStamp) {
+      var hours = parseInt(timeStamp.slice(0, 2));
+      var minutes = timeStamp.slice(2, timeStamp.length);
+      var PstHours = (hours + 16) % 23;
+
+      if (PstHours > 12) {
+        return "".concat(PstHours - 12).concat(minutes, " PM");
+      } else {
+        return "".concat(PstHours).concat(minutes, " AM");
+      }
+    }
+  }, {
     key: "renderMessages",
     value: function renderMessages() {
       var _this2 = this;
@@ -930,13 +943,6 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
         var messagesArr = this.props.messages.map(function (message) {
           var userId = message.userId;
           var timeStamp = message.createdAt.slice(11, 16);
-
-          if (timeStamp.slice(0, 2) > 12) {
-            timeStamp = "".concat(timeStamp.slice(0, 2) - 12).concat(timeStamp.slice(2, timeStamp.length), " PM");
-          } else {
-            timeStamp = "".concat(timeStamp, " AM");
-          }
-
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             className: "channel-show-message-render",
             key: message.id
@@ -947,7 +953,7 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
             className: "channel-message-title"
           }, that.props.users[userId].username, " ", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
             className: "timestamp"
-          }, timeStamp)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+          }, _this2.getTimeStamp(timeStamp))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "channel-message-body"
           }, message.body)));
         });

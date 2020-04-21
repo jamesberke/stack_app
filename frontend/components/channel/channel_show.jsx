@@ -10,9 +10,9 @@ class ChannelShow extends React.Component {
         this.renderMessages = this.renderMessages.bind(this);
     };
 
-    componentDidMount() {        
+    componentDidMount() {
         const channels = Object.values(this.props.channels);
-        
+
         if (channels.length != 0) {
             this.props.fetchChannel(channels[0].id);
         }
@@ -20,19 +20,19 @@ class ChannelShow extends React.Component {
 
     componentDidUpdate() {
         const channels = Object.values(this.props.channels);
-        
+
         if (this.props.messages.length < 1 && channels.length > 0) {
             const selectedChannel = channels.filter(ch => ch.name === "Global")
             this.props.fetchChannel(selectedChannel[0].id);
         }
-        
+
         if (Object.values(this.props.users).length > 1) {
             this.bottom.current.scrollIntoView();
         }
     }
 
     getProfilePic(name) {
-        let first = name.slice(0,1).toLowerCase();
+        let first = name.slice(0, 1).toLowerCase();
         if ('abcd'.includes(first)) {
             return window.profilePicture1;
         } else if ('efghi'.includes(first)) {
@@ -48,20 +48,29 @@ class ChannelShow extends React.Component {
         }
     }
 
+    getTimeStamp(timeStamp) {
+        let hours = parseInt(timeStamp.slice(0, 2));
+        let minutes = timeStamp.slice(2, timeStamp.length);
+
+        let PstHours = (hours + 16) % 23;
+
+        if (PstHours > 12) {
+            return `${(PstHours - 12)}${minutes} PM`;
+        } else {
+            return `${PstHours}${minutes} AM`;
+        }
+    }
+
     renderMessages() {
         let that = this;
-        
+
         if (!!this.props.messages && !!this.props.users) {
             const messagesArr = this.props.messages.map(message => {
-                
+
                 const userId = message.userId;
                 let timeStamp = message.createdAt.slice(11, 16);
 
-                if (timeStamp.slice(0,2) > 12) {
-                    timeStamp = `${(timeStamp.slice(0,2) - 12)}${timeStamp.slice(2, timeStamp.length)} PM`
-                } else {
-                    timeStamp = `${timeStamp} AM`
-                }
+
 
                 return (
                     <li className="channel-show-message-render" key={message.id}>
@@ -70,26 +79,26 @@ class ChannelShow extends React.Component {
                         </div>
                         <div>
                             <div className="channel-message-title">
-                                {that.props.users[userId].username} <span className="timestamp">{timeStamp}</span>
+                                {that.props.users[userId].username} <span className="timestamp">{this.getTimeStamp(timeStamp)}</span>
                             </div>
                             <div className="channel-message-body">
                                 {message.body}
                             </div>
                         </div>
                     </li>
-                )  
+                )
 
             });
 
-        return messagesArr;
+            return messagesArr;
         }
     };
 
     render() {
-        
+
         if (Object.values(this.props.users).length < 2) {
             return null;
-        
+
         }
         const channel_messages = this.renderMessages();
         return (
