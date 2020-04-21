@@ -52,7 +52,7 @@ class ChannelShow extends React.Component {
         let hours = parseInt(timeStamp.slice(0,2));
         let minutes = timeStamp.slice(2, timeStamp.length);
 
-        let PstHours = (hours + 17) % 23;
+        let PstHours = (hours + 16) % 23;
 
         if (PstHours > 12) {
             return `${(PstHours - 12)}${minutes} PM`;

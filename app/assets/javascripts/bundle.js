@@ -924,7 +924,7 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
     value: function getTimeStamp(timeStamp) {
       var hours = parseInt(timeStamp.slice(0, 2));
       var minutes = timeStamp.slice(2, timeStamp.length);
-      var PstHours = (hours + 17) % 23;
+      var PstHours = (hours + 16) % 23;
 
       if (PstHours > 12) {
         return "".concat(PstHours - 12).concat(minutes, " PM");
