@@ -6,7 +6,6 @@ import { deleteChannel } from '../../actions/channel_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = state => {
-    // debugger;
     return {
         currentChannel: state.entities.channels[state.session.currentChannel],
         channels: state.entities.channels,

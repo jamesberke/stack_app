@@ -777,7 +777,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mapStateToProps = function mapStateToProps(state) {
-  // debugger;
   return {
     currentChannel: state.entities.channels[state.session.currentChannel],
     channels: state.entities.channels,
@@ -3046,7 +3045,6 @@ var messagesReducer = function messagesReducer() {
       return Object.assign({}, state, action.payload.messages);
 
     case _actions_channel_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CHANNEL"]:
-      debugger;
       return action.channel.messages;
 
     default:
