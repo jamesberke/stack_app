@@ -901,8 +901,29 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
       }
     }
   }, {
+    key: "getProfilePic",
+    value: function getProfilePic(name) {
+      var first = name.slice(0, 1);
+
+      if ('abcd'.includes(first)) {
+        return window.profilePicture1;
+      } else if ('efghi'.includes(first)) {
+        return window.profilePicture2;
+      } else if ('jklm'.includes(first)) {
+        return window.profilePicture3;
+      } else if ('nopqr'.includes(first)) {
+        return window.profilePicture4;
+      } else if ('stuv'.includes(first)) {
+        return window.profilePicture5;
+      } else {
+        return window.profilePicture6;
+      }
+    }
+  }, {
     key: "renderMessages",
     value: function renderMessages() {
+      var _this2 = this;
+
       var that = this;
 
       if (!!this.props.messages && !!this.props.users) {
@@ -920,7 +941,7 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
             className: "channel-show-message-render",
             key: message.id
           }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
-            src: window.profilePicture,
+            src: _this2.getProfilePic(that.props.users[userId].username),
             className: "channel-message-picture"
           })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
             className: "channel-message-title"

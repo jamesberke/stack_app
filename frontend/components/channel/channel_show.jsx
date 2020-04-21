@@ -31,6 +31,23 @@ class ChannelShow extends React.Component {
         }
     }
 
+    getProfilePic(name) {
+        let first = name.slice(0,1);
+        if ('abcd'.includes(first)) {
+            return window.profilePicture1;
+        } else if ('efghi'.includes(first)) {
+            return window.profilePicture2;
+        } else if ('jklm'.includes(first)) {
+            return window.profilePicture3;
+        } else if ('nopqr'.includes(first)) {
+            return window.profilePicture4;
+        } else if ('stuv'.includes(first)) {
+            return window.profilePicture5;
+        } else {
+            return window.profilePicture6;
+        }
+    }
+
     renderMessages() {
         let that = this;
         
@@ -49,7 +66,7 @@ class ChannelShow extends React.Component {
                 return (
                     <li className="channel-show-message-render" key={message.id}>
                         <div>
-                            <img src={window.profilePicture} className="channel-message-picture"></img>
+                            <img src={this.getProfilePic(that.props.users[userId].username)} className="channel-message-picture"></img>
                         </div>
                         <div>
                             <div className="channel-message-title">
