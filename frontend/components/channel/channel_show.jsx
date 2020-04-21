@@ -50,16 +50,15 @@ class ChannelShow extends React.Component {
 
     getTimeStamp(timeStamp) {
         let hours = parseInt(timeStamp.slice(0,2));
-        let minutes = parseInt(timeStamp.slice(2, timeStamp.length));
+        let minutes = timeStamp.slice(2, timeStamp.length);
 
         let PstHours = (hours + 17) % 23;
 
         if (PstHours > 12) {
-            timeStamp = `${(PstHours - 12)}${minutes} PM`
+            return `${(PstHours - 12)}${minutes} PM`;
         } else {
-            timeStamp = `${PstHours}${minutes} AM`
+            return `${PstHours}${minutes} AM`;
         }
-
     }
 
     renderMessages() {

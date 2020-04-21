@@ -2,60 +2,61 @@
 
 } */
 
-/* .message-form-container {
-    padding-top: 5px;
+.message-form-container {
+    padding-top: 16px;
     right: 0;
     bottom: 0;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-left: 0.1px solid gray;
-    border-top: none;
 }
 
 .message-form-input {
-    position: absolute;
-    width: 94%;
-    font-size: 14px;
-    color: oldlace;
-    background-color: #1C1E22;
-    overflow: auto;
-} */
+    width: 90%;
+    padding-bottom: 16px;
+}
 
 .quill {
 	display: flex;
 	flex-direction: column-reverse;
-	align-items: stretch;
-	margin-right: 28px;
-	min-height: 75px !important;
-	max-height: 75px !important;
+	min-height: 75px;
+	max-height: 75px;
 }
 
 .ql-editor {
     border-radius: 5px 5px 0px 0px;
 	border-left: 1px solid gray;
 	border-right: 1px solid gray;
-	border-top: 1px solid gray;
+    border-top: 1px solid gray;
+    padding: 8px !important;
+    /* font-size: 16px; */
+    color: oldlace;
+    background-color: inherit;
+}
+
+.ql-editor:hover {
+    background-color: #212529;
 }
 
 .ql-toolbar.ql-snow {
-    border: none;
-	border-left: 1px solid gray;
-	border-bottom: 1px solid gray;
-	border-right: 1px solid gray;
-	padding: 4px 8px 4px 8px;
-	border-radius: 0px 0px 5px 5px;
-	background-color: inherit;
+    border: none !important;
+	border-left: 1px solid gray !important;
+	border-bottom: 1px solid gray !important;
+	border-right: 1px solid gray !important;
+    border-radius: 0px 0px 5px 5px !important;
+    background-color: #1B1D22;
 	display: flex;
 	justify-content: space-between;
 }
 
 .ql-container.ql-snow {
-	border-bottom: 1px solid gray ;
-	border-top: none ;
-	border-left: none ;
-	border-right: none ;
+    border: none !important;
+	border-bottom: 1px solid gray !important;
+}
+
+svg {
+    color: gray 0.5 !important;
 }
 
 /* .message-submit-button {

@@ -2,6 +2,8 @@ import React from "react";
 import ReactQuill from "react-quill";
 import { connect } from "react-redux";
 import { createMessage } from "../../actions/message_actions";
+import "react-quill/dist/quill.snow.css";
+
 
 class MessageForm extends React.Component {
 
@@ -15,14 +17,16 @@ class MessageForm extends React.Component {
         this.modules = {
             toolbar: {
                 container: [
-                    'bold', 
-                    'italic', 
-                    'underline', 
-                    'strike', 
-                    'blockquote',
-                    'code-block',
-                    { 'list': 'ordered' }, 
-                    { 'list': 'bullet' }
+                    [
+                        'bold', 
+                        'italic', 
+                        'underline', 
+                        'strike', 
+                        'blockquote',
+                        'code-block',
+                        { 'list': 'ordered' }, 
+                        { 'list': 'bullet' }
+                    ]
                 ]
             }
         };
@@ -39,13 +43,8 @@ class MessageForm extends React.Component {
         ];
     };
 
-    // update(content, delta, source, editor) {
-    //     return this.setState({ 'body': editor.getHTML(), 
-    //                             ['channel_id']: this.props.currentChannel.id
-    //                         });
-    // }
-    update(field) {
-        return this.setState({ field: this.state.body,
+    update(content, delta, source, editor) {
+        return this.setState({ 'body': editor.getHTML(), 
                                 ['channel_id']: this.props.currentChannel.id
                             });
     }
@@ -68,25 +67,25 @@ class MessageForm extends React.Component {
 
     render() {
         return (
-            <form className="message-form-container" onSubmit={this.handleSubmit}>
-                <input className="message-form-input" 
-                        type="text" 
-                        value={this.state.body} 
-                        onChange={this.update('body')} 
-                        placeholder={this.getPlaceholder()}>
-                </input>
-            </form>
-            // <div className='message-form-container'>
-            //     <ReactQuill ref={el => this.reactQuillRef = el}
-            //                 className='message-form-input'
-            //                 theme='snow'
-            //                 modules={this.modules}
-            //                 formats={this.formats} 
-            //                 onChange={this.update}
-            //                 value={this.state.body}
-            //                 placeholder={this.getPlaceholder()}
-            //                 />
-            // </div>
+            // <form className="message-form-container" onSubmit={this.handleSubmit}>
+            //     <input className="message-form-input" 
+            //             type="text" 
+            //             value={this.state.body} 
+            //             onChange={this.update('body')} 
+            //             placeholder={this.getPlaceholder()}>
+            //     </input>
+            // </form>
+            <div className='message-form-container'>
+                <ReactQuill ref={el => this.reactQuillRef = el}
+                            className='message-form-input'
+                            theme='snow'
+                            modules={this.modules}
+                            formats={this.formats} 
+                            onChange={this.update}
+                            value={this.state.body}
+                            placeholder={this.getPlaceholder()}
+                            />
+            </div>
         )
     };
 
