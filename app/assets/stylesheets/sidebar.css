@@ -7,6 +7,7 @@
     position: absolute;
     font-family: sans-serif;
     border-right: 1px solid gray;
+    overflow: scroll;
 }
 
 .sidebar-greeting-bullet {
@@ -114,7 +115,7 @@
     outline: none;
 }
 
-.fa-search, .sidebar {
+.sidebar-search-icon {
     position: absolute;
     left: 8%;
     top: 93px;

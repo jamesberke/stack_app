@@ -750,7 +750,7 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "channel-header-title"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.getTitle()), subButton), deleteButton, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-search"
+        className: "fas fa-search header-search-icon"
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "Search for users...",
@@ -2420,7 +2420,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
           className: "dropdown-linkedin",
           target: "_blank"
         }, "Visit my LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-          className: "fas fa-search sidebar"
+          className: "fas fa-search sidebar-search-icon"
         }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           placeholder: "Search for channels...",

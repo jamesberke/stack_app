@@ -141,7 +141,7 @@ class Sidebar extends React.Component {
                             Visit my LinkedIn
                         </a>
                     </div>
-                    <i className="fas fa-search sidebar"></i>
+                    <i className="fas fa-search sidebar-search-icon"></i>
                     <input type="text" 
                             placeholder="Search for channels..."
                             className="sidebar-jump-to"
