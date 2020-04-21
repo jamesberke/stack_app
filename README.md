@@ -76,6 +76,14 @@
 
 ![Client Page](app/assets/images/client-page.png)
 
+  * User & Channel search:
+    * Renders an initial list of all users/channels open to message
+    * As a user types the input is tracked and dynamically updates the list of users/channels accordingly
+
+![Client Page](app/assets/images/channel-search.png)
+![Client Page](app/assets/images/user-search.png)
+
+
 ## Technical Overview of Live Chat
 
 * Action Cable was intrduced to Ruby on Rails in version 5.0
@@ -111,6 +119,7 @@
   * I chose to make a listener component that lives on the client page and listens to changes in all of the user's channels
   * This component itterates over all subscriptions of the user on sign in and establishes a connection for each one
   * For each connection I have console logged a message that allows you to see which channels you are a part of and when they connect and disconnect (for testing and demonstration purposes)
+  * When a user logs out all of the connections are unsubscribed to avoid clogging up the server
 
 ```
 class Listener extends React.Component {
