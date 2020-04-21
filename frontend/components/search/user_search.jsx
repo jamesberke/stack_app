@@ -35,8 +35,8 @@ class UserSearch extends React.Component {
     }
 
     createDm(id) {
+        // debugger;
         this.props.createChannel({name: id,
-                                admin_id: this.props.currentUser.id,
                                 is_dm: true,
                                 is_private: true 
                                 })

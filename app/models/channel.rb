@@ -12,7 +12,7 @@
 #  updated_at  :datetime         not null
 #
 class Channel < ApplicationRecord
-    validates :name, presence: true, uniqueness: true
+    validates :name, presence: true
     validates :admin_id, presence: true
     validates :is_dm, :is_private, inclusion: { in: [true, false] }
     
@@ -23,12 +23,10 @@ class Channel < ApplicationRecord
     has_many :memberships,
     foreign_key: :channel_id,
     class_name: :Membership
-    # dependant: :destroy
     
     has_many :messages,
     foreign_key: :channel_id,
     class_name: :Message
-    # dependant: :destroy 
     
     # Through association for users using memberships table
     has_many :users,

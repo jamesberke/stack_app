@@ -2074,9 +2074,9 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "createDm",
     value: function createDm(id) {
+      // debugger;
       this.props.createChannel({
         name: id,
-        admin_id: this.props.currentUser.id,
         is_dm: true,
         is_private: true
       });
@@ -2217,12 +2217,11 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
   _createClass(Sidebar, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      this.props.fetchChannels();
-
       if (this.props.currentUser) {
         this.props.fetchUser(this.props.currentUser.id);
       }
 
+      this.props.fetchChannels();
       this.props.fetchUsers();
     }
   }, {
