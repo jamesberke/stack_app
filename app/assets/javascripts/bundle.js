@@ -2419,7 +2419,9 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
           href: "https://www.linkedin.com/in/james-berke-33912718a/",
           className: "dropdown-linkedin",
           target: "_blank"
-        }, "Visit my LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        }, "Visit my LinkedIn")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
+          className: "fas fa-search sidebar"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
           type: "text",
           placeholder: "Search for channels...",
           className: "sidebar-jump-to",

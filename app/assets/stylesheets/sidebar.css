@@ -103,15 +103,23 @@
     font-weight: bold;
     font-size: 14px;
     background-color: #4d4d4f;
-    width: 82%;
+    width: 75%;
     border: none;
     border-radius: 5px;
     margin-left: 5%;
     margin-top: 16px;
-    padding: 6px;
+    padding: 6px 0px 6px 32px;
     cursor: default;
     font-family: "Poppins", sans-serif;
     outline: none;
+}
+
+.fa-search, .sidebar {
+    position: absolute;
+    left: 8%;
+    top: 93px;
+    z-index: 2;
+    color:gray;
 }
 
 .sidebar-channels-title {
