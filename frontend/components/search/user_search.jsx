@@ -16,6 +16,23 @@ class UserSearch extends React.Component {
         this.setState({ searchInput: event.currentTarget.value })
     }
 
+    getProfilePic(name) {
+        let first = name.slice(0, 1).toLowerCase();
+        if ('abcd'.includes(first)) {
+            return window.profilePicture1;
+        } else if ('efghi'.includes(first)) {
+            return window.profilePicture2;
+        } else if ('jklm'.includes(first)) {
+            return window.profilePicture3;
+        } else if ('nopqr'.includes(first)) {
+            return window.profilePicture4;
+        } else if ('stuv'.includes(first)) {
+            return window.profilePicture5;
+        } else {
+            return window.profilePicture6;
+        }
+    }
+
     matches() {
         const matches = [];
         const users = this.props.users.filter(user => user.username !== 'stack_bot')
@@ -50,6 +67,7 @@ class UserSearch extends React.Component {
                 <div className="user-render"
                     key={matchedUser.id}
                     onClick={() => this.createDm(matchedUser.id)}>
+                    <img src={this.getProfilePic(matchedUser.username)} className="user-render-picture"></img>
                     <div className="user-render-name">
                         {matchedUser.username}
                     </div>
@@ -66,7 +84,7 @@ class UserSearch extends React.Component {
                 <input className="user-search-input"
                     onChange={this.update}
                     value={this.state.searchInput}
-                    placeholder="Search for a user..." />
+                    placeholder="Search for a user to message..." />
                 <div className="user-render-container">
                     {renderMatches}
                 </div>

@@ -48,6 +48,20 @@ class ChannelShow extends React.Component {
         }
     }
 
+    getTimeStamp(timeStamp) {
+        let hours = parseInt(timeStamp.slice(0,2));
+        let minutes = parseInt(timeStamp.slice(2, timeStamp.length));
+
+        let PstHours = (hours + 17) % 23;
+
+        if (PstHours > 12) {
+            timeStamp = `${(PstHours - 12)}${minutes} PM`
+        } else {
+            timeStamp = `${PstHours}${minutes} AM`
+        }
+
+    }
+
     renderMessages() {
         let that = this;
         
@@ -57,11 +71,7 @@ class ChannelShow extends React.Component {
                 const userId = message.userId;
                 let timeStamp = message.createdAt.slice(11, 16);
 
-                if (timeStamp.slice(0,2) > 12) {
-                    timeStamp = `${(timeStamp.slice(0,2) - 12)}${timeStamp.slice(2, timeStamp.length)} PM`
-                } else {
-                    timeStamp = `${timeStamp} AM`
-                }
+                
 
                 return (
                     <li className="channel-show-message-render" key={message.id}>
@@ -70,7 +80,7 @@ class ChannelShow extends React.Component {
                         </div>
                         <div>
                             <div className="channel-message-title">
-                                {that.props.users[userId].username} <span className="timestamp">{timeStamp}</span>
+                                {that.props.users[userId].username} <span className="timestamp">{this.getTimeStamp(timeStamp)}</span>
                             </div>
                             <div className="channel-message-body">
                                 {message.body}

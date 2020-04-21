@@ -2,37 +2,67 @@
 
 } */
 
-.message-form-container {
+/* .message-form-container {
     padding-top: 5px;
     right: 0;
     bottom: 0;
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     border-left: 0.1px solid gray;
     border-top: none;
 }
 
 .message-form-input {
-    /* position: absolute; */
+    position: absolute;
     width: 94%;
-    height: 30px;
-    margin-bottom: 20px;
     font-size: 14px;
-    padding: 6px 8px;
     color: oldlace;
     background-color: #1C1E22;
-    border: solid 1px gray;
-    border-radius: 5px;
     overflow: auto;
-    outline: oldlace;
+} */
+
+.quill {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: stretch;
+	margin-right: 28px;
+	min-height: 75px !important;
+	max-height: 75px !important;
 }
 
-.message-submit-button {
-    /* position: relative; */
+.ql-editor {
+    border-radius: 5px 5px 0px 0px;
+	border-left: 1px solid gray;
+	border-right: 1px solid gray;
+	border-top: 1px solid gray;
+}
+
+.ql-toolbar.ql-snow {
+    border: none;
+	border-left: 1px solid gray;
+	border-bottom: 1px solid gray;
+	border-right: 1px solid gray;
+	padding: 4px 8px 4px 8px;
+	border-radius: 0px 0px 5px 5px;
+	background-color: inherit;
+	display: flex;
+	justify-content: space-between;
+}
+
+.ql-container.ql-snow {
+	border-bottom: 1px solid gray ;
+	border-top: none ;
+	border-left: none ;
+	border-right: none ;
+}
+
+/* .message-submit-button {
+    position: relative;
     background-color: #1C1E22;
     border: none;
     padding: none;
     font-size: 16px;
     z-index: 2;
-}
+} */
