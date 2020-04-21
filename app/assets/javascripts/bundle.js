@@ -1086,10 +1086,6 @@ var Listener = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      // for (let i = 0; i < this.chats.length; i++) {
-      //     let channel = this.chats[i];
-      //     channel.unsubscribe();
-      // }
       this.chats.forEach(function (channel) {
         channel.unsubscribe();
       });

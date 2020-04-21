@@ -22,12 +22,7 @@ class Listener extends React.Component {
     }
 
     componentWillUnmount() {
-       
-        // for (let i = 0; i < this.chats.length; i++) {
-        //     let channel = this.chats[i];
-        //     channel.unsubscribe();
-        // }
-        
+
         this.chats.forEach(channel => {
             channel.unsubscribe();
         })
