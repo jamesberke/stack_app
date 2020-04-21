@@ -2231,6 +2231,15 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
       document.getElementById('dropdown').classList.toggle('show');
     }
   }, {
+    key: "getDmTitle",
+    value: function getDmTitle(userId, adminId) {
+      if (parseInt(userId) === this.props.currentUser.id) {
+        return this.props.users[adminId].username;
+      } else {
+        return this.props.users[userId].username;
+      }
+    }
+  }, {
     key: "renderDms",
     value: function renderDms() {
       var dms_arr = [];
@@ -2309,7 +2318,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
               return _this2.props.fetchChannel(ele[0]);
             },
             className: ele[0] === _this2.props.currentChannel.id ? "selected" : ""
-          }, "\u2022", " ", _this2.props.users[ele[1]].username));
+          }, "\u2022", " ", _this2.getDmTitle(ele[1], ele[2])));
         });
       }
 

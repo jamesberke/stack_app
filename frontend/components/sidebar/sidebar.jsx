@@ -26,6 +26,14 @@ class Sidebar extends React.Component {
         document.getElementById('dropdown').classList.toggle('show')
     }
 
+    getDmTitle(userId, adminId) {
+        if (parseInt(userId) === this.props.currentUser.id) {   
+            return this.props.users[adminId].username;
+        } else {
+            return this.props.users[userId].username;
+        }
+    }
+
     renderDms() {
         const dms_arr = [];
         const that = this;
@@ -87,7 +95,7 @@ class Sidebar extends React.Component {
                 <li key={ele[0]}>
                     <button onClick={() => this.props.fetchChannel(ele[0])}
                             className={ele[0] === this.props.currentChannel.id ? "selected" : ""}>    
-                                {"\u2022"} {this.props.users[ele[1]].username}
+                                {"\u2022"} {this.getDmTitle(ele[1], ele[2])}
                     </button>
                 </li >);
         }
