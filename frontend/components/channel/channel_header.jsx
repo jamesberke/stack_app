@@ -19,13 +19,19 @@ class ChannelHeader extends React.Component {
     }
 
     getTitle() {
-        if (!!this.props.currentChannel) {
-            if (this.props.currentChannel.isDm) {
-                const userId = parseInt(this.props.currentChannel.name);
-                const user = this.props.users[userId];
+        let that = this;
+
+        if (!!that.props.currentChannel) {
+            let userId = parseInt(that.props.currentChannel.name);
+
+            if (that.props.currentChannel.isDm && userId !== that.props.currentUser) {
+                let user = that.props.users[userId];
                 return `# ${user.username}`;
+            } else if(that.props.currentChannel.isDm && userId === that.props.currentUser) {
+                let admin = that.props.users[that.props.currentChannel.adminId];
+                return `# ${admin.username}`;
             } else {
-                return `# ${this.props.currentChannel.name}`;
+                return `# ${that.props.currentChannel.name}`;
             }
         }
     }

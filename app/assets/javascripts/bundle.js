@@ -689,13 +689,19 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getTitle",
     value: function getTitle() {
-      if (!!this.props.currentChannel) {
-        if (this.props.currentChannel.isDm) {
-          var userId = parseInt(this.props.currentChannel.name);
-          var user = this.props.users[userId];
+      var that = this;
+
+      if (!!that.props.currentChannel) {
+        var userId = parseInt(that.props.currentChannel.name);
+
+        if (that.props.currentChannel.isDm && userId !== that.props.currentUser) {
+          var user = that.props.users[userId];
           return "# ".concat(user.username);
+        } else if (that.props.currentChannel.isDm && userId === that.props.currentUser) {
+          var admin = that.props.users[that.props.currentChannel.adminId];
+          return "# ".concat(admin.username);
         } else {
-          return "# ".concat(this.props.currentChannel.name);
+          return "# ".concat(that.props.currentChannel.name);
         }
       }
     }
@@ -2070,7 +2076,7 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
     value: function createDm(id) {
       this.props.createChannel({
         name: id,
-        admin_id: this.props.currentUser,
+        admin_id: this.props.currentUser.id,
         is_dm: true,
         is_private: true
       });
@@ -2211,12 +2217,13 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
   _createClass(Sidebar, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      this.props.fetchChannels();
+
       if (this.props.currentUser) {
         this.props.fetchUser(this.props.currentUser.id);
       }
 
       this.props.fetchUsers();
-      this.props.fetchChannels();
     }
   }, {
     key: "handleLogout",
@@ -2234,9 +2241,9 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
     key: "getDmTitle",
     value: function getDmTitle(userId, adminId) {
       if (parseInt(userId) === this.props.currentUser.id) {
-        return this.props.users[adminId].username;
+        return this.props.users[parseInt(adminId)].username;
       } else {
-        return this.props.users[userId].username;
+        return this.props.users[parseInt(userId)].username;
       }
     }
   }, {

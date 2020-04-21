@@ -9,11 +9,11 @@ class Sidebar extends React.Component {
     }
 
     componentDidMount() {
+        this.props.fetchChannels();
         if (this.props.currentUser) {
             this.props.fetchUser(this.props.currentUser.id);
         }
         this.props.fetchUsers();
-        this.props.fetchChannels();
     }
 
     handleLogout(event) {
@@ -28,9 +28,9 @@ class Sidebar extends React.Component {
 
     getDmTitle(userId, adminId) {
         if (parseInt(userId) === this.props.currentUser.id) {   
-            return this.props.users[adminId].username;
+            return this.props.users[parseInt(adminId)].username;
         } else {
-            return this.props.users[userId].username;
+            return this.props.users[parseInt(userId)].username;
         }
     }
 
@@ -40,8 +40,8 @@ class Sidebar extends React.Component {
 
         if (this.props.channels) {
             this.props.memberships.forEach(membership => {
-                const id = membership.channelId;
-                const channel = that.props.channels[id]
+                let id = membership.channelId;
+                let channel = that.props.channels[id]
                 if (!channel) {
                     return;
                 }
