@@ -12,6 +12,7 @@ class ChannelShow extends React.Component {
 
     componentDidMount() {        
         const channels = Object.values(this.props.channels);
+        
         if (channels.length != 0) {
             this.props.fetchChannel(channels[0].id);
         }
@@ -19,10 +20,12 @@ class ChannelShow extends React.Component {
 
     componentDidUpdate() {
         const channels = Object.values(this.props.channels);
+        
         if (this.props.messages.length < 1 && channels.length > 0) {
             const selectedChannel = channels.filter(ch => ch.name === "Global")
             this.props.fetchChannel(selectedChannel[0].id);
         }
+        
         if (Object.values(this.props.users).length > 1) {
             this.bottom.current.scrollIntoView();
         }
@@ -30,6 +33,7 @@ class ChannelShow extends React.Component {
 
     renderMessages() {
         let that = this;
+        
         if (!!this.props.messages && !!this.props.users) {
             const messagesArr = this.props.messages.map(message => {
                 
@@ -65,8 +69,10 @@ class ChannelShow extends React.Component {
     };
 
     render() {
+        
         if (Object.values(this.props.users).length < 2) {
             return null;
+        
         }
         const channel_messages = this.renderMessages();
         return (

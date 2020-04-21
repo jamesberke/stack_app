@@ -7,24 +7,30 @@ class Listener extends React.Component {
     }
 
     componentDidMount() {
+        
         if (this.props.currentUser) {
             this.createSubscriptions();
         }
     }
 
     componentDidUpdate(prevProps) {
+        
         //DO NOT REMOVE THIS IF CHECK!
         if (prevProps && prevProps.currentChannel !== this.props.currentChannel) {
-            console.log("it's running");
             this.createSubscriptions();
         }
     }
 
     componentWillUnmount() {
-        for (let i = 0; i < this.chats.length; i++) {
-            let channel = this.chats[i];
+       
+        // for (let i = 0; i < this.chats.length; i++) {
+        //     let channel = this.chats[i];
+        //     channel.unsubscribe();
+        // }
+        
+        this.chats.forEach(channel => {
             channel.unsubscribe();
-        }
+        })
     }
 
     createSubscriptions() {

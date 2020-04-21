@@ -18,12 +18,13 @@ class UserSearch extends React.Component {
 
     matches() {
         const matches = [];
+        const users = this.props.users.filter(user => user.username !== 'stack_bot')
 
         if (this.state.searchInput.length === 0) {
-            return this.props.users
+            return users
         };
 
-        this.props.users.forEach(user => {
+        users.forEach(user => {
             const nameSub = user.username.slice(0, this.state.searchInput.length);
             if (nameSub.toLowerCase() === this.state.searchInput.toLocaleLowerCase()) {
                 matches.push(user);

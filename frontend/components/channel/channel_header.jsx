@@ -74,9 +74,6 @@ class ChannelHeader extends React.Component {
                 </div> 
                 {deleteButton}                   
                 <i className="fas fa-search"></i>
-                <button className="channel-settings">
-                    <i className="fas fa-cog"></i>
-                </button>
                 <input type="text" 
                         placeholder="Search for users..." 
                         className="channel-header-search"

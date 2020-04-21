@@ -733,11 +733,7 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
         className: "channel-header-title"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, this.getTitle()), subButton), deleteButton, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
         className: "fas fa-search"
-      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        className: "channel-settings"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {
-        className: "fas fa-cog"
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
         type: "text",
         placeholder: "Search for users...",
         className: "channel-header-search",
@@ -1046,17 +1042,19 @@ var Listener = /*#__PURE__*/function (_React$Component) {
     value: function componentDidUpdate(prevProps) {
       //DO NOT REMOVE THIS IF CHECK!
       if (prevProps && prevProps.currentChannel !== this.props.currentChannel) {
-        console.log("it's running");
         this.createSubscriptions();
       }
     }
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      for (var i = 0; i < this.chats.length; i++) {
-        var channel = this.chats[i];
+      // for (let i = 0; i < this.chats.length; i++) {
+      //     let channel = this.chats[i];
+      //     channel.unsubscribe();
+      // }
+      this.chats.forEach(function (channel) {
         channel.unsubscribe();
-      }
+      });
     }
   }, {
     key: "createSubscriptions",
@@ -2038,13 +2036,16 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       var matches = [];
+      var users = this.props.users.filter(function (user) {
+        return user.username !== 'stack_bot';
+      });
 
       if (this.state.searchInput.length === 0) {
-        return this.props.users;
+        return users;
       }
 
       ;
-      this.props.users.forEach(function (user) {
+      users.forEach(function (user) {
         var nameSub = user.username.slice(0, _this2.state.searchInput.length);
 
         if (nameSub.toLowerCase() === _this2.state.searchInput.toLocaleLowerCase()) {
@@ -3045,6 +3046,7 @@ var messagesReducer = function messagesReducer() {
       return Object.assign({}, state, action.payload.messages);
 
     case _actions_channel_actions__WEBPACK_IMPORTED_MODULE_0__["RECEIVE_CHANNEL"]:
+      debugger;
       return action.channel.messages;
 
     default:
