@@ -903,7 +903,7 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "getProfilePic",
     value: function getProfilePic(name) {
-      var first = name.slice(0, 1);
+      var first = name.slice(0, 1).toLowerCase();
 
       if ('abcd'.includes(first)) {
         return window.profilePicture1;

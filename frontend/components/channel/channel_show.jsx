@@ -32,7 +32,7 @@ class ChannelShow extends React.Component {
     }
 
     getProfilePic(name) {
-        let first = name.slice(0,1);
+        let first = name.slice(0,1).toLowerCase();
         if ('abcd'.includes(first)) {
             return window.profilePicture1;
         } else if ('efghi'.includes(first)) {
