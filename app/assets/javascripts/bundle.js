@@ -2065,6 +2065,25 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
       });
     }
   }, {
+    key: "getProfilePic",
+    value: function getProfilePic(name) {
+      var first = name.slice(0, 1).toLowerCase();
+
+      if ('abcd'.includes(first)) {
+        return window.profilePicture1;
+      } else if ('efghi'.includes(first)) {
+        return window.profilePicture2;
+      } else if ('jklm'.includes(first)) {
+        return window.profilePicture3;
+      } else if ('nopqr'.includes(first)) {
+        return window.profilePicture4;
+      } else if ('stuv'.includes(first)) {
+        return window.profilePicture5;
+      } else {
+        return window.profilePicture6;
+      }
+    }
+  }, {
     key: "matches",
     value: function matches() {
       var _this2 = this;
@@ -2112,7 +2131,10 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
           onClick: function onClick() {
             return _this3.createDm(matchedUser.id);
           }
-        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: _this3.getProfilePic(matchedUser.username),
+          className: "user-render-picture"
+        }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-render-name"
         }, matchedUser.username), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-render-formalName"
@@ -2124,7 +2146,7 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
         className: "user-search-input",
         onChange: this.update,
         value: this.state.searchInput,
-        placeholder: "Search for a user..."
+        placeholder: "Search for a user to message..."
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-render-container"
       }, renderMatches));
