@@ -5,7 +5,7 @@
     right: 0;
     z-index: 1;
     background-color: #f8f8f8;
-    position: absolute;
+    position: fixed;
     display: flex;
     align-items: center;
     font-family: 'Poppins', sans-serif;
