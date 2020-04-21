@@ -82,7 +82,7 @@ class Sidebar extends React.Component {
                 </li>);
         }
 
-        if (!!this.props.currentChannel) {
+        if (!!this.props.currentChannel && this.props.users) {
             dmLinks = dmArr.map( ele => 
                 <li key={ele[0]}>
                     <button onClick={() => this.props.fetchChannel(ele[0])}

@@ -668,11 +668,23 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
 
   _createClass(ChannelHeader, [{
     key: "handleChannelDelete",
-    value: function handleChannelDelete(id, memId) {
+    value: function handleChannelDelete(id) {
       this.props.deleteChannel(id);
-      this.props.deleteMembership(memId);
+      this.deleteMemberships(id);
       var global = Object.values(this.props.channels)[0];
       this.props.fetchChannel(global.id);
+    }
+  }, {
+    key: "deleteMemberships",
+    value: function deleteMemberships(id) {
+      var _this = this;
+
+      var mems = this.props.memberships.filter(function (mem) {
+        return mem.channelId === id;
+      });
+      mems.forEach(function (mem) {
+        return _this.props.deleteMembership(mem.id);
+      });
     }
   }, {
     key: "getTitle",
@@ -690,7 +702,7 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      var _this = this;
+      var _this2 = this;
 
       var subscribed = false;
       var memId = 0;
@@ -708,12 +720,12 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
       var subButton = subscribed ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "channel-header-subscribe",
         onClick: function onClick() {
-          return _this.props.deleteMembership(memId);
+          return _this2.props.deleteMembership(memId);
         }
       }, "Unsubscribe") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "channel-header-subscribe",
         onClick: function onClick() {
-          return _this.props.createMembership(_defineProperty({}, "channel_id", _this.props.currentChannel.id));
+          return _this2.props.createMembership(_defineProperty({}, "channel_id", _this2.props.currentChannel.id));
         }
       }, "Subscribe");
       var deleteButton;
@@ -722,7 +734,7 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
         deleteButton = this.props.currentChannel.isDm || this.props.currentChannel.adminId === this.props.currentUser ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "channel-header-delete",
           onClick: function onClick() {
-            return _this.handleChannelDelete(_this.props.currentChannel.id, memId);
+            return _this2.handleChannelDelete(_this2.props.currentChannel.id, memId);
           }
         }, "Delete Channel") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null);
       }
@@ -738,7 +750,7 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
         placeholder: "Search for users...",
         className: "channel-header-search",
         onClick: function onClick() {
-          return _this.props.openModal('userSearch');
+          return _this2.props.openModal('userSearch');
         }
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "channel-darkmode-selector"
@@ -2288,7 +2300,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
         });
       }
 
-      if (!!this.props.currentChannel) {
+      if (!!this.props.currentChannel && this.props.users) {
         dmLinks = dmArr.map(function (ele) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
             key: ele[0]

@@ -5,12 +5,17 @@ class ChannelHeader extends React.Component {
         super(props);
     }
 
-    handleChannelDelete(id, memId) {
+    handleChannelDelete(id) {
         this.props.deleteChannel(id);
-        this.props.deleteMembership(memId);
-
+        this.deleteMemberships(id);
+    
         let global = Object.values(this.props.channels)[0];
         this.props.fetchChannel(global.id);
+    }
+
+    deleteMemberships(id) {
+        const mems = this.props.memberships.filter(mem => mem.channelId === id);
+        mems.forEach(mem => this.props.deleteMembership(mem.id));
     }
 
     getTitle() {
