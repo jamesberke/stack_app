@@ -905,7 +905,9 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
     value: function getProfilePic(name) {
       var first = name.slice(0, 1).toLowerCase();
 
-      if ('abcd'.includes(first)) {
+      if (name === 'stack_bot') {
+        return window.stackBotIcon;
+      } else if ('abcd'.includes(first)) {
         return window.profilePicture1;
       } else if ('efghi'.includes(first)) {
         return window.profilePicture2;
