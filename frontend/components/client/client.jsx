@@ -11,6 +11,8 @@ class Client extends React.Component {
         super(props);
     }
 
+    // houses all of the main app components and is the only route rendered while 
+    // a user is logged in
     render() {
         return (
             <div className="client-main-page">

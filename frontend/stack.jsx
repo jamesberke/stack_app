@@ -6,6 +6,8 @@ import Root from './components/root';
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById("root");
     let store;
+    // Allows me to bootstrap the current user to the window to use and then deletes
+    // it so users can't reference themselves in the console
     if (window.currentUser) {
         const preloadedState = {
             entities: {

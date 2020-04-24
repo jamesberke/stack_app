@@ -557,7 +557,10 @@ var ChannelCreateForm = /*#__PURE__*/function (_React$Component) {
       return function (e) {
         return _this2.setState(_defineProperty({}, field, e.target.value));
       };
-    }
+    } // Creates channel usent current react state, then resets react state and closes modal
+    // after the channel is created a fetch channel will be called and it will 
+    // automatically be selected
+
   }, {
     key: "handleSubmit",
     value: function handleSubmit(event) {
@@ -605,10 +608,6 @@ var ChannelCreateForm = /*#__PURE__*/function (_React$Component) {
   return ChannelCreateForm;
 }(react__WEBPACK_IMPORTED_MODULE_3___default.a.Component);
 
-var mapStateToProps = function mapStateToProps(state) {
-  return {};
-};
-
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     createChannel: function createChannel(channel) {
@@ -618,9 +617,10 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
       return dispatch(Object(_actions_modal_actions__WEBPACK_IMPORTED_MODULE_2__["closeModal"])());
     }
   };
-};
+}; // No need for any redux state elements so we pass null instead of mapStateToProps
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(mapStateToProps, mapDispatchToProps)(ChannelCreateForm));
+
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_0__["connect"])(null, mapDispatchToProps)(ChannelCreateForm));
 
 /***/ }),
 
@@ -664,7 +664,13 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, ChannelHeader);
 
     return _possibleConstructorReturn(this, _getPrototypeOf(ChannelHeader).call(this, props));
-  }
+  } // after the channel is deleted I iterate over the channel's memberships and 
+  // delete them too to keep the database clean
+  // global channel is fetched to fix an issue where after the channel is delted
+  // the sidebar is updated but not re-rendered so the channels dissappear. 
+  // fetchChannel insures global will be the channel you land on after deleting 
+  // your channel
+
 
   _createClass(ChannelHeader, [{
     key: "handleChannelDelete",
@@ -685,7 +691,12 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
       mems.forEach(function (mem) {
         return _this.props.deleteMembership(mem.id);
       });
-    }
+    } // If the channel is a DM, the title will be the userId of the user invited to the dm.
+    // if channel is a dm and the current user is the admin it will display the 
+    // invited user's name as title
+    // if channel is a dm and current user is not admin, it will display admin's name
+    // if channel is not dm, display channel name
+
   }, {
     key: "getTitle",
     value: function getTitle() {
@@ -721,7 +732,9 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
             memId = membership.id;
           }
         });
-      }
+      } // dynamic 'subscribe' or 'unsubscribe' button rendered under channel title based on
+      // subscription status
+
 
       var subButton = subscribed ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "channel-header-subscribe",
@@ -733,7 +746,8 @@ var ChannelHeader = /*#__PURE__*/function (_React$Component) {
         onClick: function onClick() {
           return _this2.props.createMembership(_defineProperty({}, "channel_id", _this2.props.currentChannel.id));
         }
-      }, "Subscribe");
+      }, "Subscribe"); //Renders delete button if channel is a dm or current user is the admin of the channel
+
       var deleteButton;
 
       if (!!this.props.currentChannel) {
@@ -886,6 +900,10 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "componentDidUpdate",
+    // first checks to see if a channel is selected, if not, it fetches global
+    // then checks for users to stop some weird asynconisity error before finding 
+    // the React ref at the bottom of the page and snapping to it which helps give
+    // that live update feeling
     value: function componentDidUpdate() {
       var channels = Object.values(this.props.channels);
 
@@ -899,7 +917,10 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
       if (Object.values(this.props.users).length > 1) {
         this.bottom.current.scrollIntoView();
       }
-    }
+    } // used a few places in my code, adds a little flair without having to load 
+    // images into AWS and reference them. 
+    // simple function to assign a profile picture to you based on alphabetical order
+
   }, {
     key: "getProfilePic",
     value: function getProfilePic(name) {
@@ -920,7 +941,8 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
       } else {
         return window.profilePicture6;
       }
-    }
+    } // simple function to parse and display the PST time zone using Rails' timestamp 
+
   }, {
     key: "getTimeStamp",
     value: function getTimeStamp(timeStamp) {
@@ -933,7 +955,9 @@ var ChannelShow = /*#__PURE__*/function (_React$Component) {
       } else {
         return "".concat(PstHours).concat(minutes, " AM");
       }
-    }
+    } // should refactor to make this a seperate component called messageItem
+    // for now it is a simple way to create an HTML element for each message in a channel
+
   }, {
     key: "renderMessages",
     value: function renderMessages() {
@@ -1074,7 +1098,8 @@ var Listener = /*#__PURE__*/function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Listener).call(this, props));
     _this.createSubscriptions = _this.createSubscriptions.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // calls create subscriptions once the client page is rendered
+
 
   _createClass(Listener, [{
     key: "componentDidMount",
@@ -1082,7 +1107,9 @@ var Listener = /*#__PURE__*/function (_React$Component) {
       if (this.props.currentUser) {
         this.createSubscriptions();
       }
-    }
+    } // calls createSubscriptions if a channel re render is needed but won't recreate
+    // already existing Action Cable subscriptions
+
   }, {
     key: "componentDidUpdate",
     value: function componentDidUpdate(prevProps) {
@@ -1090,7 +1117,8 @@ var Listener = /*#__PURE__*/function (_React$Component) {
       if (prevProps && prevProps.currentChannel !== this.props.currentChannel) {
         this.createSubscriptions();
       }
-    }
+    } // iterates through and deletes Action Cable subscriptions on logout
+
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
@@ -1350,7 +1378,9 @@ var Client = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Client);
 
     return _possibleConstructorReturn(this, _getPrototypeOf(Client).call(this, props));
-  }
+  } // houses all of the main app components and is the only route rendered while 
+  // a user is logged in
+
 
   _createClass(Client, [{
     key: "render",
@@ -1633,7 +1663,10 @@ var Modal = function Modal(_ref) {
 
   if (!modal) {
     return null;
-  }
+  } // uses a string variable called modal to determine which comonent to render
+  // if info needs to be passed later I cna refactor to send a pojo with a type: key
+  // and a data: key
+
 
   var component;
 
@@ -1723,7 +1756,10 @@ var Navbar = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Navbar);
 
     return _possibleConstructorReturn(this, _getPrototypeOf(Navbar).call(this, props));
-  }
+  } // links to my personal sites using target: _blank to open new tab instead of
+  // leaving my app
+  // only rendered when user is logged out
+
 
   _createClass(Navbar, [{
     key: "render",
@@ -1886,7 +1922,8 @@ var ChannelSearch = /*#__PURE__*/function (_React$Component) {
     };
     _this.update = _this.update.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // ensures population of channels in redux state
+
 
   _createClass(ChannelSearch, [{
     key: "componentDidMount",
@@ -1899,7 +1936,11 @@ var ChannelSearch = /*#__PURE__*/function (_React$Component) {
       this.setState({
         searchInput: event.currentTarget.value
       });
-    }
+    } // if search input is empty it renders all channels (isDm: false)
+    // when a user types in input the function registers the length of the input and iterates
+    // over all channels and slices the name to that length, translates to lower case,
+    // and compares. then re renders all channels that match in live updates
+
   }, {
     key: "matches",
     value: function matches() {
@@ -2058,7 +2099,8 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
     };
     _this.update = _this.update.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // ensures population of users in redux state
+
 
   _createClass(UserSearch, [{
     key: "componentDidMount",
@@ -2071,7 +2113,8 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
       this.setState({
         searchInput: event.currentTarget.value
       });
-    }
+    } // grabs and renders profile picture based on alphabetical order
+
   }, {
     key: "getProfilePic",
     value: function getProfilePic(name) {
@@ -2090,7 +2133,9 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
       } else {
         return window.profilePicture6;
       }
-    }
+    } // same process as channel search
+    // maybe this should just be one dynamic search component, option to refactor later
+
   }, {
     key: "matches",
     value: function matches() {
@@ -2114,7 +2159,9 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
         }
       });
       return matches;
-    }
+    } // DM treats invited user's id as the title of channel for an easy way to use 
+    // that info on the back end
+
   }, {
     key: "createDm",
     value: function createDm(id) {
@@ -2259,7 +2306,8 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Sidebar).call(this, props));
     _this.handleLogout = _this.handleLogout.bind(_assertThisInitialized(_this));
     return _this;
-  }
+  } // ensures population of users and channels in redux state 
+
 
   _createClass(Sidebar, [{
     key: "componentDidMount",
@@ -2295,13 +2343,16 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
     value: function handleLogout(event) {
       event.preventDefault();
       this.props.logout();
-    }
+    } // toggle option for the User greeting component to show logout button and links to 
+    // dev sites
+
   }, {
     key: "toggleDropdown",
     value: function toggleDropdown(event) {
       event.preventDefault();
       document.getElementById('dropdown').classList.toggle('show');
-    }
+    } // dynamic rendering of DM titles based on if user is admin of DM or not
+
   }, {
     key: "getDmTitle",
     value: function getDmTitle(userId, adminId) {
@@ -2310,7 +2361,8 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
       } else {
         return this.props.users[parseInt(userId)].username;
       }
-    }
+    } // sorting Channels and DMs to be displayed seperately
+
   }, {
     key: "renderDms",
     value: function renderDms() {
@@ -2366,7 +2418,7 @@ var Sidebar = /*#__PURE__*/function (_React$Component) {
       var channelArr = this.renderChannels();
       var dmArr = this.renderDms();
       var channelLinks;
-      var dmLinks;
+      var dmLinks; // this allows me to add different CSS styles to the currently selected channel or DM
 
       if (!!this.props.currentChannel) {
         channelLinks = channelArr.map(function (ele) {
@@ -3380,7 +3432,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 document.addEventListener("DOMContentLoaded", function () {
   var root = document.getElementById("root");
-  var store;
+  var store; // Allows me to bootstrap the current user to the window to use and then deletes
+  // it so users can't reference themselves in the console
 
   if (window.currentUser) {
     var preloadedState = {

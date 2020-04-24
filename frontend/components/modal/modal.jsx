@@ -11,6 +11,9 @@ const Modal = ({ modal, closeModal }) => {
         return null;
     }
 
+    // uses a string variable called modal to determine which comonent to render
+    // if info needs to be passed later I cna refactor to send a pojo with a type: key
+    // and a data: key
     let component;
     switch (modal) {
         case 'createChannel':

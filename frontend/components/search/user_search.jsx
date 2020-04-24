@@ -8,6 +8,7 @@ class UserSearch extends React.Component {
         this.update = this.update.bind(this);
     }
 
+    // ensures population of users in redux state
     componentDidMount() {
         this.props.fetchUsers();
     }
@@ -16,6 +17,7 @@ class UserSearch extends React.Component {
         this.setState({ searchInput: event.currentTarget.value })
     }
 
+    // grabs and renders profile picture based on alphabetical order
     getProfilePic(name) {
         let first = name.slice(0, 1).toLowerCase();
         if ('abcd'.includes(first)) {
@@ -33,6 +35,8 @@ class UserSearch extends React.Component {
         }
     }
 
+    // same process as channel search
+    // maybe this should just be one dynamic search component, option to refactor later
     matches() {
         const matches = [];
         const users = this.props.users.filter(user => user.username !== 'stack_bot')
@@ -51,6 +55,8 @@ class UserSearch extends React.Component {
         return matches;
     }
 
+    // DM treats invited user's id as the title of channel for an easy way to use 
+    // that info on the back end
     createDm(id) {
         // debugger;
         this.props.createChannel({

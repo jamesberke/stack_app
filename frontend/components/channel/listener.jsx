@@ -6,6 +6,7 @@ class Listener extends React.Component {
         this.createSubscriptions = this.createSubscriptions.bind(this);
     }
 
+    // calls create subscriptions once the client page is rendered
     componentDidMount() {
         
         if (this.props.currentUser) {
@@ -13,6 +14,8 @@ class Listener extends React.Component {
         }
     }
 
+    // calls createSubscriptions if a channel re render is needed but won't recreate
+    // already existing Action Cable subscriptions
     componentDidUpdate(prevProps) {
         
         //DO NOT REMOVE THIS IF CHECK!
@@ -21,6 +24,7 @@ class Listener extends React.Component {
         }
     }
 
+    // iterates through and deletes Action Cable subscriptions on logout
     componentWillUnmount() {
 
         this.chats.forEach(channel => {

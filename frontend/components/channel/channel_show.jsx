@@ -18,6 +18,10 @@ class ChannelShow extends React.Component {
         }
     };
 
+    // first checks to see if a channel is selected, if not, it fetches global
+    // then checks for users to stop some weird asynconisity error before finding 
+    // the React ref at the bottom of the page and snapping to it which helps give
+    // that live update feeling
     componentDidUpdate() {
         const channels = Object.values(this.props.channels);
 
@@ -31,6 +35,9 @@ class ChannelShow extends React.Component {
         }
     }
 
+    // used a few places in my code, adds a little flair without having to load 
+    // images into AWS and reference them. 
+    // simple function to assign a profile picture to you based on alphabetical order
     getProfilePic(name) {
         let first = name.slice(0, 1).toLowerCase();
         if(name === 'stack_bot') {
@@ -50,6 +57,7 @@ class ChannelShow extends React.Component {
         }
     }
 
+    // simple function to parse and display the PST time zone using Rails' timestamp 
     getTimeStamp(timeStamp) {
         let hours = parseInt(timeStamp.slice(0, 2));
         let minutes = timeStamp.slice(2, timeStamp.length);
@@ -63,6 +71,8 @@ class ChannelShow extends React.Component {
         }
     }
 
+    // should refactor to make this a seperate component called messageItem
+    // for now it is a simple way to create an HTML element for each message in a channel
     renderMessages() {
         let that = this;
 

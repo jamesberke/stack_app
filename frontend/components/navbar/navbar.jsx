@@ -7,6 +7,9 @@ class Navbar extends React.Component {
         super(props);   
     }
 
+    // links to my personal sites using target: _blank to open new tab instead of
+    // leaving my app
+    // only rendered when user is logged out
     render() {
         return (
             <nav className='nav-bar'>

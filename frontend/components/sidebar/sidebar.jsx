@@ -8,6 +8,7 @@ class Sidebar extends React.Component {
         this.handleLogout = this.handleLogout.bind(this);
     }
 
+    // ensures population of users and channels in redux state 
     componentDidMount() {
         if (this.props.currentUser) {
             this.props.fetchUser(this.props.currentUser.id);
@@ -38,11 +39,14 @@ class Sidebar extends React.Component {
         this.props.logout();
     }
 
+    // toggle option for the User greeting component to show logout button and links to 
+    // dev sites
     toggleDropdown(event) {
         event.preventDefault();
         document.getElementById('dropdown').classList.toggle('show')
     }
 
+    // dynamic rendering of DM titles based on if user is admin of DM or not
     getDmTitle(userId, adminId) {
         if (parseInt(userId) === this.props.currentUser.id) {   
             return this.props.users[parseInt(adminId)].username;
@@ -51,6 +55,7 @@ class Sidebar extends React.Component {
         }
     }
 
+    // sorting Channels and DMs to be displayed seperately
     renderDms() {
         const dms_arr = [];
         const that = this;
@@ -97,6 +102,7 @@ class Sidebar extends React.Component {
         let channelLinks;
         let dmLinks;
 
+        // this allows me to add different CSS styles to the currently selected channel or DM
         if (!!this.props.currentChannel) {
             channelLinks = channelArr.map( ele => 
                 <li key={ele[0]}>

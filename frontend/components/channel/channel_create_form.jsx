@@ -19,6 +19,9 @@ class ChannelCreateForm extends React.Component {
         return e => this.setState({ [field]: e.target.value,})
     }
 
+    // Creates channel usent current react state, then resets react state and closes modal
+    // after the channel is created a fetch channel will be called and it will 
+    // automatically be selected
     handleSubmit(event) {
         event.preventDefault();
         this.props.createChannel(this.state)
@@ -63,13 +66,10 @@ class ChannelCreateForm extends React.Component {
 }
 
 
-const mapStateToProps = state => ({
-
-});
-
 const mapDispatchToProps = dispatch => ({
     createChannel: channel => dispatch(createChannel(channel)),
     closeModal: () => dispatch(closeModal())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChannelCreateForm)
+// No need for any redux state elements so we pass null instead of mapStateToProps
+export default connect(null, mapDispatchToProps)(ChannelCreateForm)

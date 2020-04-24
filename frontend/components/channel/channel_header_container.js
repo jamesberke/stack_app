@@ -5,15 +5,13 @@ import { createMembership, deleteMembership } from '../../actions/membership_act
 import { deleteChannel } from '../../actions/channel_actions';
 import { openModal } from '../../actions/modal_actions';
 
-const mapStateToProps = state => {
-    return {
+const mapStateToProps = state => ({
         currentChannel: state.entities.channels[state.session.currentChannel],
         channels: state.entities.channels,
         currentUser: state.session.id,
         users: state.entities.users,
         memberships: Object.values(state.entities.memberships)
-    }
-};
+});
 
 const mapDispatchToProps = dispatch => ({
     createMembership: membership => dispatch(createMembership(membership)),

@@ -8,6 +8,7 @@ class ChannelSearch extends React.Component {
         this.update = this.update.bind(this);
     }
 
+    // ensures population of channels in redux state
     componentDidMount() {
         this.props.fetchChannels();
     }
@@ -16,6 +17,10 @@ class ChannelSearch extends React.Component {
         this.setState({ searchInput: event.currentTarget.value })
     }
 
+    // if search input is empty it renders all channels (isDm: false)
+    // when a user types in input the function registers the length of the input and iterates
+    // over all channels and slices the name to that length, translates to lower case,
+    // and compares. then re renders all channels that match in live updates
     matches() {
         const channels = this.props.channels.filter(channel => channel.isDm === false);
         const matches = [];

@@ -5,6 +5,13 @@ class ChannelHeader extends React.Component {
         super(props);
     }
 
+    // after the channel is deleted I iterate over the channel's memberships and 
+    // delete them too to keep the database clean
+
+    // global channel is fetched to fix an issue where after the channel is delted
+    // the sidebar is updated but not re-rendered so the channels dissappear. 
+    // fetchChannel insures global will be the channel you land on after deleting 
+    // your channel
     handleChannelDelete(id) {
         this.props.deleteChannel(id);
         this.deleteMemberships(id);
@@ -18,6 +25,11 @@ class ChannelHeader extends React.Component {
         mems.forEach(mem => this.props.deleteMembership(mem.id));
     }
 
+    // If the channel is a DM, the title will be the userId of the user invited to the dm.
+    // if channel is a dm and the current user is the admin it will display the 
+    // invited user's name as title
+    // if channel is a dm and current user is not admin, it will display admin's name
+    // if channel is not dm, display channel name
     getTitle() {
         let that = this;
 
@@ -50,6 +62,8 @@ class ChannelHeader extends React.Component {
             })
         }
         
+        // dynamic 'subscribe' or 'unsubscribe' button rendered under channel title based on
+        // subscription status
         const subButton = (subscribed) ? (
             <button className="channel-header-subscribe"
                 onClick={() => this.props.deleteMembership(memId)}
@@ -64,6 +78,7 @@ class ChannelHeader extends React.Component {
             </button>
         );
         
+        //Renders delete button if channel is a dm or current user is the admin of the channel
         let deleteButton;
         if (!!this.props.currentChannel) {
             deleteButton = (this.props.currentChannel.isDm || this.props.currentChannel.adminId === this.props.currentUser) ? (
