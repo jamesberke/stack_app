@@ -73,6 +73,7 @@
     * Action Cable live chat allows users to view messages as they are submitted without having to refresh their page or request new data
     * Each message has a title that includes the user name, profile picture, and timestamp
     * Sleak message input form allows for easy integration in to the main feed
+    * Future features like a rich text editor are still in the pipeline
 
 ![Client Page](app/assets/images/client-page.png)
 
