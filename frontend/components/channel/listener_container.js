@@ -6,7 +6,7 @@ const mapStateToProps = state => {
     return ({
         currentUser: state.session.id,
         currentChannel: state.session.currentChannel,
-        memberships: Object.values(state.entities.memberships)
+        memberships: state.entities.memberships
     })
 };
 

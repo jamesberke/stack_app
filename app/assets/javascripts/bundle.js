@@ -1096,7 +1096,8 @@ var Listener = /*#__PURE__*/function (_React$Component) {
     _classCallCheck(this, Listener);
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(Listener).call(this, props));
-    _this.createSubscriptions = _this.createSubscriptions.bind(_assertThisInitialized(_this));
+    _this.membership = {};
+    _this.createSubscription = _this.createSubscription.bind(_assertThisInitialized(_this));
     return _this;
   } // calls create subscriptions once the client page is rendered
 
@@ -1105,7 +1106,8 @@ var Listener = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       if (this.props.currentUser) {
-        this.createSubscriptions();
+        this.membership = this.props.memberships[this.props.currentChannel];
+        this.createSubscription();
       }
     } // calls createSubscriptions if a channel re render is needed but won't recreate
     // already existing Action Cable subscriptions
@@ -1115,41 +1117,42 @@ var Listener = /*#__PURE__*/function (_React$Component) {
     value: function componentDidUpdate(prevProps) {
       //DO NOT REMOVE THIS IF CHECK!
       if (prevProps && prevProps.currentChannel !== this.props.currentChannel) {
-        this.createSubscriptions();
+        this.membership = this.props.memberships[this.props.currentChannel];
+        this.createSubscription();
       }
     } // iterates through and deletes Action Cable subscriptions on logout
 
   }, {
     key: "componentWillUnmount",
     value: function componentWillUnmount() {
-      this.chats.forEach(function (channel) {
-        channel.unsubscribe();
-      });
+      // this.chats.forEach(channel => {
+      //     channel.unsubscribe();
+      // })
+      this.membership.unsubscribe();
     }
   }, {
-    key: "createSubscriptions",
-    value: function createSubscriptions() {
+    key: "createSubscription",
+    value: function createSubscription() {
       var _this2 = this;
 
-      var memberships = this.props.memberships;
-      this.chats = memberships.map(function (membership) {
-        return App.cable.subscriptions.create({
-          channel: "ChatChannel",
-          room: membership.channelId
-        }, {
-          connected: function connected() {// console.log(`Connected to ${membership.channelId}`);
-          },
-          disconnected: function disconnected() {// console.log("Disconnected!");
-          },
-          received: function received(data) {
-            var payload = {
-              messages: _defineProperty({}, data.message.id, data.message),
-              user: _defineProperty({}, data.user.id, data.user)
-            };
+      App.cable.subscriptions.create({
+        channel: "ChatChannel",
+        room: this.membership.channelId
+      }, {
+        connected: function connected() {
+          console.log("Connected to ".concat(_this2.membership.channelId));
+        },
+        disconnected: function disconnected() {
+          console.log("Disconnected!");
+        },
+        received: function received(data) {
+          var payload = {
+            messages: _defineProperty({}, data.message.id, data.message),
+            user: _defineProperty({}, data.user.id, data.user)
+          };
 
-            _this2.props.receiveMessage(payload);
-          }
-        });
+          _this2.props.receiveMessage(payload);
+        }
       });
     }
   }, {
@@ -1187,7 +1190,7 @@ var mapStateToProps = function mapStateToProps(state) {
   return {
     currentUser: state.session.id,
     currentChannel: state.session.currentChannel,
-    memberships: Object.values(state.entities.memberships)
+    memberships: state.entities.memberships
   };
 };
 
