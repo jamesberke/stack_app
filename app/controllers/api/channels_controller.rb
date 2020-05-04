@@ -44,7 +44,7 @@ class Api::ChannelsController < ApplicationController
 
     def destroy
         channel = Channel.find_by(id: params[:id])
-        debugger
+
         if !!channel
             memberships = channel.memberships
             memberships.each do |mem|
