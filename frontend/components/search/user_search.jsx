@@ -58,7 +58,6 @@ class UserSearch extends React.Component {
     // DM treats invited user's id as the title of channel for an easy way to use 
     // that info on the back end
     createDm(id) {
-        // debugger;
         this.props.createChannel({
             name: id,
             is_dm: true,

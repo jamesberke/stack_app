@@ -2163,7 +2163,6 @@ var UserSearch = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "createDm",
     value: function createDm(id) {
-      // debugger;
       this.props.createChannel({
         name: id,
         is_dm: true,
