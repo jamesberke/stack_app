@@ -43,10 +43,10 @@ class Listener extends React.Component {
                 },
                 {
                     connected: () => {
-                        console.log(`Connected to ${membership.channelId}`);
+                        // console.log(`Connected to ${membership.channelId}`);
                 },
                     disconnected: () => {
-                        console.log("Disconnected!");
+                        // console.log("Disconnected!");
                 },
                     received: data => {
                         let payload = {

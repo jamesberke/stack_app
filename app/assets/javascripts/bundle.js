@@ -1137,11 +1137,9 @@ var Listener = /*#__PURE__*/function (_React$Component) {
           channel: "ChatChannel",
           room: membership.channelId
         }, {
-          connected: function connected() {
-            console.log("Connected to ".concat(membership.channelId));
+          connected: function connected() {// console.log(`Connected to ${membership.channelId}`);
           },
-          disconnected: function disconnected() {
-            console.log("Disconnected!");
+          disconnected: function disconnected() {// console.log("Disconnected!");
           },
           received: function received(data) {
             var payload = {
@@ -3449,10 +3447,8 @@ document.addEventListener("DOMContentLoaded", function () {
   } else {
     store = Object(_store_store__WEBPACK_IMPORTED_MODULE_0__["default"])();
   } // JUST FOR TESTING -----------//
+  //-----------------------------//
 
-
-  window.getState = store.getState;
-  window.dispatch = store.dispatch; //-----------------------------//
 
   react_dom__WEBPACK_IMPORTED_MODULE_2___default.a.render(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_root__WEBPACK_IMPORTED_MODULE_3__["default"], {
     store: store
