@@ -7,7 +7,7 @@
     width: 100%;
     position: absolute;
     z-index: 1;
-    min-height: 400px;
+    min-height: 200px;
 }
 
 .splashpage-first-bigtitle {
@@ -85,7 +85,7 @@
 
 .splashpage-second {
     text-align: center;
-    min-height: 550px;
+    min-height: 200px;
     width: 100%;
     padding-top: 100px;
 }
