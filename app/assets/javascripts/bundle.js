@@ -2877,14 +2877,7 @@ var Splash = /*#__PURE__*/function (_React$Component) {
         className: "splashpage-second-title"
       }, "Break out of the inbox"), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("p", {
         className: "splashpage-second-text"
-      }, "Working in channels gives everyone on your team a shared view of progress and purpose."), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("iframe", {
-        src: "https://www.youtube.com/embed/EYqxQGmQkVw",
-        frameBorder: "0",
-        allow: "accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture",
-        allowFullScreen: true,
-        title: "what-is-slack",
-        className: "splashpage-second-vid"
-      })), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
+      }, "Working in channels gives everyone on your team a shared view of progress and purpose."), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("br", null)), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("br", null), react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "splashpage-third"
       }, react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement("div", {
         className: "third-col"

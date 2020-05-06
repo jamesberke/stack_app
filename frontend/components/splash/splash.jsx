@@ -53,14 +53,6 @@ class Splash extends React.Component {
                 progress and purpose.
               </p>
               <br />
-              <iframe
-                src="https://www.youtube.com/embed/EYqxQGmQkVw"
-                frameBorder="0"
-                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title="what-is-slack"
-                className="splashpage-second-vid"
-              ></iframe>
             </div>
             <br />
             <div className="splashpage-third">
