@@ -10,8 +10,11 @@ class Listener extends React.Component {
     // calls create subscriptions once the client page is rendered
     componentDidMount() {
         
-        if (this.props.currentUser) {
-            this.membership = this.props.memberships[this.props.currentChannel];
+        if (this.props.currentUser && this.props.memberships.length > 0) {
+            debugger;
+            this.membership = this.props.memberships.select(mem => (
+                mem.channelId === this.props.currentChannel
+            ));
             this.createSubscription();
         }
     }
@@ -37,15 +40,16 @@ class Listener extends React.Component {
     }
 
     createSubscription() {
-
+        let that = this;
+        debugger;
         App.cable.subscriptions.create(
             {
                 channel: "ChatChannel",
-                room: this.membership.channelId
+                room: that.membership.channelId
             },
             {
                 connected: () => {
-                    console.log(`Connected to ${this.membership.channelId}`);
+                    console.log(`Connected to ${that.membership.channelId}`);
             },
                 disconnected: () => {
                     console.log("Disconnected!");

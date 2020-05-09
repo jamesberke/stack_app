@@ -1105,8 +1105,13 @@ var Listener = /*#__PURE__*/function (_React$Component) {
   _createClass(Listener, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      if (this.props.currentUser) {
-        this.membership = this.props.memberships[this.props.currentChannel];
+      var _this2 = this;
+
+      if (this.props.currentUser && this.props.memberships.length > 0) {
+        debugger;
+        this.membership = this.props.memberships.select(function (mem) {
+          return mem.channelId === _this2.props.currentChannel;
+        });
         this.createSubscription();
       }
     } // calls createSubscriptions if a channel re render is needed but won't recreate
@@ -1133,14 +1138,16 @@ var Listener = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "createSubscription",
     value: function createSubscription() {
-      var _this2 = this;
+      var _this3 = this;
 
+      var that = this;
+      debugger;
       App.cable.subscriptions.create({
         channel: "ChatChannel",
-        room: this.membership.channelId
+        room: that.membership.channelId
       }, {
         connected: function connected() {
-          console.log("Connected to ".concat(_this2.membership.channelId));
+          console.log("Connected to ".concat(that.membership.channelId));
         },
         disconnected: function disconnected() {
           console.log("Disconnected!");
@@ -1151,7 +1158,7 @@ var Listener = /*#__PURE__*/function (_React$Component) {
             user: _defineProperty({}, data.user.id, data.user)
           };
 
-          _this2.props.receiveMessage(payload);
+          _this3.props.receiveMessage(payload);
         }
       });
     }
@@ -1188,9 +1195,9 @@ __webpack_require__.r(__webpack_exports__);
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
+    memberships: Object.values(state.entities.memberships),
     currentUser: state.session.id,
-    currentChannel: state.session.currentChannel,
-    memberships: state.entities.memberships
+    currentChannel: state.session.currentChannel
   };
 };
 
@@ -1388,7 +1395,7 @@ var Client = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement("div", {
         className: "client-main-page"
-      }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_sidebar_sidebar_container__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_channel_show_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_channel_header_container__WEBPACK_IMPORTED_MODULE_0__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_listener_container__WEBPACK_IMPORTED_MODULE_2__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_3__["default"], null));
+      }, react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_sidebar_sidebar_container__WEBPACK_IMPORTED_MODULE_5__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_channel_show_container__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_channel_header_container__WEBPACK_IMPORTED_MODULE_0__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_modal_modal__WEBPACK_IMPORTED_MODULE_3__["default"], null), react__WEBPACK_IMPORTED_MODULE_4___default.a.createElement(_channel_listener_container__WEBPACK_IMPORTED_MODULE_2__["default"], null));
     }
   }]);
 
