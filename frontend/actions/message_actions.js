@@ -4,10 +4,6 @@ export const RECEIVE_MESSAGE = 'RECEIVE_MESSAGE';
 export const RECEIVE_NEW_MESSAGE = 'RECEIVE_NEW_MESSAGE';
 export const RECEIVE_MESSAGE_ERRORS = 'RECEIVE_MESSAGE_ERRORS';
 
-export const receiveMessages = messages => ({
-    
-})
-
 export const receiveMessage = payload => ({
     type: RECEIVE_MESSAGE,
     payload

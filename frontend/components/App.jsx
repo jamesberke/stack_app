@@ -3,7 +3,7 @@ import ClientContainer from './client/client_container';
 import LoginFormContainer from './login/login_container';
 import NavbarContainer from './navbar/navbar_container';
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Switch } from 'react-router-dom';
 import SignupFormContainer from './signup/signup_container';
 import SplashContainer from './splash/splash_container';
 
