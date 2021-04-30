@@ -39,7 +39,7 @@ class ChannelHeader extends React.Component {
             if (that.props.currentChannel.isDm && userId !== that.props.currentUser) {
                 let user = that.props.users[userId];
                 return `# ${user.username}`;
-            } else if(that.props.currentChannel.isDm && userId === that.props.currentUser) {
+            } else if (that.props.currentChannel.isDm && userId === that.props.currentUser) {
                 let admin = that.props.users[that.props.currentChannel.adminId];
                 return `# ${admin.username}`;
             } else {

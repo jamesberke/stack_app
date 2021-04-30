@@ -40,6 +40,7 @@ class ChannelShow extends React.Component {
     // simple function to assign a profile picture to you based on alphabetical order
     getProfilePic(name) {
         let first = name.slice(0, 1).toLowerCase();
+        
         if(name === 'stack_bot') {
             return window.stackBotIcon;
         } else if ('abcd'.includes(first)) {
@@ -82,8 +83,6 @@ class ChannelShow extends React.Component {
                 const userId = message.userId;
                 let timeStamp = message.createdAt.slice(11, 16);
 
-
-
                 return (
                     <li className="channel-show-message-render" key={message.id}>
                         <div>
@@ -112,6 +111,7 @@ class ChannelShow extends React.Component {
             return null;
 
         }
+
         const channel_messages = this.renderMessages();
         return (
             <div className="channel-show-main">

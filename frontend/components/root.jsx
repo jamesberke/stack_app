@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import React from 'react';
 
 
+//need to preload script for running loading icon while client page renders
+
 const Root = ({ store }) => {
     return (
         <Provider store={store}>

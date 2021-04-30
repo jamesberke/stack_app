@@ -46,6 +46,7 @@ class ChannelSearch extends React.Component {
 
     render() {
         const matchedChannels = this.matches();
+        
         const renderMatches = matchedChannels.map(matchedChannel => {
 
             return(
